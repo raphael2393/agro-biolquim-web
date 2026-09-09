@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro Biolquim | Biotecnología Agrícola Avanzada</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #00875A;        /* Verde Biotecnología (estilo Futureco) */
+      --primary-dark: #005F3F;   /* Verde Oscuro */
+      --secondary: #10B981;      /* Verde Vivo / Acento */
+      --accent-gold: #F59E0B;    /* Dorado / Nutrición */
+      --bg-light: #F8FAFC;       /* Fondo claro para tarjetas */
+      --text-dark: #1E293B;      /* Texto principal */
+      --text-muted: #64748B;     /* Texto secundario */
+      --white: #FFFFFF;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      --border-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #F1F5F9;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* BARRA SUPERIOR E INFORMACIÓN DE CONTACTO ECUADOR */
+    .topbar {
+      background: var(--primary-dark);
+      color: var(--white);
+      font-size: 0.85rem;
+      padding: 8px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .topbar div {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* NAVEGACIÓN Y HEADER */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container img {
+      height: 55px;
+      object-fit: contain;
+    }
+
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      margin-left: 25px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* SECCIÓN HERO ESTILO FUTURECO */
+    .hero {
+      background: linear-gradient(135deg, rgba(0, 135, 90, 0.95), rgba(0, 95, 63, 0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: var(--white);
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-weight: 300;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      backdrop-filter: blur(5px);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* PORTAFOLIO DE PRODUCTOS */
+    .container {
+      max-width: 1300px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 35px;
+    }
+
+    /* TARJETA DE PRODUCTO */
+    .product-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #E2E8F0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header-badge {
+      background: var(--primary-dark);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 6px 15px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .product-image-container {
+      background: #FFFFFF;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .product-image-container img {
+      max-height: 320px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image-container img {
+      transform: scale(1.04);
+    }
+
+    .product-body {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .product-subtitle {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .product-desc {
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      background: var(--bg-light);
+      padding: 12px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .benefits-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .benefits-list li {
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .benefits-list li i {
+      color: var(--secondary);
+      margin-top: 3px;
+    }
+
+    /* BLOQUE DE DOSIS Y PRESENTACIÓN */
+    .meta-box {
+      background: #F8FAFC;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      border: 1px dashed #CBD5E1;
+    }
+
+    .meta-item {
+      text-align: center;
+    }
+
+    .meta-item label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .meta-item span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    /* BOTÓN WHATSAPP */
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1EBE5D;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 50px 5% 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto 30px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR CONTACTO ECUADOR -->
+  <div class="topbar">
+    <div>
+      <span><i class="fa-solid fa-leaf"></i> Biotecnología Agrícola Avanzada</span>
+      <span><i class="fa-solid fa-location-dot"></i> Cobertura en Ecuador (Carchi, Imbabura, Pichincha)</span>
+    </div>
+    <div>
+      <span><i class="fa-brands fa-whatsapp"></i> +593 XXXXXXXXX</span>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN Y LOGO -->
+  <header>
+    <div class="logo-container">
+      <img src="1000272910.jpg" alt="Agro Biolquim Logo">
+      <div>
+        <span class="brand-title">Agro Biolquim</span>
+        <span class="brand-subtitle">BIOTECNOLOGÍA AGRÍCOLA AVANZADA</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Empresa</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO PRINCIPAL -->
+  <section class="hero">
+    <div class="hero-badge">Máxima Eficiencia en Cada Aplicación</div>
+    <h1>Ciencia y Biotecnología para tus Cultivos</h1>
+    <p>Formulaciones bioestimulantes, biocontroladores y nutrición avanzada diseñadas para potenciar el rendimiento, sanidad y calidad de tus cosechas en Ecuador.</p>
+  </section>
+
+  <!-- SECCIÓN DE PRODUCTOS -->
+  <div class="container" id="productos">
+    <div class="section-title">
+      <h2>Portafolio de Productos Especializados</h2>
+      <p>Soluciones biotecnológicas probadas para potenciar la productividad agrícola</p>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- 1. VITALHUMIC K-3 -->
+      <div class="product-card">
+        <div class="card-header-badge">Potenciador de Llenado e Inductor de Resistencia</div>
+        <div class="product-image-container">
+          <img src="488c6f81-061d-4bfa-9763-846527e9bda1.jpg" alt="Vitalhumic K-3 Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">VITALHUMIC K-3</h3>
+          <div class="product-subtitle">Concentrado Soluble - Foliar y Radicular</div>
+          <p class="product-desc">Bioestimulante de última generación a base de ácidos húmicos, fúlvicos, aminoácidos, extracto de algas marinas (<em>Ascophyllum nodosum</em>) y ácido salicílico.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Desarrolla raíces más fuertes y profundas.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Potencia el llenado, tamaño y uniformidad de frutos.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aumenta la tolerancia frente a sequías, heladas y salinidad.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>500 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>1 Litro</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20VITALHUMIC%20K-3" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. HUMIROOT -->
+      <div class="product-card">
+        <div class="card-header-badge">Bio-Activador del Suelo y las Raíces</div>
+        <div class="product-image-container">
+          <img src="a18b31bf-c824-4f81-bea7-de8a06f0fb27.jpg" alt="Humiroot Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">HUMIROOT</h3>
+          <div class="product-subtitle">Bio-Activador de Alta Eficiencia</div>
+          <p class="product-desc">Formulado con ácidos húmicos, fúlvicos, aminoácidos, algas marinas y nitrógeno amoniacal para regenerar la salud del suelo y promover masa radicular.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Mejora la estructura, materia orgánica y vida microbiana.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Optimiza la asimilación de macronutrientes esenciales.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Incrementa la resistencia ante estrés climático.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>1 Litro</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20HUMIROOT" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. TITAN FRUIT -->
+      <div class="product-card">
+        <div class="card-header-badge">Bio-Activador del Metabolismo y Cuajado</div>
+        <div class="product-image-container">
+          <img src="f6641e34-d56a-4777-ada0-28671eb5bc0a.jpg" alt="Titan Fruit Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">TITAN FRUIT</h3>
+          <div class="product-subtitle">Potasio + Fósforo + Citoquininas (2.50%)</div>
+          <p class="product-desc">Bioestimulante concentrado formulado con citoquininas naturales (Benziladenina) y tecnología COS para acelerar la división celular, floración y cuajado.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Favorece floración abundante y cuajado uniforme.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aumenta el tamaño, peso, color y sabor del fruto.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Prolonga la vida útil postcosecha.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>250 ml</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20TITAN%20FRUIT" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. VITAL PROTEC -->
+      <div class="product-card">
+        <div class="card-header-badge">Inductor de Resistencia Orgánico</div>
+        <div class="product-image-container">
+          <img src="b7f45748-d350-4fdb-9b6e-073d0a7745fb.jpg" alt="Vital Protec Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">VITAL PROTEC</h3>
+          <div class="product-subtitle">Ácido Salicílico + Jasmonatos + Quitinas</div>
+          <p class="product-desc">Activa el sistema de autodefensa inmunológica de las plantas frente a hongos, bacterias y condiciones climáticas extremas. Producto 100% orgánico.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Reduce la incidencia de enfermedades foliares y radiculares.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Excelente respuesta antiestrés térmico e hídrico.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Seguro para el medio ambiente y libre de residuos.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>500 ml</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20VITAL%20PROTEC" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. PYRAZOL PRO -->
+      <div class="product-card">
+        <div class="card-header-badge">Fungicida Agrícola Sistémico</div>
+        <div class="product-image-container">
+          <img src="381f89cd-6120-4a61-b321-0a6724a0a8c5.jpg" alt="Pyrazol Pro Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">PYRAZOL PRO</h3>
+          <div class="product-subtitle">Pyraclostrobin (133 g/L) + Epoxiconazole (50 g/L)</div>
+          <p class="product-desc">Suspoemulsión (SE) de acción preventiva y curativa con doble efecto sistémico para el control de mildiu, oídio, antracnosis y royas.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Detiene el desarrollo de hongos ya establecidos.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Elevada adherencia y resistencia al lavado por lluvia.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Promueve un crecimiento sano y vigoroso del cultivo.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>1 Litro</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20PYRAZOL%20PRO" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. SULFOK PLUS -->
+      <div class="product-card">
+        <div class="card-header-badge">Fungicida - Bactericida - Bioestimulante</div>
+        <div class="product-image-container">
+          <img src="868912bd-ca17-4072-9ec7-f29f5fa41f2a.jpg" alt="SulfoK Plus Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">SULFOK PLUS</h3>
+          <div class="product-subtitle">Azufre (25%) + Potasio (20%) + Fósforo (15%) + Sílice</div>
+          <p class="product-desc">Nutrición integral y protección natural. Aporta elementos clave para activar las defensas y controlar ataques de hongos y bacterias patógenas.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Controla mildew, oídio, manchas foliares y bacterias.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aporta sílice para fortalecer la estructura de la planta.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Estimula el crecimiento equilibrado y la calidad del fruto.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>500 ml</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20SULFOK%20PLUS" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. TOTAL-GREEN -->
+      <div class="product-card">
+        <div class="card-header-badge">Bio-Activador del Metabolismo Vegetal</div>
+        <div class="product-image-container">
+          <img src="2e4569bd-0c1b-4969-a791-85c18a6cff58.jpg" alt="Total Green Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">TOTAL-GREEN</h3>
+          <div class="product-subtitle">Tecnología COS + Algas + Microelementos</div>
+          <p class="product-desc">Bioestimulante avanzado con Zinc (3%), Algas Marinas (3%), Boro (2%), Quitosano (1.25%), Magnesio, Hierro y Aminoácidos para máxima activación fotosintética.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Facilita la asimilación de macronutrientes y micronutrientes.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Estimula la masa radicular y el crecimiento vegetativo.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Reduce la caída de flores y frutos.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>500 ml</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20TOTAL-GREEN" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. STIMULATE B9 -->
+      <div class="product-card">
+        <div class="card-header-badge">Bioestimulante de Alta Asimilación</div>
+        <div class="product-image-container">
+          <img src="04de2b60-a84f-4bbc-a69e-9eceaabe882e.jpg" alt="Stimulate B9 Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">STIMULATE B9</h3>
+          <div class="product-subtitle">Ácido Fólico + Tierra de Diatomeas</div>
+          <p class="product-desc">Concentrado soluble de rápida absorción formulado para acelerar la división celular, estimular el metabolismo y aumentar la fertilidad de las flores.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Promueve tallos, raíces y hojas más fuertes.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aumenta el cuajado y reduce la caída de flores.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Fortalece defensas ante estrés biótico y abiótico.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>250 cc / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>250 ml</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20STIMULATE%20B9" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. TIERRA DE DIATOMEAS AGROBIOLQUIM -->
+      <div class="product-card">
+        <div class="card-header-badge">Solución 100% Natural Ecológica</div>
+        <div class="product-image-container">
+          <img src="d7595431-09ed-405e-a453-237bc1407957.jpg" alt="Tierra de Diatomeas Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">TIERRA DE DIATOMEAS</h3>
+          <div class="product-subtitle">Insecticida Natural - Fungicida - Mejorador de Suelo</div>
+          <p class="product-desc">Polvo 100% natural de fósiles de algas microscópicas con alto contenido de sílice amorfa. Actúa por contacto mecánico sin generar resistencia ni residuos.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Controla pulgones, ácaros, trips, cochinillas y babosas.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aumenta la aireación y retención de humedad en el suelo.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Seguro para humanos, animales y polinizadores.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Foliar</label>
+              <span>20-30 g / L agua</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>1 Kilo</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050?text=Hola,%20deseo%20más%20información%20sobre%20TIERRA%20DE%20DIATOMEAS" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 10. GREENPEGÁ -->
+      <div class="product-card">
+        <div class="card-header-badge">Coadyuvante de Última Generación</div>
+        <div class="product-image-container">
+          <img src="ef24c7dd-f114-4ee0-bd9b-14ef68ab60d7.jpg" alt="Greenpegá Agro Biolquim">
+        </div>
+        <div class="product-body">
+          <h3 class="product-title">GREENPEGÁ</h3>
+          <div class="product-subtitle">Penetrante, Dispersante, Adherente y Regulador de pH</div>
+          <p class="product-desc">Optimiza la mezcla de agroquímicos y fertilizantes foliares, mejorando la cobertura, penetración y resistencia al lavado por lluvias.</p>
+          <ul class="benefits-list">
+            <li><i class="fa-solid fa-circle-check"></i> Evita la formación de grumos y estabiliza la mezcla.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Regula y optimiza el pH del agua de aplicación.</li>
+            <li><i class="fa-solid fa-circle-check"></i> Aumenta significativamente la eficacia de cada gota.</li>
+          </ul>
+          <div class="meta-box">
+            <div class="meta-item">
+              <label>Dosis Recomendada</label>
+              <span>100 ml / 200 L</span>
+            </div>
+            <div class="meta-item">
+              <label>Presentación</label>
+              <span>500 ml</span>
+            </div>
+          </div>
+          <a href="https://wa.me/593959432050text=Hola,%20deseo%20más%20información%20sobre%20GREENPEGÁ" class="btn-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer id="contacto">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Agro Biolquim</h4>
+        <p>Biotecnología agrícola avanzada orientada a la sostenibilidad, alta productividad y salud integral de los cultivos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto y Asesoría Técnica</h4>
+        <p><i class="fa-solid fa-phone"></i> WhatsApp: +593 XXXXXXXXX</p>
+        <p><i class="fa-solid fa-location-dot"></i> Cobertura: Ecuador y Colombia</p>
+      </div>
+      <div class="footer-col">
+        <h4>Aptitud de Cultivos</h4>
+        <p>Apto para hortalizas, papas, tomate, aguacate, mango, frutales, cereales, ornamentales y leguminosas.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Agro Biolquim - Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
