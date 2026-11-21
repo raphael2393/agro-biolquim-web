@@ -238,6 +238,15 @@ ul{margin:0;padding:0;list-style:none}
 .badge.alt{top:auto;bottom:14px;left:14px;right:auto;background:var(--forest-900);color:var(--lime-200)}
 .card-body{display:flex;flex-direction:column;gap:12px;padding:20px 20px 22px;flex:1}
 .card-body h3{font-size:1.5rem}
+.card-brand{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--ink-3)}
+.card-brand svg{width:14px;height:14px;color:var(--leaf-500)}
+.card-media.photo{background:#e9e4d3}
+.card-media.photo::before{display:none}
+.card-media.photo img{inset:0;left:0;bottom:auto;width:100%;height:100%;object-fit:cover;transform:none;-webkit-mask-image:none;mask-image:none}
+.card:hover .card-media.photo img{transform:scale(1.04)}
+.card-media.photo .badge{box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.m-media.photo{padding:24px 24px 90px}
+.m-media.photo img{width:100%;max-width:440px;height:auto;max-height:min(62svh,600px);object-fit:cover;border-radius:20px;box-shadow:var(--shadow-2);-webkit-mask-image:none;mask-image:none}
 .card-type{font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
 .card-body p{font-size:.94rem;color:var(--ink-2)}
 .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
@@ -637,9 +646,9 @@ body.lock{overflow:hidden}
         <a class="btn btn-ghost" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica%20para%20mi%20cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un agrónomo</a>
       </div>
       <div class="hero-facts reveal d3">
-        <div><b data-count="10">10</b><span>Formulaciones especializadas</span></div>
-        <div><b data-count="3">3</b><span>Provincias con cobertura técnica</span></div>
-        <div><b>4</b><span>Líneas: bioestimulación, suelo, protección y adherencia</span></div>
+        <div><b>10</b><span>Formulaciones propias</span></div>
+        <div><b>9</b><span>Productos de marcas aliadas</span></div>
+        <div><b>3</b><span>Provincias con cobertura técnica</span></div>
       </div>
     </div>
 
@@ -678,8 +687,8 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Portafolio biotecnológico</span>
-      <h2>Diez soluciones, <em>un mismo objetivo:</em> más kilos por hectárea.</h2>
-      <p>Cada producto tiene su ficha técnica completa, composición garantizada y dosis recomendada. Agrégalos a tu pedido y envíalo por WhatsApp en un solo mensaje.</p>
+      <h2>Formulaciones propias y <em>marcas aliadas</em>, en un solo pedido.</h2>
+      <p>Bioestimulantes, nutrición, enraizadores y protección. Cada producto muestra su composición garantizada tal como aparece en la etiqueta. Agrégalos a tu pedido y envíalo por WhatsApp en un solo mensaje.</p>
     </div>
 
     <div class="catalog-tools reveal">
@@ -780,6 +789,7 @@ body.lock{overflow:hidden}
           <label for="cProduct">Producto</label>
           <div class="select"><select id="cProduct"></select></div>
           <span class="hint" id="cDoseHint"></span>
+          <span class="hint" id="calcNote" hidden></span>
         </div>
         <div class="field">
           <span class="lbl" id="cEquipLbl">Equipo de aplicación</span>
@@ -874,8 +884,9 @@ body.lock{overflow:hidden}
       <details open><summary>¿Cómo hago un pedido?<i></i></summary><div><p>Agrega los productos a <strong>Mi pedido</strong> (botón de la bolsa), ajusta las cantidades, completa tu nombre y ubicación y pulsa <strong>Enviar por WhatsApp</strong>. Te llegará un mensaje listo con todo el detalle; nosotros confirmamos precios, disponibilidad y entrega.</p></div></details>
       <details><summary>¿Puedo mezclar varios productos en el mismo tanque?<i></i></summary><div><p>Varios productos del portafolio están pensados para trabajar juntos. Por ejemplo, <strong>Greenpegá</strong> es un coadyuvante que mejora adherencia, penetración y pH de la mezcla, y <strong>Pyrazol Pro</strong> es compatible con la mayoría de agroquímicos según su ficha.</p><p>Aun así, recomendamos hacer siempre una prueba de compatibilidad en un recipiente pequeño y consultar con el asesor antes de mezclar.</p></div></details>
       <details><summary>¿Cuál es la dosis de cada producto?<i></i></summary><div><p>La mayoría de bioestimulantes se aplican a <strong>250 cc por tanque de 200 litros</strong>. VitalHumic K-3 se usa a 500 cc / 200 L cada 15 a 20 días, Greenpegá a 100 ml / 200 L y la Tierra de Diatomeas a 20–30 g por litro en aplicación foliar. Usa la <a href="#calculadora">calculadora</a> para tu volumen exacto.</p></div></details>
-      <details><summary>¿Los productos son orgánicos?<i></i></summary><div><p><strong>Vital Protec</strong> es un producto orgánico y biodegradable, y la <strong>Tierra de Diatomeas</strong> es 100 % natural. La línea de bioestimulantes se basa en ácidos húmicos y fúlvicos, aminoácidos, algas marinas y micronutrientes.</p><p><strong>Pyrazol Pro</strong> es un fungicida de síntesis (piraclostrobina + epoxiconazol), categoría toxicológica <em>ligeramente peligroso</em>: úsalo siempre con equipo de protección y siguiendo la etiqueta.</p></div></details>
+      <details><summary>¿Los productos son orgánicos?<i></i></summary><div><p><strong>Vital Protec</strong> es un producto orgánico y biodegradable, y la <strong>Tierra de Diatomeas</strong> es 100 % natural. La línea de bioestimulantes se basa en ácidos húmicos y fúlvicos, aminoácidos, algas marinas y micronutrientes.</p><p><strong>Pyrazol Pro</strong> (fungicida), <strong>Jelfer</strong> (acaricida) y <strong>Bakteryn-Cu</strong> (bactericida) son productos de síntesis: úsalos siempre con equipo de protección y siguiendo la etiqueta.</p></div></details>
       <details><summary>¿Para qué cultivos sirven?<i></i></summary><div><p>Las fichas técnicas los indican para frutales, hortalizas, granos, cereales, flores y ornamentales. Si tienes un cultivo específico, cuéntanos y te recomendamos el programa adecuado para cada etapa.</p></div></details>
+      <details><summary>¿Venden productos de otras marcas?<i></i></summary><div><p>Sí. Además de nuestras formulaciones propias, distribuimos productos de marcas aliadas como Futureco Bioscience, Fagro, Fiala, Agarismal, Ambagro y otras. En el catálogo usa el filtro <strong>Marcas aliadas</strong> para verlos. Cada ficha muestra la composición tal como aparece en su etiqueta.</p></div></details>
       <details><summary>¿Hacen entregas?<i></i></summary><div><p>Atendemos Carchi, Imbabura y Pichincha. Escríbenos por WhatsApp con tu ubicación y coordinamos la forma de entrega más conveniente.</p></div></details>
     </div>
   </div>
@@ -978,7 +989,7 @@ const WA = '593959432050';
    DATA — tomada de las fichas técnicas oficiales
 ------------------------------------------------------------ */
 const LINES = {
-  bio:   {name:'Bioestimulantes', short:'Bioestimulación'},
+  bio:   {name:'Bioestimulantes y nutrición', short:'Bioestimulación'},
   suelo: {name:'Suelo y raíz', short:'Suelo y raíz'},
   prot:  {name:'Protección', short:'Protección'},
   coad:  {name:'Coadyuvantes', short:'Coadyuvante'}
@@ -1036,14 +1047,14 @@ const P = [
    pack:{size:250, unit:'ml', label:'250 ml'}, tags:'acido folico vitamina b9 floracion cuajado crecimiento'},
 
   {id:'vital-protec', name:'Vital Protec', line:['prot','bio'], accent:'#D2561E', organic:true,
-   type:'Inductor de resistencia bioestimulante',
+   type:'Inductor de resistencia y bioestimulante', photo:true,
    slogan:'Cuando el clima falla, Vital Protec respalda tu cosecha.',
    short:'Ácido salicílico, jasmonatos y quitinas que activan las defensas naturales de la planta. Orgánico.',
    what:'Bioestimulante e inductor de resistencia a base de ácido salicílico, ácidos carboxílicos, jasmonatos y quitinas, que fortalece el sistema de defensa natural de las plantas, ayudando a prevenir enfermedades y a mejorar su desarrollo y productividad. Producto orgánico.',
    benefits:[['Induce resistencia natural','Activa defensas frente a hongos, bacterias y estrés ambiental.'],['Menos enfermedades','Reduce incidencia de mildiu, oídio, antracnosis y roya.'],['Protege ante estrés climático','Tolerancia a sequías, heladas, calor y lluvias intensas.'],['Estimula el desarrollo','Crecimiento vigoroso de raíces, tallos, hojas y frutos.'],['Mejora la calidad de frutos','Más grandes y uniformes, mejor color y vida útil.'],['Ecológico y seguro','Orgánico, biodegradable y seguro para el ambiente.']],
-   comp:[['Ácido salicílico','✓'],['Ácidos carboxílicos','✓'],['Jasmonatos','✓'],['Quitinas','✓']],
+   comp:[['Ácido salicílico','5,00 %'],['Ácidos carboxílicos','2,00 %'],['Quitinas','1,50 %'],['Jasmonatos','0,50 %']],
    dose:{per200:250, unit:'ml', text:'250 cc', sub:'por tanque de 200 L de agua'},
-   pack:{size:500, unit:'ml', label:'500 ml'}, tags:'defensa resistencia helada clima organico salicilico jasmonato quitina estres'},
+   pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'defensa resistencia helada clima organico salicilico jasmonato quitina estres'},
 
   {id:'sulfok-plus', name:'SulfoK Plus', line:['prot','bio'], accent:'#C62828',
    type:'Fungicida · Bactericida · Bioestimulante',
@@ -1083,26 +1094,120 @@ const P = [
    benefits:[['Mejora adherencia y cobertura','Los productos se adhieren mejor a hojas, tallos y frutos.'],['Aumenta la penetración','Entrada más rápida y efectiva a los tejidos.'],['Dispersa y uniformiza','Evita grumos y sedimentación en la mezcla.'],['Regula el pH del agua','Mejora compatibilidad y eficacia de los productos.'],['Reduce pérdidas por lavado','Mayor resistencia a lluvia o riego.'],['Seguro para tus cultivos','No fitotóxico, compatible con la mayoría de productos.']],
    comp:[['Polyether-Polymethylsiloxane','1000 g/L'],['Aditivos','c.s.p. 1 L']],
    dose:{per200:100, unit:'ml', text:'100 ml', sub:'por tanque de 200 L de agua'},
-   pack:{size:500, unit:'ml', label:'500 ml'}, tags:'adherente coadyuvante penetrante dispersante ph siliconado lluvia lavado'}
+   pack:{size:500, unit:'ml', label:'500 ml'}, tags:'adherente coadyuvante penetrante dispersante ph siliconado lluvia lavado'},
+
+  /* ---------- Marcas aliadas (datos de la etiqueta de cada envase) ---------- */
+  {id:'citogrower', name:'Citogrower', brand:'Futureco Bioscience', line:['bio'], accent:'#16809A', photo:true,
+   type:'Fertilizante orgánico-mineral foliar',
+   slogan:'Citoquininas 20.000 ppm.',
+   short:'Concentrado soluble con citoquininas, fósforo, potasio y carbono orgánico para aplicación foliar.',
+   what:'Fertilizante orgánico-mineral para aplicación foliar, concentrado soluble de uso agrícola. Aporta nitrógeno orgánico, fósforo y potasio solubles y carbono orgánico, con citoquininas (20.000 ppm) para acompañar división celular, brotación y cuajado.',
+   benefits:[['Citoquininas 20.000 ppm','Hormona vegetal ligada a la división celular y la brotación.'],['Fósforo y potasio solubles','72 g/L de P₂O₅ y 60 g/L de K₂O de rápida absorción.'],['Carbono orgánico','120 g/L de carbono orgánico oxidable total.'],['Aplicación foliar','Concentrado soluble listo para mezclar en tanque.']],
+   comp:[['Nitrógeno total (N), orgánico','15,0 g/L'],['Fósforo soluble (P₂O₅)','72,0 g/L'],['Potasio soluble (K₂O)','60,0 g/L'],['Carbono orgánico oxidable total','120,0 g/L'],['Citoquininas','20.000 ppm']],
+   dose:{text:'Consultar', sub:'según cultivo; la etiqueta recomienda prescripción de un ingeniero agrónomo'},
+   pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'citoquininas brotacion cuajado division celular fosforo potasio futureco'},
+
+  {id:'frutaliv', name:'Frutaliv', brand:'Futureco Bioscience', line:['bio'], accent:'#1B86A8', photo:true,
+   type:'Fertilizante complejo PK con aminoácidos',
+   slogan:'Fósforo y potasio para el llenado del fruto.',
+   short:'Complejo PK con boro, molibdeno, micronutrientes y aminoácidos libres para aplicación foliar.',
+   what:'Fertilizante complejo PK con aminoácidos para aplicación foliar, concentrado soluble de uso agrícola. Contiene los aminoácidos libres ácido glutámico, glicina, metionina y lisina.',
+   benefits:[['Alto fósforo y potasio','160 g/L de P₂O₅ y 210 g/L de K₂O.'],['Boro y molibdeno','7 g/L de boro y 0,9 g/L de molibdeno solubles.'],['Micronutrientes','Cobre, hierro, manganeso y zinc solubles.'],['Aminoácidos libres','50 g/L: ácido glutámico, glicina, metionina y lisina.']],
+   comp:[['Fósforo soluble (P₂O₅)','160,00 g/L'],['Potasio soluble (K₂O)','210,00 g/L'],['Boro (B)','7,00 g/L'],['Molibdeno (Mo)','0,90 g/L'],['Hierro (Fe)','0,40 g/L'],['Manganeso (Mn)','0,16 g/L'],['Cobre (Cu)','0,13 g/L'],['Zinc (Zn)','0,04 g/L'],['Carbono orgánico oxidable total','20,00 g/L'],['Aminoácidos libres totales','50,0 g/L']],
+   dose:{text:'Consultar', sub:'según cultivo; la etiqueta recomienda prescripción de un ingeniero agrónomo'},
+   pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'fosforo potasio pk llenado engorde boro molibdeno aminoacidos futureco'},
+
+  {id:'botamisol', name:'Botamisol', brand:'Futureco Bioscience', line:['bio'], accent:'#1F6FB8', photo:true,
+   type:'Aminoácidos para aplicación foliar · Polvo soluble',
+   slogan:'45 % de aminoácidos libres.',
+   short:'Polvo soluble con 45 % de aminoácidos libres y 17 % de nitrógeno para aplicación foliar.',
+   what:'Aminoácidos para aplicación foliar en polvo soluble de uso agrícola. Contiene ácido aspártico, ácido glutámico, histidina, serina, glicina, treonina, arginina, alanina, tirosina, valina, metionina, fenilalanina, isoleucina, hidroxiprolina, leucina, lisina y prolina.',
+   benefits:[['45 % aminoácidos libres','17 aminoácidos distintos en forma libre.'],['17 % de nitrógeno','Nitrógeno total de origen orgánico.'],['Alta solubilidad','30,74 g por 100 ml de agua a 20 °C.'],['Polvo soluble','Fácil de dosificar y almacenar.']],
+   comp:[['Nitrógeno total (N)','17,0 %'],['Carbono orgánico oxidable total','20,0 %'],['Aminoácidos libres','45,0 %']],
+   dose:{text:'Consultar', sub:'según cultivo; la etiqueta recomienda prescripción de un ingeniero agrónomo'},
+   pack:{size:1000, unit:'g', label:'1 kg'}, tags:'aminoacidos nitrogeno foliar estres polvo futureco'},
+
+  {id:'bades-amino-45', name:"Bade's Amino 45", brand:'Turkfer · Asamaglo', line:['bio'], accent:'#1E7A3C', photo:true, organic:true,
+   type:'Fertilizante orgánico foliar y edáfico',
+   slogan:'45 % de aminoácidos totales.',
+   short:'Fertilizante orgánico con 45 % de aminoácidos para aplicación foliar, fertirrigación o drench.',
+   what:'Fertilizante orgánico de aplicación foliar y edáfica por fertirrigación o drench. La etiqueta indica que no presenta incompatibilidad con productos de uso agrícola, aunque recomienda una prueba previa de compatibilidad.',
+   benefits:[['45 % aminoácidos totales','Para siembra, crecimiento vegetativo y condiciones de estrés.'],['18 % de nitrógeno','Nitrógeno total de rápida disponibilidad.'],['Foliar o al suelo','Fertirrigación o drench según la etapa.'],['Ornamentales, hortalizas y frutales','Con dosis específicas por tipo de cultivo.']],
+   comp:[['Aminoácidos totales','45 % p/v'],['Materia orgánica','30 % p/v'],['Nitrógeno total','18 % p/v'],['Cloruro','31 % p/v']],
+   dose:{perL:[1,1.5], unit:'g', text:'100 – 150 g / 100 L', sub:'foliar en hortalizas y frutales (ornamentales 50–100 g/100 L) · drench 2–4 kg/ha'},
+   pack:{size:250, unit:'g', label:'250 g'}, tags:'aminoacidos organico nitrogeno drench fertirrigacion estres'},
+
+  {id:'estimul-mix', name:'Estimul Mix', brand:'Agarismal', line:['bio'], accent:'#1D8A8A', photo:true,
+   type:'Aminoácidos totales 80 %',
+   slogan:'Dieciséis aminoácidos en un solo producto.',
+   short:'Mezcla de 16 aminoácidos con 80,07 % de aminoácidos totales.',
+   what:'Producto a base de aminoácidos con 80,07 % de aminoácidos totales, entre ellos treonina, ácido glutámico, alanina, lisina, ácido aspártico y metionina.',
+   benefits:[['80 % de aminoácidos','La concentración más alta del catálogo.'],['16 aminoácidos','Treonina, ácido glutámico, alanina, lisina y más.'],['Presentación de 1 kg','Para programas de varias aplicaciones.']],
+   comp:[['Treonina','12,98'],['Ácido glutámico','10,91'],['Alanina','9,88'],['Lisina','5,36'],['Metionina','4,88'],['Ácido aspártico','7,30'],['Tirosina','3,87'],['Glicina','3,75'],['Arginina','3,63'],['Isoleucina','2,97'],['Leucina','2,52'],['Valina','1,69'],['Fenilalanina','0,74'],['Histidina','0,52'],['Aminoácidos totales','80,07']],
+   dose:{text:'Consultar', sub:'según cultivo y recomendación del asesor técnico'},
+   pack:{size:1000, unit:'g', label:'1 kg'}, tags:'aminoacidos treonina glutamico estres crecimiento'},
+
+  {id:'alga-800', name:'Alga 800', brand:'Fiala Group · El Agro', line:['bio'], accent:'#A8781C', photo:true, organic:true,
+   type:'Fertilizante de origen orgánico · Foliar',
+   slogan:'Fórmula patentada con ácido algínico.',
+   short:'Ácido algínico, aminoácidos, potasio y micronutrientes de origen orgánico para aplicación foliar.',
+   what:'Fertilizante de origen orgánico enriquecido con ácido algínico y aminoácidos, de aplicación foliar. Fórmula patentada, aprobada por Ecocert como insumo.',
+   benefits:[['30 % ácido algínico','Derivado de algas marinas.'],['20 % potasio','K₂O para calidad y llenado.'],['Boro, zinc y hierro','Micronutrientes en la misma aplicación.'],['Aprobado por Ecocert','Insumo aprobado para agricultura orgánica.']],
+   comp:[['Materia orgánica','40 % p/p'],['Ácido algínico','30 % p/p'],['Potasio (K₂O)','20 % p/p'],['Aminoácidos','4 % p/p'],['Nitrógeno (N)','1 % p/p'],['Hierro (Fe)','0,6 % p/p'],['Boro (B)','0,5 % p/p'],['Zinc (Zn)','0,5 % p/p']],
+   dose:{text:'Consultar', sub:'según cultivo y recomendación del asesor técnico'},
+   pack:{size:250, unit:'g', label:'250 g'}, tags:'algas alginico potasio organico ecocert foliar'},
+
+  {id:'proroot', name:'Proroot', brand:'Fagro', line:['suelo'], accent:'#C8312B', photo:true,
+   type:'Fertilizante enriquecido con reguladores de crecimiento',
+   slogan:'Enraizador para aplicación al suelo por drench.',
+   short:'Fósforo, nitrógeno, ANA, AIB y ácidos fúlvicos para estimular el enraizamiento.',
+   what:'Fertilizante inorgánico enriquecido con reguladores de crecimiento (ácido naftalenacético y ácido indolbutírico) y ácidos fúlvicos. Vía de aplicación: edáfica por drench. Hecho en México.',
+   benefits:[['40 % de fósforo','Fósforo aprovechable para la formación de raíces.'],['Reguladores de crecimiento','ANA y AIB, auxinas asociadas al enraizamiento.'],['Ácidos fúlvicos','Mejoran la asimilación de nutrientes.'],['Aplicación por drench','Directo a la zona de raíces.']],
+   comp:[['Fósforo aprovechable (P₂O₅)','40,00 %'],['Nitrógeno total (N)','11,00 %'],['Ácidos fúlvicos','2,00 %'],['Ácido naftalenacético (ANA)','0,28 %'],['Ácido indolbutírico (AIB)','0,02 %']],
+   dose:{text:'Consultar', sub:'aplicación edáfica por drench, según cultivo'},
+   pack:{size:1000, unit:'g', label:'1 kg'}, tags:'enraizador raiz fosforo auxinas ana aib fulvicos drench trasplante'},
+
+  {id:'jelfer', name:'Jelfer', brand:'Ambagro', line:['prot'], accent:'#2B3A8C', photo:true,
+   caution:'Nocivo en caso de ingestión, en contacto con la piel o si se inhala. Muy tóxico para organismos acuáticos. Usa equipo de protección y sigue las indicaciones de la etiqueta.',
+   type:'Acaricida agrícola · Suspensión concentrada (SC)',
+   slogan:'Control de ácaros.',
+   short:'Acaricida a base de fenpiroximato 50 g/L en suspensión concentrada.',
+   what:'Acaricida agrícola en suspensión concentrada (SC) a base de fenpyroximate. Registro 88-A4/NA-CL1. Titular del registro e importador: Ambagro S.A., Ambato, Ecuador.',
+   benefits:[['Control de ácaros','Ingrediente activo fenpyroximate.'],['Suspensión concentrada','Formulación SC fácil de mezclar.'],['Registro nacional','N.º 88-A4/NA-CL1.']],
+   comp:[['Fenpyroximate','50 g/L'],['Aditivos','c.s.p. 1 L']],
+   dose:{text:'Consultar', sub:'según la etiqueta y la recomendación del asesor técnico'},
+   pack:{size:1000, unit:'ml', label:'Consultar presentación'}, tags:'acaricida acaro arana roja fenpiroximato fenpyroximate'},
+
+  {id:'bakteryn-cu', name:'Bakteryn-Cu', brand:'Especialidades Agrícolas', line:['prot'], accent:'#2F4A3E', photo:true,
+   caution:'Manténgase bajo llave, fuera del alcance de los niños. Usa equipo de protección y sigue las indicaciones de la etiqueta.',
+   type:'Bactericida agrícola · Polvo mojable (WP)',
+   slogan:'Kasugamicina + cobre.',
+   short:'Bactericida con kasugamicina y oxicloruro de cobre en polvo mojable.',
+   what:'Bactericida agrícola en polvo mojable (WP) que combina kasugamicina y oxicloruro de cobre. Registro 291-B1/NA-CL1.',
+   benefits:[['Doble ingrediente activo','Kasugamicina y oxicloruro de cobre.'],['Polvo mojable','Formulación WP para mezcla en tanque.'],['Registro nacional','N.º 291-B1/NA-CL1.']],
+   comp:[['Oxicloruro de cobre','450 g/kg'],['Kasugamicina','20 g/kg'],['Excipientes','c.s.p. 1 kg']],
+   dose:{text:'Consultar', sub:'según la etiqueta y la recomendación del asesor técnico'},
+   pack:{size:250, unit:'g', label:'250 g'}, tags:'bactericida bacterias cobre kasugamicina'},
 ];
+P.forEach(p => { p.brand = p.brand || 'Agro Biolquim'; });
 const byId = Object.fromEntries(P.map(p => [p.id, p]));
 
 const STAGES = [
   {n:1, name:'Suelo y raíz', sub:'Preparación y establecimiento', title:'Un cultivo fuerte empieza bajo tierra.',
    text:'Activa la vida del suelo y construye un sistema radicular profundo antes de exigirle producción a la planta. Mejor estructura, más materia orgánica y mejor aprovechamiento del fertilizante.',
-   items:[['humiroot','Bio-activador de suelo y raíces'],['vitalhumic-k3','Húmicos + fúlvicos + algas'],['tierra-diatomeas','Mejorador de suelo con sílice']]},
+   items:[['humiroot','Bio-activador de suelo y raíces'],['vitalhumic-k3','Húmicos + fúlvicos + algas'],['proroot','Enraizador con ANA y AIB, por drench'],['tierra-diatomeas','Mejorador de suelo con sílice']]},
   {n:2, name:'Crecimiento', sub:'Desarrollo vegetativo', title:'Energía para hojas, tallos y vigor.',
    text:'En plena formación de follaje la planta necesita activar su metabolismo y absorber micronutrientes con eficiencia para construir el área foliar que luego sostendrá la producción.',
-   items:[['total-green','Zn, B, Mg, Mn, Fe, algas y COS'],['stimulate-b9','Ácido fólico de alta asimilación'],['titan-fruit','Desarrollo radicular y vegetativo']]},
+   items:[['total-green','Zn, B, Mg, Mn, Fe, algas y COS'],['stimulate-b9','Ácido fólico de alta asimilación'],['bades-amino-45','45 % aminoácidos, foliar o drench'],['botamisol','45 % aminoácidos libres'],['alga-800','Ácido algínico y potasio']]},
   {n:3, name:'Floración y cuajado', sub:'Flores que se vuelven frutos', title:'Más flores, menos caída floral.',
    text:'La etapa más sensible del ciclo: cada flor que cae es producción que se pierde. Bioestimulación dirigida a la fertilidad de la flor y a un cuajado uniforme.',
-   items:[['stimulate-b9','Más flores y mejor cuajado'],['titan-fruit','Citoquininas + K + P'],['sulfok-plus','Nutre y protege la floración']]},
+   items:[['stimulate-b9','Más flores y mejor cuajado'],['titan-fruit','Citoquininas + K + P'],['citogrower','Citoquininas 20.000 ppm'],['sulfok-plus','Nutre y protege la floración']]},
   {n:4, name:'Llenado y cosecha', sub:'Tamaño, peso y calidad', title:'Kilos que se ven y se notan.',
    text:'Potasio, ácidos húmicos y bioactivadores para que el fruto gane tamaño, peso, color, sabor y vida postcosecha.',
-   items:[['vitalhumic-k3','Potenciador de llenado'],['titan-fruit','Tamaño, peso y color'],['total-green','Rendimiento y calidad']]},
+   items:[['vitalhumic-k3','Potenciador de llenado'],['frutaliv','160 g/L P₂O₅ + 210 g/L K₂O'],['titan-fruit','Tamaño, peso y color'],['alga-800','20 % de potasio']]},
   {n:5, name:'Protección', sub:'Todo el ciclo', title:'Defensa en cada etapa del cultivo.',
    text:'Heladas, lluvias intensas, hongos, bacterias y plagas. Combina inducción de resistencia natural con control directo cuando la presión de enfermedad lo exige.',
-   items:[['vital-protec','Inductor de resistencia, orgánico'],['sulfok-plus','Fungicida y bactericida'],['pyrazol-pro','Fungicida de amplio espectro'],['tierra-diatomeas','Insecticida natural']]}
+   items:[['vital-protec','Inductor de resistencia'],['sulfok-plus','Fungicida y bactericida'],['pyrazol-pro','Fungicida de amplio espectro'],['bakteryn-cu','Bactericida con cobre'],['jelfer','Acaricida'],['tierra-diatomeas','Insecticida natural']]}
 ];
 
 /* ------------------------------------------------------------
@@ -1132,7 +1237,8 @@ $('#ticker').innerHTML = [...tickerWords, ...tickerWords].map(w => `<span>${w}</
 ------------------------------------------------------------ */
 let filter = 'all', query = '';
 const chipsEl = $('#chips');
-const chipDefs = [['all','Todos', P.length], ...Object.entries(LINES).map(([k,v]) => [k, v.name, P.filter(p => p.line.includes(k)).length])];
+const OWN = p => p.brand === 'Agro Biolquim';
+const chipDefs = [['all','Todos', P.length], ['own','Marca Agro Biolquim', P.filter(OWN).length], ['ally','Marcas aliadas', P.filter(p => !OWN(p)).length], ...Object.entries(LINES).map(([k,v]) => [k, v.name, P.filter(p => p.line.includes(k)).length])];
 chipsEl.innerHTML = chipDefs.map(([k,label,n]) => `<button class="chip" type="button" data-f="${k}" aria-pressed="${k==='all'}">${label}<span class="n">${n}</span></button>`).join('');
 chipsEl.addEventListener('click', e => {
   const b = e.target.closest('.chip'); if (!b) return;
@@ -1143,21 +1249,22 @@ chipsEl.addEventListener('click', e => {
 $('#search').addEventListener('input', e => { query = norm(e.target.value.trim()); renderGrid(); });
 
 function renderGrid(){
-  const list = P.filter(p => (filter === 'all' || p.line.includes(filter)) &&
-    (!query || norm([p.name, p.type, p.short, p.tags, p.comp.map(c=>c[0]).join(' ')].join(' ')).includes(query)));
+  const list = P.filter(p => (filter === 'all' || (filter === 'own' ? OWN(p) : filter === 'ally' ? !OWN(p) : p.line.includes(filter))) &&
+    (!query || norm([p.name, p.brand, p.type, p.short, p.tags, p.comp.map(c=>c[0]).join(' ')].join(' ')).includes(query)));
   $('#grid').innerHTML = list.length ? list.map(p => `
     <article class="card" style="--accent:${p.accent}">
-      <div class="card-media">
+      <div class="card-media${p.photo ? ' photo' : ''}">
         <span class="badge">${LINES[p.line[0]].short}</span>
         ${p.organic ? '<span class="badge alt">Orgánico · natural</span>' : ''}
         ${img(p)}
       </div>
       <div class="card-body">
-        <span class="card-type">${esc(p.type)}</span>
+        <span class="card-brand">${OWN(p) ? '<svg><use href="#i-leaf"/></svg>' : ''}${esc(p.brand)}</span>
         <h3>${esc(p.name)}</h3>
+        <span class="card-type">${esc(p.type)}</span>
         <p>${esc(p.short)}</p>
         <div class="meta">
-          <span><svg><use href="#i-drop"/></svg>${esc(p.dose.text)}${p.dose.per200 ? ' / 200 L' : ''}</span>
+          <span><svg><use href="#i-drop"/></svg>${p.dose.per200 || p.dose.perL ? esc(p.dose.text) + (p.dose.per200 ? ' / 200 L' : '') : 'Dosis: consultar'}</span>
           <span><svg><use href="#i-box"/></svg>${esc(p.pack.label)}</span>
         </div>
         <div class="card-actions">
@@ -1212,16 +1319,17 @@ function openDetail(id){
   const p = byId[id]; if (!p) return;
   modal.style.setProperty('--accent', p.accent);
   $('#mMedia').style.setProperty('--accent', p.accent);
-  $('#mMedia').innerHTML = `${img(p,'',true)}<button class="btn btn-sm" type="button" data-ficha="${p.id}"><svg><use href="#i-doc"/></svg>Ver ficha técnica original</button>`;
-  const doseCalc = p.dose.per200 ? `<div><span>Presentación</span><b>${esc(p.pack.label)}</b><small>Rinde ${fmt(p.pack.size / p.dose.per200)} tanque${p.pack.size / p.dose.per200 === 1 ? '' : 's'} de 200 L</small></div>` : `<div><span>Presentación</span><b>${esc(p.pack.label)}</b><small>Producto 100 % natural</small></div>`;
+  $('#mMedia').classList.toggle('photo', !!p.photo);
+  $('#mMedia').innerHTML = `${img(p,'',true)}<button class="btn btn-sm" type="button" data-ficha="${p.id}"><svg><use href="#i-doc"/></svg>${p.photo ? 'Ver foto completa del envase' : 'Ver ficha técnica original'}</button>`;
+  const doseCalc = `<div><span>Presentación</span><b>${esc(p.pack.label)}</b><small>${p.dose.per200 ? `Rinde ${fmt(p.pack.size / p.dose.per200)} tanque${p.pack.size / p.dose.per200 === 1 ? '' : 's'} de 200 L` : esc(p.brand)}</small></div>`;
   $('#mBody').innerHTML = `
     <div style="display:grid;gap:10px">
-      <span class="m-type" style="color:${p.accent}">${esc(p.type)}</span>
+      <span class="m-type" style="color:${p.accent}">${esc(p.brand)} · ${esc(p.type)}</span>
       <h2 id="mTitle">${esc(p.name)}</h2>
       <p class="m-slogan">${esc(p.slogan)}</p>
     </div>
     <p style="color:var(--ink-2)">${esc(p.what)}</p>
-    ${p.caution ? `<div class="warn"><svg><use href="#i-warn"/></svg><span>Categoría toxicológica: ligeramente peligroso. Usa equipo de protección personal y sigue las indicaciones de la etiqueta.</span></div>` : ''}
+    ${p.caution ? `<div class="warn"><svg><use href="#i-warn"/></svg><span>${esc(p.caution === true ? 'Categoría toxicológica: ligeramente peligroso. Usa equipo de protección personal y sigue las indicaciones de la etiqueta.' : p.caution)}</span></div>` : ''}
     <div><h4>Dosis recomendada</h4><div class="dose-box"><div><span>Dosis</span><b>${esc(p.dose.text)}</b><small>${esc(p.dose.sub)}</small></div>${doseCalc}</div></div>
     <div><h4>Beneficios clave</h4><ul class="benefits">${p.benefits.map(([t,d]) => `<li><svg><use href="#i-check"/></svg><span><b>${esc(t)}</b><span>${esc(d)}</span></span></li>`).join('')}</ul></div>
     <div><h4>Composición garantizada</h4><table class="comp"><tbody>${p.comp.map(([k,v]) => `<tr><td>${esc(k)}</td><td>${v === '✓' ? '<svg style="width:18px;height:18px;color:var(--leaf-500)"><use href="#i-check"/></svg>' : esc(v)}</td></tr>`).join('')}</tbody></table></div>
@@ -1234,7 +1342,7 @@ function openDetail(id){
 }
 function openFicha(id){
   const p = byId[id];
-  const im = $('#lbImg'); im.src = `assets/fichas/${p.id}.jpg`; im.alt = `Ficha técnica de ${p.name}`;
+  const im = $('#lbImg'); im.src = `assets/fichas/${p.id}.jpg`; im.alt = `${p.photo ? 'Envase' : 'Ficha técnica'} de ${p.name}`;
   openLayer(lightbox);
 }
 
@@ -1351,7 +1459,8 @@ stagesEl.addEventListener('keydown', e => {
    CALCULADORA
 ------------------------------------------------------------ */
 const cP = $('#cProduct'), cL = $('#cLiters'), cN = $('#cLoads');
-cP.innerHTML = Object.entries(LINES).map(([k,v]) => `<optgroup label="${v.name}">${P.filter(p => p.line[0] === k).map(p => `<option value="${p.id}">${esc(p.name)} — ${esc(p.dose.text)}${p.dose.per200 ? ' / 200 L' : ''}</option>`).join('')}</optgroup>`).join('');
+const DOSED = p => p.dose.per200 || p.dose.perL;
+cP.innerHTML = Object.entries(LINES).map(([k,v]) => `<optgroup label="${v.name}">${P.filter(p => p.line[0] === k && DOSED(p)).map(p => `<option value="${p.id}">${esc(p.name)} — ${esc(p.dose.text)}${p.dose.per200 ? ' / 200 L' : ''}</option>`).join('')}</optgroup>`).join('');
 cP.value = 'vitalhumic-k3';
 let calcPacks = 1;
 function unitFmt(v, unit){
@@ -1367,11 +1476,13 @@ function calc(){
     perTxt = unitFmt(per, p.dose.unit);
   } else {
     const [a,b] = p.dose.perL; totalLo = a * L * N; totalHi = b * L * N;
-    perTxt = `${unitFmt(a*L,'g')}–${unitFmt(b*L,'g')}`;
+    const kg = b * L >= 1000, f = v => fmt(kg ? v / 1000 : v, kg ? 2 : (v < 10 ? 1 : 0));
+    perTxt = `${f(a*L)}–${f(b*L)} ${kg ? 'kg' : 'g'}`;
   }
-  const [num, u] = perTxt.includes('–') ? [perTxt.replace(/ g|kg/g,'').replace(/ /g,''), perTxt.includes('kg') ? 'kg' : 'g'] : perTxt.split(' ');
+  const [num, u] = perTxt.split(' ');
   $('#oPer').innerHTML = `${esc(num)}<small>${esc(u)}</small>`;
   $('#oSub').textContent = `de ${p.name} para ${fmt(L,1)} L de agua${p.dose.per200 ? '' : ' (aplicación foliar)'}`;
+  $('#calcNote').hidden = true;
   $('#oTotal').textContent = totalLo === totalHi ? unitFmt(totalLo, p.dose.unit) : `${unitFmt(totalLo, p.dose.unit)}–${unitFmt(totalHi, p.dose.unit)}`;
   calcPacks = Math.max(1, Math.ceil(totalHi / p.pack.size - 1e-9));
   $('#oPacks').textContent = `${calcPacks} × ${p.pack.label}`;
