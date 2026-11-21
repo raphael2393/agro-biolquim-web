@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Agro Biolquim | Biotecnología Agrícola Avanzada · Ecuador</title>
-<meta name="description" content="Agro Biolquim: bioestimulantes, inductores de resistencia, fungicidas, mejoradores de suelo y coadyuvantes para cultivos más fuertes y productivos. Asesoría técnica en Carchi, Imbabura y Pichincha.">
+<meta name="description" content="Agro Biolquim: bioestimulantes, inductores de resistencia, fungicidas, mejoradores de suelo y coadyuvantes para cultivos más fuertes y productivos. Asesoría técnica en Ecuador y Colombia.">
 <meta name="theme-color" content="#0B2A1C">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_EC">
 <meta property="og:site_name" content="Agro Biolquim">
 <meta property="og:title" content="Agro Biolquim | Biotecnología Agrícola Avanzada">
-<meta property="og:description" content="Bioestimulantes, protección y nutrición para cultivos más fuertes y productivos. Carchi · Imbabura · Pichincha.">
+<meta property="og:description" content="Bioestimulantes, protección y nutrición para todo tipo de cultivo. Ecuador y Colombia.">
 <meta property="og:image" content="assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -28,8 +28,11 @@
   "name": "Agro Biolquim",
   "description": "Biotecnología agrícola avanzada: bioestimulantes, inductores de resistencia, fungicidas, mejoradores de suelo y coadyuvantes.",
   "logo": "assets/logo-mark.png",
-  "areaServed": ["Carchi", "Imbabura", "Pichincha", "Ecuador"],
-  "contactPoint": {"@type": "ContactPoint", "telephone": "+593959432050", "contactType": "sales", "availableLanguage": "es"}
+  "areaServed": ["Ecuador", "Colombia"],
+  "contactPoint": [
+    {"@type": "ContactPoint", "telephone": "+593959432050", "contactType": "sales", "areaServed": "EC", "availableLanguage": "es"},
+    {"@type": "ContactPoint", "telephone": "+573233986209", "contactType": "sales", "areaServed": "CO", "availableLanguage": "es"}
+  ]
 }
 </script>
 
@@ -368,24 +371,69 @@ ul{margin:0;padding:0;list-style:none}
 /* ==========================================================
    COVERAGE
    ========================================================== */
-.coverage{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
-.map{position:relative;border-radius:var(--r-xl);background:linear-gradient(160deg,var(--forest-800),var(--forest-950));padding:28px;aspect-ratio:4/4.4;overflow:hidden;color:#fff}
-.map svg{width:100%;height:100%}
-.map .ridge{fill:none;stroke:rgba(198,227,107,.18);stroke-width:1.2}
-.map .route{fill:none;stroke:var(--lime-300);stroke-width:2.5;stroke-dasharray:4 8;stroke-linecap:round;animation:dash 1.6s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-24}}
-.map .pin circle.halo{fill:rgba(198,227,107,.18);transform-box:fill-box;transform-origin:center;animation:halo 2.4s ease-out infinite}
-.map .pin:nth-of-type(2) circle.halo{animation-delay:.8s}
-.map .pin:nth-of-type(3) circle.halo{animation-delay:1.6s}
-@keyframes halo{from{transform:scale(.4);opacity:1}to{transform:scale(1.8);opacity:0}}
-.map .pin circle.dot{fill:var(--lime-300);stroke:var(--forest-900);stroke-width:3}
-.map text{font-family:var(--f-display);font-size:22px;font-weight:600;fill:#fff}
-.map text.s{font-family:var(--f-body);font-size:12px;font-weight:700;fill:#a9bfb0;letter-spacing:.1em}
-.prov-list{display:grid;gap:12px;margin-top:28px}
-.prov{display:flex;gap:16px;align-items:center;padding:18px 20px;border-radius:var(--r-md);background:var(--card);border:1px solid var(--line)}
-.prov .k{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;background:var(--lime-200);color:var(--forest-900)}
-.prov b{display:block;font-size:1.05rem}
-.prov span{font-size:.9rem;color:var(--ink-3)}
+
+
+/* País (topbar) */
+.topbar .tb-r{display:inline-flex;align-items:center;gap:12px}
+.cswitch{display:inline-flex;padding:2px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+.cswitch button{border:0;background:none;color:#cfe0d3;padding:3px 11px;border-radius:999px;font-weight:700;font-size:.78rem;min-height:26px}
+.cswitch button[aria-pressed="true"]{background:var(--lime-300);color:var(--forest-900)}
+
+/* Cultivos */
+.crops-sec{background:var(--paper-2);border-block:1px solid var(--line)}
+.crops-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(32px,4vw,48px)}
+.crops-head > p{color:var(--ink-2);font-size:1.06rem}
+.crops{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.crop{display:grid;gap:6px;align-content:start;padding:24px 22px 26px;background:var(--card);transition:background .3s}
+.crop:hover{background:#fff}
+.crop-ic{width:22px;height:22px;color:var(--leaf-500);margin-bottom:4px}
+.crop b{font-family:var(--f-display);font-size:1.35rem;font-weight:600;line-height:1.15}
+.crop > span:last-child{font-size:.9rem;color:var(--ink-3)}
+.crops-note{margin-top:18px;font-size:.92rem;color:var(--ink-2)}
+.crops-note a{color:var(--forest-600);font-weight:800}
+
+/* Kits */
+.kits{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.kit{--kc:var(--forest-600);display:flex;flex-direction:column;border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-1);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.kit:hover{transform:translateY(-5px);box-shadow:var(--shadow-2)}
+.kit-top{position:relative;height:200px;background:radial-gradient(80% 90% at 50% 110%,color-mix(in srgb,var(--kc) 55%,transparent),transparent 70%),linear-gradient(160deg,color-mix(in srgb,var(--kc) 22%,#f4f1e6),#efe9da);overflow:hidden}
+.kit-goal{position:absolute;top:14px;left:14px;z-index:2;padding:6px 11px;border-radius:999px;background:rgba(255,253,248,.92);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--kc)}
+.kit-fan{position:absolute;left:50%;bottom:-18px;width:0}
+.kit-fan span{position:absolute;bottom:0;left:0;width:92px;height:128px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 24px -8px rgba(0,0,0,.4);border:3px solid #fff;
+  transform:translateX(calc(-50% + (var(--i) - (var(--n) - 1) / 2) * 58px)) rotate(calc((var(--i) - (var(--n) - 1) / 2) * 7deg)) translateY(calc(var(--i) * 0px));transform-origin:50% 100%;transition:transform .45s var(--ease)}
+.kit:hover .kit-fan span{transform:translateX(calc(-50% + (var(--i) - (var(--n) - 1) / 2) * 66px)) rotate(calc((var(--i) - (var(--n) - 1) / 2) * 9deg)) translateY(-8px)}
+.kit-fan img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.kit-body{display:flex;flex-direction:column;gap:12px;padding:22px 20px 20px;flex:1}
+.kit-body h3{font-size:1.55rem}
+.kit-body > p{color:var(--ink-2);font-size:.94rem}
+.kit-body ul{display:grid;gap:2px;margin-top:2px}
+.kit-body li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.9rem}
+.kit-body li:last-child{border-bottom:0}
+.kit-body li button{border:0;background:none;padding:0;font-weight:700;text-align:left;color:var(--ink)}
+.kit-body li button:hover{color:var(--kc);text-decoration:underline;text-underline-offset:3px}
+.kit-body li span{color:var(--ink-3);font-weight:600;white-space:nowrap}
+.kit-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:8px}
+.kit-custom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-top:22px;padding:26px 28px;border-radius:var(--r-lg);background:var(--forest-900);color:#fff}
+.kit-custom h3{font-size:1.6rem}
+.kit-custom p{color:#bcd0c2;margin-top:6px;max-width:560px}
+
+/* Cobertura por país */
+.countries{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;align-items:stretch}
+.country{display:flex;flex-direction:column;gap:22px;padding:clamp(22px,3vw,34px);border-radius:var(--r-xl);background:var(--card);border:1px solid var(--line);transition:box-shadow .3s,border-color .3s}
+.country.current{border-color:var(--leaf-500);box-shadow:0 0 0 3px rgba(63,165,91,.15),var(--shadow-2)}
+.country header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.country h3{font-size:clamp(2rem,4vw,2.8rem);margin-top:8px}
+.c-code{display:inline-block;padding:4px 9px;border-radius:8px;background:var(--forest-900);color:var(--lime-300);font-size:.74rem;font-weight:800;letter-spacing:.12em}
+.c-count{text-align:right}
+.c-count b{display:block;font-family:var(--f-display);font-size:clamp(2.6rem,5vw,3.6rem);font-weight:600;line-height:.9;color:var(--leaf-500)}
+.c-count span{font-size:.8rem;font-weight:700;color:var(--ink-3)}
+.c-regions{display:grid;gap:14px}
+.c-reg{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start}
+.c-reg > span{font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-top:7px}
+.c-reg > div{display:flex;flex-wrap:wrap;gap:6px}
+.c-reg i{font-style:normal;padding:6px 12px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-weight:700;font-size:.9rem}
+.country footer{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:auto;padding-top:6px}
+.c-phone{font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink-2);user-select:all}
 
 /* ==========================================================
    FAQ
@@ -527,7 +575,10 @@ body.lock{overflow:hidden}
   .why{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
+@media (max-width:1080px){.kits{grid-template-columns:1fr 1fr}.crops{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:920px){
+  .crops-head{grid-template-columns:1fr}
+  .countries{grid-template-columns:1fr}
   .hero .wrap{grid-template-columns:1fr;min-height:0;padding-top:40px;gap:24px}
   .orbit{width:min(100%,440px);order:-1;margin-top:8px}
   .orbit-tag{display:none}
@@ -546,7 +597,12 @@ body.lock{overflow:hidden}
   .m-body{overflow:visible}
 }
 @media (max-width:640px){
-  .topbar .wrap > span:first-child{display:none}
+  .topbar .tb-l{display:none}
+  .kits{grid-template-columns:1fr}
+  .c-reg{grid-template-columns:1fr;gap:6px}
+  .c-reg > span{padding-top:0}
+  .crop{padding:18px 16px}
+  .crop b{font-size:1.15rem}
   .topbar .wrap{justify-content:center}
   .brand small{display:none}
   .cart-btn .lbl{display:none}
@@ -604,8 +660,11 @@ body.lock{overflow:hidden}
 
 <div class="topbar">
   <div class="wrap">
-    <span><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>Atención y cobertura técnica en Carchi, Imbabura y Pichincha</span>
-    <span>Asesoría directa: <a href="https://wa.me/593959432050" target="_blank" rel="noopener">+593 95 943 2050</a></span>
+    <span class="tb-l"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>Cobertura técnica en Ecuador y Colombia</span>
+    <span class="tb-r">
+      <span class="cswitch" role="group" aria-label="País de atención"><button type="button" data-c="ec" aria-pressed="true">Ecuador</button><button type="button" data-c="co" aria-pressed="false">Colombia</button></span>
+      <a id="tbPhone" href="https://wa.me/593959432050" data-wa="Hola Agro Biolquim" target="_blank" rel="noopener">+593 95 943 2050</a>
+    </span>
   </div>
 </div>
 
@@ -617,7 +676,8 @@ body.lock{overflow:hidden}
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#productos">Productos</a>
-      <a href="#programa">Programa por etapa</a>
+      <a href="#kits">Kits</a>
+      <a href="#programa">Por etapa</a>
       <a href="#calculadora">Calculadora</a>
       <a href="#cobertura">Cobertura</a>
       <a href="#preguntas">Preguntas</a>
@@ -637,18 +697,18 @@ body.lock{overflow:hidden}
 <section class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <span class="hero-pill reveal"><i></i>Biotecnología agrícola hecha para el campo ecuatoriano</span>
+      <span class="hero-pill reveal"><i></i>Biotecnología agrícola para el campo de Ecuador y Colombia</span>
       <h1 class="reveal d1">La ciencia que hace <em>crecer</em> tu <span class="u">cosecha<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 12"/></svg></span>.</h1>
       <p class="hero-lead reveal d2">Bioestimulantes, inductores de resistencia, protección y mejoradores de suelo formulados para activar la fisiología de la planta, cuidar la raíz y llevar cada cultivo a su máximo rendimiento.</p>
       <div class="hero-actions reveal d3">
         <a class="btn btn-lime" href="#productos">Explorar productos
           <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica%20para%20mi%20cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un agrónomo</a>
+        <a class="btn btn-ghost" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica%20para%20mi%20cultivo" data-wa="Hola Agro Biolquim, quiero asesoría técnica para mi cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un agrónomo</a>
       </div>
       <div class="hero-facts reveal d3">
-        <div><b>10</b><span>Formulaciones propias</span></div>
-        <div><b>9</b><span>Productos de marcas aliadas</span></div>
-        <div><b>3</b><span>Provincias con cobertura técnica</span></div>
+        <div><b>19</b><span>Productos: 10 propios y 9 de marcas aliadas</span></div>
+        <div><b>2</b><span>Países: Ecuador y Colombia</span></div>
+        <div><b>17</b><span>Provincias y ciudades con cobertura</span></div>
       </div>
     </div>
 
@@ -702,6 +762,41 @@ body.lock{overflow:hidden}
 
     <div class="grid" id="grid" aria-live="polite"></div>
     <noscript><p class="empty">Activa JavaScript para ver el catálogo interactivo, o escríbenos por <a href="https://wa.me/593959432050">WhatsApp</a>.</p></noscript>
+  </div>
+</section>
+
+
+<!-- CULTIVOS -->
+<section class="section crops-sec" id="cultivos">
+  <div class="wrap">
+    <div class="crops-head reveal">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="eyebrow">Para todo tipo de cultivo</span>
+        <h2>De la papa al cacao, <em>un mismo portafolio.</em></h2>
+      </div>
+      <p>Nuestros productos están formulados para trabajar en cualquier cultivo: de ciclo corto o perenne, de clima frío o tropical, en campo abierto o bajo invernadero. Lo que cambia entre uno y otro es la dosis, la etapa y la frecuencia de aplicación, y para eso está nuestra asesoría técnica.</p>
+    </div>
+    <div class="crops" id="crops"></div>
+    <p class="crops-note reveal">Los cultivos de la lista son ejemplos. ¿No ves el tuyo? <a href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim" data-wa="Hola Agro Biolquim, quiero saber qué productos sirven para mi cultivo de: " target="_blank" rel="noopener">Pregúntanos por tu cultivo</a>.</p>
+  </div>
+</section>
+
+<!-- KITS -->
+<section class="section kits-sec" id="kits">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kits agrícolas</span>
+      <h2>Kits listos para <em>cada momento</em> del cultivo.</h2>
+      <p>Combinaciones de productos disponibles hoy, armadas por objetivo. Agrega el kit completo a tu pedido o pídelo directo por WhatsApp; ajustamos cantidades según tu área y tu cultivo.</p>
+    </div>
+    <div class="kits" id="kitsGrid"></div>
+    <div class="kit-custom reveal">
+      <div>
+        <h3>¿Necesitas otra combinación?</h3>
+        <p>Cuéntanos tu cultivo, la superficie y la etapa. Armamos un kit a la medida con los productos del catálogo.</p>
+      </div>
+      <a class="btn btn-lime" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim" data-wa="Hola Agro Biolquim, quiero armar un kit a la medida. Mi cultivo es: " target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Armar mi kit a la medida</a>
+    </div>
   </div>
 </section>
 
@@ -843,32 +938,13 @@ body.lock{overflow:hidden}
 
 <!-- COBERTURA -->
 <section class="section" id="cobertura" style="padding-top:0">
-  <div class="wrap coverage">
-    <div class="map reveal" aria-hidden="true">
-      <svg viewBox="0 0 400 440">
-        <path class="ridge" d="M40 60 Q 120 30 200 70 T 360 60"/>
-        <path class="ridge" d="M30 130 Q 130 100 210 140 T 370 120"/>
-        <path class="ridge" d="M40 210 Q 120 180 200 220 T 370 200"/>
-        <path class="ridge" d="M30 290 Q 140 260 210 300 T 370 280"/>
-        <path class="ridge" d="M40 370 Q 120 340 200 380 T 360 360"/>
-        <path class="route" d="M250 80 C 230 140, 180 160, 190 210 S 150 320, 160 360"/>
-        <g class="pin"><circle class="halo" cx="250" cy="80" r="26"/><circle class="dot" cx="250" cy="80" r="10"/><text x="272" y="78">Carchi</text><text class="s" x="272" y="96">FRONTERA NORTE</text></g>
-        <g class="pin"><circle class="halo" cx="190" cy="210" r="26"/><circle class="dot" cx="190" cy="210" r="10"/><text x="212" y="208">Imbabura</text><text class="s" x="212" y="226">PROVINCIA DE LOS LAGOS</text></g>
-        <g class="pin"><circle class="halo" cx="160" cy="360" r="26"/><circle class="dot" cx="160" cy="360" r="10"/><text x="182" y="358">Pichincha</text><text class="s" x="182" y="376">SIERRA CENTRO-NORTE</text></g>
-        <text class="s" x="24" y="420">ECUADOR · SIERRA NORTE</text>
-      </svg>
-    </div>
-    <div class="reveal d1">
+  <div class="wrap">
+    <div class="section-head reveal">
       <span class="eyebrow">Cobertura técnica</span>
-      <h2 style="font-size:clamp(2.1rem,4.6vw,3.3rem);margin:16px 0">Estamos donde está <em style="color:var(--leaf-500)">tu cultivo.</em></h2>
-      <p style="color:var(--ink-2);font-size:1.06rem">Acompañamiento técnico y atención directa en la sierra norte del Ecuador. Escríbenos con tu ubicación y coordinamos la entrega y la visita.</p>
-      <div class="prov-list">
-        <div class="prov"><span class="k">Ca</span><div><b>Carchi</b><span>Papa, hortalizas, frutales y pastos de altura</span></div></div>
-        <div class="prov"><span class="k">Im</span><div><b>Imbabura</b><span>Frutales, hortalizas, granos y flores</span></div></div>
-        <div class="prov"><span class="k">Pi</span><div><b>Pichincha</b><span>Flores, hortalizas, frutales y cultivos de exportación</span></div></div>
-      </div>
-      <div style="margin-top:24px"><a class="btn btn-wa" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20quiero%20coordinar%20una%20visita%20t%C3%A9cnica" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Coordinar visita técnica</a></div>
+      <h2>Estamos donde está <em>tu cultivo.</em></h2>
+      <p>Atención directa y acompañamiento técnico en Ecuador y Colombia. Escríbenos al número de tu país con tu ubicación y coordinamos la entrega y la visita.</p>
     </div>
+    <div class="countries" id="countries"></div>
   </div>
 </section>
 
@@ -882,12 +958,13 @@ body.lock{overflow:hidden}
     </div>
     <div class="faq-list reveal d1">
       <details open><summary>¿Cómo hago un pedido?<i></i></summary><div><p>Agrega los productos a <strong>Mi pedido</strong> (botón de la bolsa), ajusta las cantidades, completa tu nombre y ubicación y pulsa <strong>Enviar por WhatsApp</strong>. Te llegará un mensaje listo con todo el detalle; nosotros confirmamos precios, disponibilidad y entrega.</p></div></details>
+      <details><summary>¿Qué incluye un kit agrícola?<i></i></summary><div><p>Cada <a href="#kits">kit</a> reúne de 3 a 5 productos del catálogo pensados para un mismo objetivo: arranque y raíz, crecimiento, floración, llenado, protección o clima extremo. Puedes agregar el kit completo a tu pedido y luego cambiar cantidades o quitar productos antes de enviarlo.</p></div></details>
       <details><summary>¿Puedo mezclar varios productos en el mismo tanque?<i></i></summary><div><p>Varios productos del portafolio están pensados para trabajar juntos. Por ejemplo, <strong>Greenpegá</strong> es un coadyuvante que mejora adherencia, penetración y pH de la mezcla, y <strong>Pyrazol Pro</strong> es compatible con la mayoría de agroquímicos según su ficha.</p><p>Aun así, recomendamos hacer siempre una prueba de compatibilidad en un recipiente pequeño y consultar con el asesor antes de mezclar.</p></div></details>
       <details><summary>¿Cuál es la dosis de cada producto?<i></i></summary><div><p>La mayoría de bioestimulantes se aplican a <strong>250 cc por tanque de 200 litros</strong>. VitalHumic K-3 se usa a 500 cc / 200 L cada 15 a 20 días, Greenpegá a 100 ml / 200 L y la Tierra de Diatomeas a 20–30 g por litro en aplicación foliar. Usa la <a href="#calculadora">calculadora</a> para tu volumen exacto.</p></div></details>
       <details><summary>¿Los productos son orgánicos?<i></i></summary><div><p><strong>Vital Protec</strong> es un producto orgánico y biodegradable, y la <strong>Tierra de Diatomeas</strong> es 100 % natural. La línea de bioestimulantes se basa en ácidos húmicos y fúlvicos, aminoácidos, algas marinas y micronutrientes.</p><p><strong>Pyrazol Pro</strong> (fungicida), <strong>Jelfer</strong> (acaricida) y <strong>Bakteryn-Cu</strong> (bactericida) son productos de síntesis: úsalos siempre con equipo de protección y siguiendo la etiqueta.</p></div></details>
-      <details><summary>¿Para qué cultivos sirven?<i></i></summary><div><p>Las fichas técnicas los indican para frutales, hortalizas, granos, cereales, flores y ornamentales. Si tienes un cultivo específico, cuéntanos y te recomendamos el programa adecuado para cada etapa.</p></div></details>
+      <details><summary>¿Para qué cultivos sirven?<i></i></summary><div><p>Para todo tipo de cultivo: hortalizas, frutales, papa y tubérculos, granos y cereales, flores y ornamentales, cultivos tropicales como café, cacao y banano, y pastos. Lo que se ajusta en cada caso es la dosis, la etapa y la frecuencia.</p><p>Cuéntanos tu cultivo y te recomendamos el programa o el <a href="#kits">kit</a> adecuado.</p></div></details>
       <details><summary>¿Venden productos de otras marcas?<i></i></summary><div><p>Sí. Además de nuestras formulaciones propias, distribuimos productos de marcas aliadas como Futureco Bioscience, Fagro, Fiala, Agarismal, Ambagro y otras. En el catálogo usa el filtro <strong>Marcas aliadas</strong> para verlos. Cada ficha muestra la composición tal como aparece en su etiqueta.</p></div></details>
-      <details><summary>¿Hacen entregas?<i></i></summary><div><p>Atendemos Carchi, Imbabura y Pichincha. Escríbenos por WhatsApp con tu ubicación y coordinamos la forma de entrega más conveniente.</p></div></details>
+      <details><summary>¿Hacen entregas?<i></i></summary><div><p>Sí. En <strong>Ecuador</strong> atendemos 13 provincias de la Sierra, la Amazonía y la Costa, y en <strong>Colombia</strong> Nariño, Cauca, Bogotá y Medellín. Escríbenos al WhatsApp de tu país con tu ubicación y coordinamos la entrega más conveniente.</p><p>Ecuador: +593 95 943 2050 · Colombia: +57 323 398 6209</p></div></details>
     </div>
   </div>
 </section>
@@ -900,7 +977,7 @@ body.lock{overflow:hidden}
       <p>Cuéntanos tu cultivo, la etapa y el problema que ves en campo. Nuestros ingenieros agrónomos te ayudan a estructurar un plan nutricional adaptado a tu suelo.</p>
     </div>
     <div class="cta-actions">
-      <a class="btn btn-wa" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20necesito%20un%20plan%20de%20fertilizaci%C3%B3n%20para%20mi%20cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un especialista</a>
+      <a class="btn btn-wa" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20necesito%20un%20plan%20de%20fertilizaci%C3%B3n%20para%20mi%20cultivo" data-wa="Hola Agro Biolquim, necesito un plan de fertilización para mi cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un especialista</a>
       <button class="btn btn-ghost" type="button" data-open-cart><svg><use href="#i-bag"/></svg>Revisar mi pedido</button>
     </div>
   </div>
@@ -921,6 +998,8 @@ body.lock{overflow:hidden}
       <div>
         <h4>Explora</h4>
         <ul>
+          <li><a href="#kits">Kits agrícolas</a></li>
+          <li><a href="#cultivos">Cultivos</a></li>
           <li><a href="#programa">Programa por etapa</a></li>
           <li><a href="#calculadora">Calculadora de dosis</a></li>
           <li><a href="#cobertura">Cobertura</a></li>
@@ -930,8 +1009,9 @@ body.lock{overflow:hidden}
       <div>
         <h4>Contacto</h4>
         <ul>
-          <li><a href="https://wa.me/593959432050" target="_blank" rel="noopener">WhatsApp +593 95 943 2050</a></li>
-          <li>Carchi · Imbabura · Pichincha</li>
+          <li><a href="https://wa.me/593959432050" target="_blank" rel="noopener">Ecuador: +593 95 943 2050</a></li>
+          <li><a href="https://wa.me/573233986209" target="_blank" rel="noopener">Colombia: +57 323 398 6209</a></li>
+          <li>Cobertura en Ecuador y Colombia</li>
           <li>Atención de lunes a sábado</li>
         </ul>
       </div>
@@ -943,7 +1023,7 @@ body.lock{overflow:hidden}
   </div>
 </footer>
 
-<a class="fab" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg><use href="#i-wa"/></svg></a>
+<a class="fab" id="fab" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim" data-wa="Hola Agro Biolquim" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
 <!-- Overlay, modal, drawer, lightbox, toast -->
 <div class="overlay" id="overlay"></div>
@@ -961,14 +1041,14 @@ body.lock{overflow:hidden}
     <form class="d-form" id="dForm" onsubmit="return false">
       <label>Tu nombre<input id="fName" type="text" autocomplete="name" placeholder="Ej.: Juan Pérez"></label>
       <label>Ubicación
-        <span class="select"><select id="fPlace"><option value="">Selecciona tu provincia</option><option>Carchi</option><option>Imbabura</option><option>Pichincha</option><option>Otra provincia</option></select></span>
+        <span class="select"><select id="fPlace"></select></span>
       </label>
       <label>Cultivo y comentarios<textarea id="fNote" placeholder="Ej.: 2 ha de papa en floración, quiero mejorar el llenado"></textarea></label>
     </form>
   </div>
   <div class="d-foot">
     <button class="btn btn-wa btn-block" id="sendWa" type="button"><svg><use href="#i-wa"/></svg>Enviar pedido por WhatsApp</button>
-    <p>Se abrirá WhatsApp con tu pedido listo. Confirmamos precios y disponibilidad por chat.</p>
+    <p id="sendNote">Se abrirá WhatsApp con tu pedido listo. Confirmamos precios y disponibilidad por chat.</p>
   </div>
 </aside>
 
@@ -983,7 +1063,13 @@ body.lock{overflow:hidden}
 <script>
 (() => {
 'use strict';
-const WA = '593959432050';
+const COUNTRIES = {
+  ec: {name:'Ecuador', wa:'593959432050', phone:'+593 95 943 2050', unit:'provincias',
+       regions:[['Sierra norte',['Carchi','Imbabura','Pichincha']],['Sierra centro',['Cotopaxi','Tungurahua','Chimborazo','Bolívar']],['Sierra sur',['Azuay','Loja']],['Amazonía',['Sucumbíos','Orellana','Napo']],['Costa',['Santo Domingo de los Tsáchilas']]]},
+  co: {name:'Colombia', wa:'573233986209', phone:'+57 323 398 6209', unit:'departamentos y ciudades',
+       regions:[['Sur andino',['Nariño','Cauca']],['Región Andina',['Bogotá','Medellín']]]}
+};
+const placesOf = c => COUNTRIES[c].regions.flatMap(r => r[1]);
 
 /* ------------------------------------------------------------
    DATA — tomada de las fichas técnicas oficiales
@@ -1219,7 +1305,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>'
 const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const fmt = (n, d=0) => n.toLocaleString('es-EC', {maximumFractionDigits:d, minimumFractionDigits:0});
 const img = (p, cls='', eager=false) => `<img class="${cls}" src="assets/productos/${p.id}.webp" alt="Envase de ${esc(p.name)}" width="340" height="720" ${eager?'':'loading="lazy"'} decoding="async">`;
-const waLink = msg => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+let country = 'ec';
+const waLink = (msg, c = country) => `https://wa.me/${COUNTRIES[c].wa}?text=${encodeURIComponent(msg)}`;
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
@@ -1346,6 +1433,101 @@ function openFicha(id){
   openLayer(lightbox);
 }
 
+
+/* ------------------------------------------------------------
+   CULTIVOS, KITS, PAÍS Y COBERTURA
+------------------------------------------------------------ */
+const CROPS = [
+  ['Hortalizas', 'Tomate, pimiento, cebolla, brócoli, lechuga, zanahoria'],
+  ['Frutales', 'Aguacate, mora, tomate de árbol, cítricos, uvilla, fresa'],
+  ['Papa y tubérculos', 'Papa, yuca, melloco, oca, camote'],
+  ['Granos y cereales', 'Maíz, fréjol, arveja, haba, trigo, quinua'],
+  ['Flores y ornamentales', 'Rosas, claveles, follajes, plantas de vivero'],
+  ['Tropicales e industriales', 'Café, cacao, banano, plátano, caña, palma'],
+  ['Pastos y forrajes', 'Potreros, alfalfa, ryegrass, kikuyo'],
+  ['Invernadero y vivero', 'Plántulas, semilleros, trasplante, sustratos']
+];
+$('#crops').innerHTML = CROPS.map(([t,d],i) => `<div class="crop reveal ${['','d1','d2','d3'][i%4]}"><svg class="crop-ic"><use href="#i-leaf"/></svg><b>${t}</b><span>${d}</span></div>`).join('');
+
+const KITS = [
+  {id:'raiz', name:'Kit Raíz Fuerte', goal:'Trasplante y establecimiento', color:'#6B4A2B',
+   text:'Activa el suelo y forma un sistema radicular profundo desde el primer día.',
+   items:['humiroot','proroot','vitalhumic-k3','greenpega']},
+  {id:'vigor', name:'Kit Crecimiento y Vigor', goal:'Desarrollo vegetativo', color:'#1D4E9E',
+   text:'Aminoácidos, algas y micronutrientes para más follaje, energía y color.',
+   items:['total-green','bades-amino-45','botamisol','greenpega']},
+  {id:'flor', name:'Kit Floración y Cuajado', goal:'Prefloración a cuajado', color:'#6B2C7E',
+   text:'Más flores fértiles y menos caída floral en la etapa más sensible.',
+   items:['stimulate-b9','citogrower','titan-fruit','greenpega']},
+  {id:'llenado', name:'Kit Llenado y Cosecha', goal:'Engorde y calidad', color:'#C77A0A',
+   text:'Fósforo, potasio y húmicos para tamaño, peso, color y vida postcosecha.',
+   items:['frutaliv','vitalhumic-k3','alga-800','greenpega']},
+  {id:'proteccion', name:'Kit Protección Total', goal:'Hongos, bacterias y ácaros', color:'#B3261E',
+   text:'Inducción de resistencia más control directo cuando la presión lo exige.',
+   items:['vital-protec','sulfok-plus','pyrazol-pro','bakteryn-cu','greenpega']},
+  {id:'clima', name:'Kit Clima Extremo', goal:'Heladas, sequía y calor', color:'#16809A',
+   text:'Defensa natural y aminoácidos para que el cultivo resista y se recupere rápido.',
+   items:['vital-protec','estimul-mix','vitalhumic-k3','greenpega']}
+];
+$('#kitsGrid').innerHTML = KITS.map((k,i) => `
+  <article class="kit reveal ${['','d1','d2'][i%3]}" style="--kc:${k.color}">
+    <div class="kit-top">
+      <span class="kit-goal">${esc(k.goal)}</span>
+      <div class="kit-fan">${k.items.map((id,j) => `<span style="--i:${j};--n:${k.items.length}">${img(byId[id])}</span>`).join('')}</div>
+    </div>
+    <div class="kit-body">
+      <h3>${esc(k.name)}</h3>
+      <p>${esc(k.text)}</p>
+      <ul>${k.items.map(id => `<li><button type="button" data-detail="${id}">${esc(byId[id].name)}</button><span>${esc(byId[id].pack.label)}</span></li>`).join('')}</ul>
+      <div class="kit-actions">
+        <button class="btn btn-sm" type="button" data-kit="${k.id}"><svg><use href="#i-bag"/></svg>Agregar kit</button>
+        <a class="btn btn-sm btn-wa" data-kitwa="${k.id}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Pedir</a>
+      </div>
+    </div>
+  </article>`).join('');
+const kitMsg = k => `Hola Agro Biolquim, me interesa el ${k.name} (${k.goal}):\n\n${k.items.map(id => `• ${byId[id].name} (${byId[id].pack.label})`).join('\n')}\n\n¿Me ayudan con precio y disponibilidad?`;
+function addKit(id){
+  const k = KITS.find(x => x.id === id);
+  k.items.forEach(pid => { cart[pid] = (cart[pid] || 0) + 1; });
+  store.set('ab-cart', cart); renderCart(); syncAddButtons();
+  const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+  toast(`${k.name} agregado: ${k.items.length} productos`);
+}
+
+$('#countries').innerHTML = Object.entries(COUNTRIES).map(([c,v],i) => { const n = placesOf(c).length; return `
+  <article class="country reveal ${i ? 'd1' : ''}" data-country="${c}">
+    <header>
+      <div><span class="c-code">${c.toUpperCase()}</span><h3>${v.name}</h3></div>
+      <div class="c-count"><b>${n}</b><span>${v.unit}</span></div>
+    </header>
+    <div class="c-regions">${v.regions.map(([r,list]) => `<div class="c-reg"><span>${r}</span><div>${list.map(x => `<i>${x}</i>`).join('')}</div></div>`).join('')}</div>
+    <footer>
+      <a class="btn btn-wa" href="${waLink('Hola Agro Biolquim, quiero coordinar una visita técnica en ' + v.name + '.', c)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp ${v.name}</a>
+      <span class="c-phone">${v.phone}</span>
+    </footer>
+  </article>`; }).join('');
+
+$('#fPlace').innerHTML = '<option value="">Selecciona tu ubicación</option>' + Object.entries(COUNTRIES).map(([c,v]) => `<optgroup label="${v.name}">${placesOf(c).map(x => `<option value="${x}, ${v.name}">${x}</option>`).join('')}<option value="Otra ubicación, ${v.name}">Otra ubicación en ${v.name}</option></optgroup>`).join('');
+const countryOfPlace = v => !v ? null : v.endsWith('Colombia') ? 'co' : 'ec';
+
+function setCountry(c, save=true){
+  country = COUNTRIES[c] ? c : 'ec';
+  if (save) store.set('ab-country', country);
+  $$('.cswitch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.c === country));
+  $$('[data-wa]').forEach(a => { a.href = waLink(a.dataset.wa); });
+  $$('[data-kitwa]').forEach(a => { a.href = waLink(kitMsg(KITS.find(k => k.id === a.dataset.kitwa))); });
+  $('#tbPhone').textContent = COUNTRIES[country].phone;
+  $('#fab').setAttribute('aria-label', `Escríbenos por WhatsApp (${COUNTRIES[country].name})`);
+  $$('.country').forEach(el => el.classList.toggle('current', el.dataset.country === country));
+  updateSendNote();
+}
+function updateSendNote(){
+  const c = countryOfPlace($('#fPlace').value) || country;
+  $('#sendNote').textContent = `Se abrirá WhatsApp (${COUNTRIES[c].name}, ${COUNTRIES[c].phone}) con tu pedido listo. Confirmamos precios y disponibilidad por chat.`;
+}
+$$('.cswitch button').forEach(b => b.addEventListener('click', () => setCountry(b.dataset.c)));
+$('#fPlace').addEventListener('change', () => { const c = countryOfPlace($('#fPlace').value); if (c) setCountry(c); else updateSendNote(); });
+
 /* ------------------------------------------------------------
    PEDIDO (carrito)
 ------------------------------------------------------------ */
@@ -1397,7 +1579,7 @@ $('#sendWa').addEventListener('click', () => {
   if (place) msg += `\nUbicación: ${place}`;
   if (note) msg += `\nCultivo / comentarios: ${note}`;
   msg += `\n\n¿Me confirman precio y disponibilidad? Gracias.`;
-  window.open(waLink(msg), '_blank', 'noopener');
+  window.open(waLink(msg, countryOfPlace(place) || country), '_blank', 'noopener');
 });
 function openCart(){ $('#toast').classList.remove('show'); if (openStack.includes(drawer)) return; while (openStack.length) closeTop(); openLayer(drawer); }
 
@@ -1410,9 +1592,10 @@ function toast(msg){
 
 /* Global click delegation */
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-detail],[data-add],[data-ficha],[data-open-cart],[data-goto]');
+  const t = e.target.closest('[data-detail],[data-add],[data-ficha],[data-open-cart],[data-goto],[data-kit]');
   if (!t) return;
-  if (t.dataset.detail) openDetail(t.dataset.detail);
+  if (t.dataset.kit) addKit(t.dataset.kit);
+  else if (t.dataset.detail) openDetail(t.dataset.detail);
   else if (t.dataset.add) addToCart(t.dataset.add);
   else if (t.dataset.ficha) openFicha(t.dataset.ficha);
   else if ('openCart' in t.dataset){ $('#toast').classList.remove('show'); openCart(); }
@@ -1538,6 +1721,7 @@ $('#year').textContent = new Date().getFullYear();
 
 /* INIT */
 renderGrid(); renderCart(); setStage(1); calc();
+setCountry(store.get('ab-country', /-CO$/i.test(navigator.language || '') ? 'co' : 'ec'), false);
 })();
 </script>
 </body>
