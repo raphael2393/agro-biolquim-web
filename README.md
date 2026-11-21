@@ -19,3 +19,10 @@ Sitio estático (un solo `index.html`, sin dependencias de compilación). Se pue
 - `assets/logo-mark.png`, `assets/logo-original.png` — logotipo.
 
 Los datos de los productos están en el arreglo `P` dentro del `<script>` de `index.html`.
+
+## Publicación en www.agrobiolquim.com
+El sitio se publica con GitHub Pages desde la rama `main` (carpeta raíz). El archivo `CNAME` apunta a `www.agrobiolquim.com`.
+
+DNS del dominio (en el proveedor donde se compró):
+- `www` → registro **CNAME** a `raphael2393.github.io`
+- `agrobiolquim.com` (raíz, `@`) → registros **A**: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
