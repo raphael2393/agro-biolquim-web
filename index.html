@@ -858,7 +858,7 @@ body.lock{overflow:hidden}
         <a class="btn btn-ghost" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica%20para%20mi%20cultivo" data-wa="Hola Agro Biolquim, quiero asesoría técnica para mi cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un agrónomo</a>
       </div>
       <div class="hero-facts reveal d3">
-        <div><b>21</b><span>Productos: 10 propios y 11 de marcas aliadas</span></div>
+        <div><b>23</b><span>Productos: 12 propios y 11 de marcas aliadas</span></div>
         <div><b>2</b><span>Países: Ecuador y Colombia</span></div>
         <div><b>17</b><span>Provincias y ciudades con cobertura</span></div>
       </div>
@@ -1477,6 +1477,28 @@ const P = [
    dose:{per200:100, unit:'ml', text:'100 ml', sub:'por tanque de 200 L de agua'},
    pack:{size:500, unit:'ml', label:'500 ml'}, tags:'adherente coadyuvante penetrante dispersante ph siliconado lluvia lavado'},
 
+  {id:'luffy', name:'Luffy', line:['prot'], accent:'#1E8A3C',
+   caution:'Peligro. Usa equipo de protección personal completo y sigue las indicaciones de la etiqueta. Respeta el periodo de carencia.',
+   type:'Fungicida agrícola · Concentrado emulsionable (EC)',
+   slogan:'Doble acción sistémica contra hongos.',
+   short:'Azoxistrobina + tebuconazol: fungicida sistémico preventivo y curativo de amplio espectro.',
+   what:'Fungicida agrícola en concentrado emulsionable (EC) que combina azoxistrobina, una estrobilurina de acción preventiva y translaminar, con tebuconazol, un triazol sistémico de acción curativa. Dos modos de acción en un solo producto para el control de enfermedades fungosas.',
+   benefits:[['Dos modos de acción','Estrobilurina (FRAC 11) + triazol (FRAC 3).'],['Preventivo y curativo','Protege antes de la infección y detiene al hongo establecido.'],['Amplio espectro','Para manchas foliares, royas, oídio y otras enfermedades fungosas.'],['Sistémico','Se mueve dentro de la planta y protege el tejido nuevo.']],
+   comp:[['Azoxistrobina','250 g/L'],['Tebuconazol','125 g/L']],
+   dose:{text:'Consultar', sub:'dosis por tanque de 200 L según la etiqueta y la recomendación del asesor técnico'},
+   pack:{size:100, unit:'ml', label:'100 ml'}, tags:'fungicida hongos roya oidio mancha azoxistrobina tebuconazol estrobilurina triazol'},
+
+  {id:'rafaga', name:'Ráfaga', line:['prot'], accent:'#1F4FB0',
+   caution:'Peligro. Usa equipo de protección personal completo y sigue las indicaciones de la etiqueta. Muy tóxico para organismos acuáticos.',
+   type:'Insecticida agrícola',
+   slogan:'Control de larvas en dos frentes.',
+   short:'Lufenurón + benzoato de emamectina para el control de gusanos y larvas.',
+   what:'Insecticida agrícola que combina lufenurón, un regulador de crecimiento que impide la muda de las larvas, con benzoato de emamectina, de acción rápida por ingestión. Control de gusanos, orugas, polillas y minadores.',
+   benefits:[['Doble acción','Emamectina (IRAC 6) actúa rápido; lufenurón (IRAC 15) corta el ciclo de la plaga.'],['Control de larvas','Gusanos cogolleros, polillas, orugas y minadores.'],['Alta concentración','500 g/kg de lufenurón en una presentación pequeña.']],
+   comp:[['Lufenurón','500 g/kg'],['Benzoato de emamectina','50 g/kg'],['Aditivos','c.s.p. 1 kg']],
+   dose:{text:'Consultar', sub:'dosis por tanque de 200 L según la etiqueta y la recomendación del asesor técnico'},
+   pack:{size:50, unit:'g', label:'50 g'}, tags:'insecticida gusano larva oruga polilla minador lufenuron emamectina'},
+
   /* ---------- Marcas aliadas (datos de la etiqueta de cada envase) ---------- */
   {id:'citogrower', name:'Citogrower', brand:'Futureco Bioscience', line:['bio'], accent:'#16809A',
    type:'Fertilizante orgánico-mineral foliar',
@@ -1610,7 +1632,7 @@ const STAGES = [
    items:[['vitalhumic-k3','Potenciador de llenado'],['frutaliv','160 g/L P₂O₅ + 210 g/L K₂O'],['titan-fruit','Tamaño, peso y color'],['alga-800','20 % de potasio']]},
   {n:5, name:'Protección', sub:'Todo el ciclo', title:'Defensa en cada etapa del cultivo.',
    text:'Heladas, lluvias intensas, hongos, bacterias y plagas. Combina inducción de resistencia natural con control directo cuando la presión de enfermedad lo exige.',
-   items:[['vital-protec','Inductor de resistencia'],['sulfok-plus','Fungicida y bactericida'],['pyrazol-pro','Fungicida de amplio espectro'],['bakteryn-cu','Bactericida con cobre'],['jelfer','Acaricida'],['incipio','Insecticida y acaricida'],['lorfos','Insecticida para larvas'],['tierra-diatomeas','Insecticida natural']]}
+   items:[['vital-protec','Inductor de resistencia'],['sulfok-plus','Fungicida y bactericida'],['pyrazol-pro','Fungicida de amplio espectro'],['luffy','Fungicida azoxistrobina + tebuconazol'],['bakteryn-cu','Bactericida con cobre'],['jelfer','Acaricida'],['incipio','Insecticida y acaricida'],['lorfos','Insecticida para larvas'],['rafaga','Insecticida para larvas'],['tierra-diatomeas','Insecticida natural']]}
 ];
 
 /* ------------------------------------------------------------
@@ -2058,7 +2080,7 @@ const cropOpts = CROP_LIST.map(c => `<option>${c}</option>`).join('');
 /* Formulación → orden de mezcla */
 const FORM = {
   'bakteryn-cu':[1,'Polvo mojable (WP)'], 'lorfos':[1,'Gránulos dispersables (WG)'], 'tierra-diatomeas':[1,'Polvo insoluble'],
-  'jelfer':[2,'Suspensión concentrada (SC)'], 'incipio':[2,'Suspensión concentrada (SC)'], 'pyrazol-pro':[2,'Suspoemulsión (SE)'], 'sulfok-plus':[2,'Suspensión con azufre'],
+  'jelfer':[2,'Suspensión concentrada (SC)'], 'luffy':[2,'Concentrado emulsionable (EC)'], 'rafaga':[1,'Sólido dispersable'], 'incipio':[2,'Suspensión concentrada (SC)'], 'pyrazol-pro':[2,'Suspoemulsión (SE)'], 'sulfok-plus':[2,'Suspensión con azufre'],
   'greenpega':[4,'Coadyuvante siliconado']
 };
 const formOf = p => FORM[p.id] || [3, /kg|g$/.test(p.pack.unit) ? 'Polvo soluble / fertilizante' : 'Concentrado soluble'];
@@ -2077,14 +2099,14 @@ const ACID = ['botamisol','citogrower'];          /* pH 3,85 y 2,65 en solución
 const ALK = ['frutaliv'];                           /* pH 8,86 */
 const AMINO_HUMIC = ['bades-amino-45','botamisol','estimul-mix','vitalhumic-k3','humiroot','frutaliv','total-green'];
 const HUMIC = ['vitalhumic-k3','humiroot'];
-const PEST = ['pyrazol-pro','incipio','jelfer','lorfos','bakteryn-cu','sulfok-plus'];
+const PEST = ['pyrazol-pro','luffy','incipio','jelfer','lorfos','rafaga','bakteryn-cu','sulfok-plus'];
 function pairRule(a, b){
   const has = (x, y, A, B) => (A.includes(x) && B.includes(y)) || (A.includes(y) && B.includes(x));
   if (has(a,b,['bakteryn-cu'],ACID)) return ['warn','El pH ácido aumenta la solubilidad del cobre y el riesgo de quemaduras en hojas y frutos.'];
   if (has(a,b,['bakteryn-cu'],ALK)) return ['warn','La kasugamicina pierde estabilidad en agua alcalina.'];
   if (has(a,b,['bakteryn-cu'],AMINO_HUMIC)) return ['warn','Aminoácidos y ácidos húmicos pueden acomplejar el cobre y bajar su eficacia. Mejor aplícalos por separado.'];
   if (has(a,b,HUMIC,ACID)) return ['warn','Los ácidos húmicos pueden precipitar con productos de pH ácido. Haz prueba de mezcla.'];
-  if (has(a,b,ALK,['pyrazol-pro','incipio','jelfer','lorfos'])) return ['warn','El pH alcalino puede degradar el plaguicida por hidrólisis. Regula el pH del agua con Greenpegá antes de mezclar.'];
+  if (has(a,b,ALK,['pyrazol-pro','luffy','incipio','jelfer','lorfos','rafaga'])) return ['warn','El pH alcalino puede degradar el plaguicida por hidrólisis. Regula el pH del agua con Greenpegá antes de mezclar.'];
   return ['ok','Sin incompatibilidades conocidas.'];
 }
 
@@ -2146,6 +2168,8 @@ const PROD_MOA = {
   'bakteryn-cu':{g:['FRAC 24','FRAC M01'], ai:'Kasugamicina + oxicloruro de cobre', probs:['bacterias','hongos'], modes:['prev','cur','err'], how:'Sistémico + contacto'},
   'vital-protec':{g:['INDUCTOR'], ai:'Ácido salicílico, jasmonatos, quitinas', probs:['hongos','bacterias'], modes:['prev','cur','err'], how:'Activa las defensas de la planta'},
   'tierra-diatomeas':{g:['FISICO'], ai:'Sílice amorfa', probs:['insectos','acaros','hongos'], modes:['prev','err'], how:'Acción física, no genera resistencia'},
+  'luffy':{g:['FRAC 11','FRAC 3'], ai:'Azoxistrobina + tebuconazol', probs:['hongos'], modes:['prev','cur','err'], how:'Sistémico, preventivo y curativo'},
+  'rafaga':{g:['IRAC 15','IRAC 6'], ai:'Lufenurón + benzoato de emamectina', probs:['insectos'], modes:['cur','err'], how:'Ingestión, larvicida'},
   'lorfos':{g:['IRAC 6','IRAC 15'], ai:'Benzoato de emamectina + lufenurón', probs:['insectos'], modes:['cur','err'], how:'Ingestión y contacto, larvicida'},
   'incipio':{g:['IRAC 30'], ai:'Isocicloseram', probs:['insectos','acaros'], modes:['prev','cur','err'], how:'Contacto e ingestión'},
   'jelfer':{g:['IRAC 21A'], ai:'Fenpiroximato', probs:['acaros'], modes:['cur','err'], how:'Contacto, efecto de choque'}
@@ -2243,7 +2267,7 @@ const PLAN_NUT = [
   {to:1.01, stage:'Llenado y cosecha', ids:['frutaliv','vitalhumic-k3','alga-800']}
 ];
 const PLAN_PROT = { full:['vital-protec','sulfok-plus','pyrazol-pro','vital-protec','bakteryn-cu'], eco:['vital-protec','tierra-diatomeas'], nut:[] };
-const ORGANIC_OK = id => !['pyrazol-pro','bakteryn-cu','jelfer','incipio','lorfos','proroot','frutaliv','citogrower','botamisol','estimul-mix'].includes(id);
+const ORGANIC_OK = id => !['luffy','rafaga','pyrazol-pro','bakteryn-cu','jelfer','incipio','lorfos','proroot','frutaliv','citogrower','botamisol','estimul-mix'].includes(id);
 const fmtDate = d => d.toLocaleDateString('es-EC', {weekday:'short', day:'numeric', month:'short'});
 
 function buildPlan(){
