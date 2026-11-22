@@ -682,6 +682,33 @@ body.lock{overflow:hidden}
 @media (max-width:920px){.advisor,.tool{grid-template-columns:1fr}.tool-out{border-left:0;border-top:1px solid var(--line)}}
 @media (max-width:640px){.adv-list,.tool-row{grid-template-columns:1fr}.tab{flex:1 1 100%;justify-content:center}.tabs{display:flex}}
 
+
+/* Plan y comparador */
+.tool-row.three{grid-template-columns:repeat(3,1fr)}
+.tool-wide{grid-template-columns:1fr}
+.date-in{width:100%;min-height:52px;padding:10px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);font-weight:700}
+.pl-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:560px;overflow:auto;padding-right:4px}
+.pl-row{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:12px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.pl-d b{display:block;text-transform:capitalize}
+.pl-d span{font-size:.78rem;color:var(--ink-3)}
+.pl-items{display:flex;flex-wrap:wrap;gap:6px;align-content:start}
+.pl-items button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:5px 11px;font-size:.82rem;color:var(--ink-2)}
+.pl-items button b{color:var(--ink)}
+.pl-items button:hover{border-color:var(--forest-600)}
+.cmp{min-width:640px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px dashed var(--line);font-size:.88rem}
+.cmp thead th{border-bottom:1px solid var(--line)}
+.cmp thead button{display:grid;justify-items:start;gap:6px;border:0;background:none;padding:0;text-align:left}
+.cmp thead img{width:84px;height:104px;object-fit:cover;object-position:50% 55%;border-radius:12px}
+.cmp thead b{font-family:var(--f-display);font-size:1.2rem}
+.cmp thead small{color:var(--ink-3)}
+.cmp tbody th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;width:120px}
+.cmp td small{display:block;color:var(--ink-3);font-size:.78rem}
+.cmp ul{margin:0;padding-left:16px}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:800}
+.pill.warn{background:#FFF4DB;color:#7a4b00}.pill.ok{background:#E6F4E8;color:#14532d}
+@media (max-width:640px){.tool-row.three{grid-template-columns:1fr}.pl-row{grid-template-columns:1fr}}
+
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -967,6 +994,8 @@ body.lock{overflow:hidden}
     <div class="tabs reveal" role="tablist" aria-label="Herramientas">
       <button class="tab" role="tab" id="tabMix" aria-selected="true" aria-controls="paneMix" type="button"><svg><use href="#i-flask"/></svg>Compatibilidad de mezcla</button>
       <button class="tab" role="tab" id="tabRot" aria-selected="false" aria-controls="paneRot" type="button" tabindex="-1"><svg><use href="#i-shield"/></svg>Rotación de ingredientes activos</button>
+      <button class="tab" role="tab" id="tabPlan" aria-selected="false" aria-controls="panePlan" type="button" tabindex="-1"><svg><use href="#i-leaf"/></svg>Plan de aplicaciones</button>
+      <button class="tab" role="tab" id="tabCmp" aria-selected="false" aria-controls="paneCmp" type="button" tabindex="-1"><svg><use href="#i-spark"/></svg>Comparar productos</button>
     </div>
 
     <div class="tool reveal" id="paneMix" role="tabpanel" aria-labelledby="tabMix">
@@ -1009,6 +1038,40 @@ body.lock{overflow:hidden}
         <div class="field" style="max-width:240px"><label for="rtL">Volumen del tanque</label><div class="num-input"><input id="rtL" type="number" min="1" step="1" value="200" inputmode="numeric"><span class="unit">L</span></div></div>
       </div>
       <div class="tool-out" id="rtOut" aria-live="polite"></div>
+    </div>
+
+    <div class="tool reveal" id="panePlan" role="tabpanel" aria-labelledby="tabPlan" hidden>
+      <div class="tool-in">
+        <div class="tool-row">
+          <div class="field"><label for="plCrop">Cultivo</label><div class="select"><select id="plCrop"></select></div></div>
+          <div class="field"><label for="plDate">Fecha de siembra, trasplante o poda</label><input class="date-in" id="plDate" type="date"></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="plDays">Duración del ciclo</label><div class="num-input"><input id="plDays" type="number" min="30" max="400" step="5" value="150"><span class="unit">días</span></div></div>
+          <div class="field"><label for="plEvery">Aplicar cada</label><div class="select"><select id="plEvery"><option value="10">10 días</option><option value="15" selected>15 días</option><option value="20">20 días</option></select></div></div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="plFocusLbl">Enfoque del programa</span>
+          <div class="seg" id="plFocus" role="group" aria-labelledby="plFocusLbl">
+            <button type="button" data-f="nut" aria-pressed="false">Nutrición<small>solo bioestimulantes</small></button>
+            <button type="button" data-f="full" aria-pressed="true">Completo<small>nutrición + protección</small></button>
+            <button type="button" data-f="eco" aria-pressed="false">Orgánico<small>sin síntesis química</small></button>
+          </div>
+        </div>
+        <div class="field" style="max-width:240px"><label for="plL">Volumen del tanque</label><div class="num-input"><input id="plL" type="number" min="1" step="1" value="200" inputmode="numeric"><span class="unit">L</span></div></div>
+      </div>
+      <div class="tool-out" id="plOut" aria-live="polite"></div>
+    </div>
+
+    <div class="tool tool-wide reveal" id="paneCmp" role="tabpanel" aria-labelledby="tabCmp" hidden>
+      <div class="tool-in">
+        <div class="tool-row three">
+          <div class="field"><label for="cmp1">Producto 1</label><div class="select"><select id="cmp1"></select></div></div>
+          <div class="field"><label for="cmp2">Producto 2</label><div class="select"><select id="cmp2"></select></div></div>
+          <div class="field"><label for="cmp3">Producto 3 (opcional)</label><div class="select"><select id="cmp3"></select></div></div>
+        </div>
+        <div id="cmpOut" aria-live="polite"></div>
+      </div>
     </div>
     <p class="tool-note">Herramienta orientativa basada en las etiquetas, fichas técnicas y los códigos de modo de acción FRAC (fungicidas) e IRAC (insecticidas). No reemplaza la etiqueta: nunca superes la dosis máxima ni el número de aplicaciones permitidas, respeta el periodo de carencia y haz siempre una prueba de mezcla en un recipiente pequeño.</p>
   </div>
@@ -2148,15 +2211,110 @@ function renderRot(){
 }
 
 /* Tabs */
+const TABS = [['mix','#tabMix','#paneMix'],['rot','#tabRot','#paneRot'],['plan','#tabPlan','#panePlan'],['cmp','#tabCmp','#paneCmp']];
 function setTab(t){
-  const mix = t === 'mix';
-  $('#tabMix').setAttribute('aria-selected', mix); $('#tabRot').setAttribute('aria-selected', !mix);
-  $('#tabMix').tabIndex = mix ? 0 : -1; $('#tabRot').tabIndex = mix ? -1 : 0;
-  $('#paneMix').hidden = !mix; $('#paneRot').hidden = mix;
+  TABS.forEach(([k,tb,pn]) => { const on = k === t; $(tb).setAttribute('aria-selected', on); $(tb).tabIndex = on ? 0 : -1; $(pn).hidden = !on; });
 }
-$('#tabMix').addEventListener('click', () => setTab('mix'));
-$('#tabRot').addEventListener('click', () => setTab('rot'));
-$('.tabs').addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ const t = $('#tabMix').getAttribute('aria-selected') === 'true' ? 'rot' : 'mix'; setTab(t); $(t === 'mix' ? '#tabMix' : '#tabRot').focus(); } });
+TABS.forEach(([k,tb]) => $(tb).addEventListener('click', () => setTab(k)));
+$('.tabs').addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const i = TABS.findIndex(([,tb]) => $(tb).getAttribute('aria-selected') === 'true');
+  const n = (i + (e.key === 'ArrowRight' ? 1 : TABS.length - 1)) % TABS.length;
+  setTab(TABS[n][0]); $(TABS[n][1]).focus(); e.preventDefault();
+});
+
+/* ------------------------------------------------------------
+   PLAN DE APLICACIONES
+------------------------------------------------------------ */
+const CYCLE = {'Papa':150,'Tomate de mesa':180,'Tomate de árbol':240,'Pimiento y ají':180,'Cebolla':150,'Brócoli y coles':100,'Lechuga y hortalizas de hoja':70,'Fréjol, arveja y haba':100,'Maíz':150,'Aguacate':240,'Mora y fresa':180,'Cítricos':240,'Uvilla':240,'Rosas y flores':90,'Café':240,'Cacao':240,'Banano y plátano':270,'Pastos':60,'Otro cultivo':120};
+$('#plCrop').innerHTML = cropOpts;
+const todayISO = new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+$('#plDate').value = todayISO;
+let plFocus = 'full';
+$('#plCrop').addEventListener('input', () => { $('#plDays').value = CYCLE[$('#plCrop').value] || 120; renderPlan(); });
+['#plDate','#plDays','#plEvery','#plL'].forEach(id => $(id).addEventListener('input', renderPlan));
+$('#plFocus').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; plFocus = b.dataset.f; $$('#plFocus button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderPlan(); });
+
+/* Productos por etapa (nutrición) y protección preventiva en rotación */
+const PLAN_NUT = [
+  {to:.12, stage:'Suelo y raíz', ids:['humiroot','proroot']},
+  {to:.40, stage:'Crecimiento', ids:['total-green','bades-amino-45','botamisol','estimul-mix']},
+  {to:.62, stage:'Floración y cuajado', ids:['stimulate-b9','citogrower','titan-fruit']},
+  {to:1.01, stage:'Llenado y cosecha', ids:['frutaliv','vitalhumic-k3','alga-800']}
+];
+const PLAN_PROT = { full:['vital-protec','sulfok-plus','pyrazol-pro','vital-protec','bakteryn-cu'], eco:['vital-protec','tierra-diatomeas'], nut:[] };
+const ORGANIC_OK = id => !['pyrazol-pro','bakteryn-cu','jelfer','incipio','lorfos','proroot','frutaliv','citogrower','botamisol','estimul-mix'].includes(id);
+const fmtDate = d => d.toLocaleDateString('es-EC', {weekday:'short', day:'numeric', month:'short'});
+
+function buildPlan(){
+  const start = new Date(($('#plDate').value || todayISO) + 'T12:00:00');
+  const days = Math.min(400, Math.max(30, parseInt($('#plDays').value) || 120));
+  const every = parseInt($('#plEvery').value) || 15;
+  const L = Math.max(1, parseFloat($('#plL').value) || 200), crop = $('#plCrop').value;
+  const apps = []; let k = 0, prot = 0;
+  for (let d = 7; d <= days - 7; d += every, k++){
+    const frac = d / days, st = PLAN_NUT.find(x => frac < x.to);
+    let pool = st.ids.filter(id => plFocus !== 'eco' || ORGANIC_OK(id));
+    if (!pool.length) pool = ['vitalhumic-k3','total-green'].filter(ORGANIC_OK);
+    const nut = pool[k % pool.length];
+    const items = [nut];
+    if (frac > .5 && st.stage !== 'Llenado y cosecha' && plFocus !== 'eco' && !items.includes('vitalhumic-k3') && k % 2) items.push('vitalhumic-k3');
+    const protList = PLAN_PROT[plFocus];
+    if (protList.length && d >= 14){ items.push(protList[prot % protList.length]); prot++; }
+    items.push('greenpega');
+    const date = new Date(start.getTime() + d * 864e5);
+    apps.push({n: apps.length + 1, d, date, stage: st.stage, items: [...new Set(items)].map(id => ({id, dose: tankDose(byId[id], L, crop).txt}))});
+  }
+  return {apps, crop, L, days, every, start};
+}
+function renderPlan(){
+  const P2 = buildPlan();
+  const need = {};
+  P2.apps.forEach(a => a.items.forEach(({id}) => { const p = byId[id]; const per = p.dose.per200 ? p.dose.per200 * P2.L / 200 : (p.dose.perL ? p.dose.perL[1] * P2.L : 0); need[id] = (need[id] || 0) + per; }));
+  const packs = Object.entries(need).map(([id,q]) => [id, Math.max(1, Math.ceil(q / byId[id].pack.size - 1e-9))]);
+  const rows = P2.apps.map(a => `<li class="pl-row"><div class="pl-d"><b>${fmtDate(a.date)}</b><span>Día ${a.d} · ${esc(a.stage)}</span></div><div class="pl-items">${a.items.map(({id,dose}) => `<button type="button" data-detail="${id}"><b>${esc(byId[id].name)}</b> ${esc(dose)}</button>`).join('')}</div></li>`).join('');
+  $('#plOut').innerHTML = `
+    <div class="verdict ok"><svg><use href="#i-leaf"/></svg><div><b>${P2.apps.length} aplicaciones para ${esc(P2.crop.toLowerCase())}</b><span>Cada ${P2.every} días · ciclo de ${P2.days} días · tanque de ${fmt(P2.L)} L</span></div></div>
+    <ol class="pl-list">${rows}</ol>
+    <div class="mode-box"><b>Productos para todo el programa (1 tanque por aplicación)</b><p>${packs.map(([id,n]) => `${n} × ${esc(byId[id].name)} (${esc(byId[id].pack.label)})`).join(' · ')}</p></div>
+    <div class="out-actions">
+      <button class="btn btn-sm" type="button" id="plAdd"><svg><use href="#i-bag"/></svg>Agregar todo al pedido</button>
+      <a class="btn btn-sm btn-wa" id="plWa" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Enviar plan al Ing. Patiño</a>
+      <button class="btn btn-sm btn-ghost" type="button" id="plCopy">Copiar plan</button>
+    </div>
+    <p class="muted" style="font-size:.82rem">Programa orientativo generado a partir de las etapas del cultivo. Ajusta las fechas al clima, al estado real del cultivo y a la recomendación del asesor. Si tienes varios tanques por hectárea, multiplica las cantidades.</p>`;
+  const txt = `Plan de aplicaciones – ${P2.crop}\nInicio: ${P2.start.toLocaleDateString('es-EC')} · cada ${P2.every} días · tanque de ${P2.L} L\n\n` + P2.apps.map(a => `${a.n}. ${a.date.toLocaleDateString('es-EC')} (día ${a.d}, ${a.stage}): ${a.items.map(({id,dose}) => `${byId[id].name} ${dose}`).join(' + ')}`).join('\n');
+  $('#plWa').href = waLink(`Hola Ing. Rafael Patiño, ¿me revisa este plan?\n\n${txt}`);
+  $('#plAdd').onclick = () => { packs.forEach(([id,n]) => { cart[id] = (cart[id] || 0) + n; }); store.set('ab-cart', cart); renderCart(); syncAddButtons(); toast(`${packs.length} productos del plan agregados a tu pedido`); };
+  $('#plCopy').onclick = async () => { try { await navigator.clipboard.writeText(txt); toast('Plan copiado'); } catch { toast('No se pudo copiar; usa el botón de WhatsApp'); } };
+}
+$('#plDays').value = CYCLE[$('#plCrop').value] || 120;
+
+/* ------------------------------------------------------------
+   COMPARADOR
+------------------------------------------------------------ */
+const cmpOpts = '<option value="">— Elegir —</option>' + Object.entries(LINES).map(([k,v]) => `<optgroup label="${v.name}">${P.filter(p => p.line[0] === k).map(p => `<option value="${p.id}">${esc(p.name)}</option>`).join('')}</optgroup>`).join('');
+['#cmp1','#cmp2','#cmp3'].forEach(id => { $(id).innerHTML = cmpOpts; $(id).addEventListener('input', renderCmp); });
+$('#cmp1').value = 'vitalhumic-k3'; $('#cmp2').value = 'humiroot'; $('#cmp3').value = 'proroot';
+function renderCmp(){
+  const ps = ['#cmp1','#cmp2','#cmp3'].map(id => byId[$(id).value]).filter(Boolean);
+  if (ps.length < 2){ $('#cmpOut').innerHTML = '<p class="muted">Elige al menos dos productos.</p>'; return; }
+  const row = (label, f) => `<tr><th scope="row">${label}</th>${ps.map(p => `<td>${f(p)}</td>`).join('')}</tr>`;
+  const tanks = p => p.dose.per200 ? `${fmt(p.pack.size / p.dose.per200, 1)} tanques de 200 L` : '—';
+  $('#cmpOut').innerHTML = `<div class="tbl-wrap"><table class="cmp">
+    <thead><tr><th></th>${ps.map(p => `<th scope="col"><button type="button" data-detail="${p.id}">${img(p)}<b>${esc(p.name)}</b></button><small>${esc(p.brand)}</small></th>`).join('')}</tr></thead>
+    <tbody>
+      ${row('Tipo', p => esc(p.type))}
+      ${row('Línea', p => esc(p.line.map(l => LINES[l].name).join(' · ')))}
+      ${row('Dosis', p => `<b>${esc(p.dose.text)}</b><small>${esc(p.dose.sub)}</small>`)}
+      ${row('Presentación', p => `<b>${esc(p.pack.label)}</b><small>rinde ${tanks(p)}</small>`)}
+      ${row('Para qué sirve', p => esc(p.short))}
+      ${row('Composición', p => `<ul>${p.comp.map(([k,v]) => `<li>${esc(k)}${v === '✓' ? '' : ` <b>${esc(v)}</b>`}</li>`).join('')}</ul>`)}
+      ${row('Beneficios', p => `<ul>${p.benefits.slice(0,3).map(([t]) => `<li>${esc(t)}</li>`).join('')}</ul>`)}
+      ${row('Precaución', p => p.caution ? '<span class="pill warn">Usar con equipo de protección</span>' : (p.organic ? '<span class="pill ok">Orgánico / natural</span>' : '—'))}
+      <tr><th></th>${ps.map(p => `<td><button class="btn btn-sm btn-block" type="button" data-add="${p.id}"><svg><use href="#i-bag"/></svg>Agregar</button></td>`).join('')}</tr>
+    </tbody></table></div>`;
+}
 
 /* ------------------------------------------------------------
    APP INSTALABLE (funciona sin internet)
@@ -2174,7 +2332,7 @@ addEventListener('appinstalled', () => { $('#installBtn').hidden = true; toast('
 if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !navigator.standalone && location.protocol === 'https:') $('#installIos').hidden = false;
 
 /* INIT */
-renderGrid(); renderCart(); setStage(1); calc(); renderMix(); renderRot();
+renderGrid(); renderCart(); setStage(1); calc(); renderMix(); renderRot(); renderPlan(); renderCmp();
 { const h = location.hash.match(/^#p-([a-z0-9-]+)$/); if (h && byId[h[1]]) setTimeout(() => openDetail(h[1]), 300); }
 setCountry(store.get('ab-country', /-CO$/i.test(navigator.language || '') ? 'co' : 'ec'), false);
 })();

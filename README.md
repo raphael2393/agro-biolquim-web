@@ -11,6 +11,7 @@ Sitio estático (un solo `index.html`, sin dependencias de compilación). Se pue
 - Selector de país: los botones de WhatsApp usan el número de Ecuador (+593 95 943 2050) o Colombia (+57 323 398 6209).
 - Asesor técnico: Ing. Agr. Rafael Patiño.
 - Asistente técnico: compatibilidad de mezcla en tanque (dosis, orden de mezcla, alertas) y rotación de ingredientes activos por grupos FRAC/IRAC.
+- Plan de aplicaciones por cultivo y fecha, y comparador de productos (en el asistente técnico).
 - Programa por etapa del cultivo (suelo y raíz, crecimiento, floración, llenado, protección).
 - Calculadora de dosis según litros, número de cargas y presentación.
 - "Mi pedido": carrito que arma el mensaje y lo envía por WhatsApp.
