@@ -4,7 +4,7 @@ Sitio oficial de **Agro Biolquim** — Biotecnología Agrícola Avanzada.
 Sitio estático (un solo `index.html`, sin dependencias de compilación). Se puede publicar directamente con GitHub Pages.
 
 ## Funciones
-- Catálogo de los 21 productos con filtros por línea y buscador.
+- Catálogo de los 23 productos con filtros por línea y buscador.
 - Ficha detallada de cada producto (composición, dosis, beneficios) y visor de la ficha técnica original.
 - Kits agrícolas por objetivo (raíz, vigor, floración, llenado, protección, clima extremo).
 - Sección de cultivos y cobertura en Ecuador (13 provincias) y Colombia (Nariño, Cauca, Bogotá, Medellín).
