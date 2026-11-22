@@ -15,6 +15,8 @@ Sitio estático (un solo `index.html`, sin dependencias de compilación). Se pue
 - Calculadora de dosis según litros, número de cargas y presentación.
 - "Mi pedido": carrito que arma el mensaje y lo envía por WhatsApp.
 
+- Calculadora por superficie (hectáreas y litros de agua por hectárea).
+- Instalable como app en el celular y funciona sin internet (`manifest.webmanifest`, `sw.js`). Al cambiar imágenes o la página, sube la versión `VERSION` en `sw.js`.
 - Página propia por producto en `productos/<id>/` (para Google y para compartir).
 - Catálogo descargable en `assets/catalogo-agro-biolquim.pdf`.
 
