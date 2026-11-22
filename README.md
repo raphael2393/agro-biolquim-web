@@ -15,10 +15,13 @@ Sitio estático (un solo `index.html`, sin dependencias de compilación). Se pue
 - Calculadora de dosis según litros, número de cargas y presentación.
 - "Mi pedido": carrito que arma el mensaje y lo envía por WhatsApp.
 
+- Página propia por producto en `productos/<id>/` (para Google y para compartir).
+- Catálogo descargable en `assets/catalogo-agro-biolquim.pdf`.
+
 ## Estructura
-- `assets/productos/` — fotos recortadas de cada envase (`.webp`).
+- `assets/productos/` — imagen de cada envase (`.webp`); `assets/productos/mini/` — versión liviana para el catálogo.
 - `assets/fichas/` — fichas técnicas originales de cada producto.
-- `assets/logo-mark.png`, `assets/logo-original.png` — logotipo.
+- `assets/logo-mark.png` — logotipo.
 
 Los datos de los productos están en el arreglo `P` dentro del `<script>` de `index.html`.
 
