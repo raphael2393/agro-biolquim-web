@@ -29,7 +29,7 @@ Sitio estático (un solo `index.html`, sin dependencias de compilación). Se pue
 Los datos de los productos están en el arreglo `P` dentro del `<script>` de `index.html`.
 
 ## Publicación en www.agrobiolquim.com
-El sitio se publica con GitHub Pages desde la rama `main` (carpeta raíz). El archivo `CNAME` apunta a `www.agrobiolquim.com`.
+El sitio se publica con GitHub Pages desde la rama `main` (carpeta raíz). Dirección actual: https://raphael2393.github.io/agro-biolquim-web/ . Cuando el dominio esté configurado, crea el archivo `CNAME` con `www.agrobiolquim.com` y cambia la dirección base en `index.html` (SITE), `sitemap.xml`, `robots.txt` y las páginas de `productos/`.
 
 DNS del dominio (en el proveedor donde se compró):
 - `www` → registro **CNAME** a `raphael2393.github.io`

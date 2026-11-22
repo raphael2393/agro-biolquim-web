@@ -17,9 +17,9 @@
 <meta property="og:site_name" content="Agro Biolquim">
 <meta property="og:title" content="Agro Biolquim | Biotecnología Agrícola Avanzada">
 <meta property="og:description" content="Bioestimulantes, protección y nutrición para todo tipo de cultivo. Ecuador y Colombia.">
-<meta property="og:image" content="https://www.agrobiolquim.com/assets/og-image.jpg">
-<meta property="og:url" content="https://www.agrobiolquim.com/">
-<link rel="canonical" href="https://www.agrobiolquim.com/">
+<meta property="og:image" content="https://raphael2393.github.io/agro-biolquim-web/assets/og-image.jpg">
+<meta property="og:url" content="https://raphael2393.github.io/agro-biolquim-web/">
+<link rel="canonical" href="https://raphael2393.github.io/agro-biolquim-web/">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,8 +33,8 @@
   "name": "Agro Biolquim",
   "employee": {"@type": "Person", "name": "Rafael Patiño", "honorificPrefix": "Ing. Agr.", "jobTitle": "Asesor técnico especializado en agronutrientes y bioestimulantes"},
   "description": "Biotecnología agrícola avanzada: bioestimulantes, inductores de resistencia, fungicidas, mejoradores de suelo y coadyuvantes.",
-  "url": "https://www.agrobiolquim.com/",
-  "logo": "https://www.agrobiolquim.com/assets/logo-mark.png",
+  "url": "https://raphael2393.github.io/agro-biolquim-web/",
+  "logo": "https://raphael2393.github.io/agro-biolquim-web/assets/logo-mark.png",
   "areaServed": ["Ecuador", "Colombia"],
   "email": "agrobiolquimorganic@gmail.com",
   "contactPoint": [
@@ -1623,7 +1623,7 @@ const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const fmt = (n, d=0) => n.toLocaleString('es-EC', {maximumFractionDigits:d, minimumFractionDigits:0});
 const img = (p, cls='', eager=false) => `<img class="${cls}" src="assets/productos/${eager ? '' : 'mini/'}${p.id}.webp" alt="Envase de ${esc(p.name)}" width="340" height="720" ${eager?'':'loading="lazy"'} decoding="async">`;
 let country = 'ec';
-const SITE = 'https://www.agrobiolquim.com/';
+const SITE = 'https://raphael2393.github.io/agro-biolquim-web/';
 const waLink = (msg, c = country) => `https://wa.me/${COUNTRIES[c].wa}?text=${encodeURIComponent(msg)}`;
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
