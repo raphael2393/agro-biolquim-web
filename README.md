@@ -9,6 +9,8 @@ Sitio estático (un solo `index.html`, sin dependencias de compilación). Se pue
 - Kits agrícolas por objetivo (raíz, vigor, floración, llenado, protección, clima extremo).
 - Sección de cultivos y cobertura en Ecuador (13 provincias) y Colombia (Nariño, Cauca, Bogotá, Medellín).
 - Selector de país: los botones de WhatsApp usan el número de Ecuador (+593 95 943 2050) o Colombia (+57 323 398 6209).
+- Asesor técnico: Ing. Agr. Rafael Patiño.
+- Asistente técnico: compatibilidad de mezcla en tanque (dosis, orden de mezcla, alertas) y rotación de ingredientes activos por grupos FRAC/IRAC.
 - Programa por etapa del cultivo (suelo y raíz, crecimiento, floración, llenado, protección).
 - Calculadora de dosis según litros, número de cargas y presentación.
 - "Mi pedido": carrito que arma el mensaje y lo envía por WhatsApp.

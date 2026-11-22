@@ -28,6 +28,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Agro Biolquim",
+  "employee": {"@type": "Person", "name": "Rafael Patiño", "honorificPrefix": "Ing. Agr.", "jobTitle": "Asesor técnico especializado en agronutrientes y bioestimulantes"},
   "description": "Biotecnología agrícola avanzada: bioestimulantes, inductores de resistencia, fungicidas, mejoradores de suelo y coadyuvantes.",
   "url": "https://www.agrobiolquim.com/",
   "logo": "https://www.agrobiolquim.com/assets/logo-mark.png",
@@ -576,6 +577,94 @@ body.lock{overflow:hidden}
 @media (min-width:921px){.m-media img,.m-media.photo img{position:absolute;inset:0}}
 @media (max-width:920px){.m-media,.m-media.photo{padding:0 0 76px;min-height:0}.m-media img,.m-media.photo img{height:52svh;object-fit:cover}}
 
+
+/* Asesor */
+.advisor-sec{background:var(--forest-900);color:#fff;position:relative;overflow:hidden}
+.advisor-sec::before{content:"";position:absolute;inset:-20% auto auto -10%;width:60%;aspect-ratio:1;background:radial-gradient(closest-side,rgba(93,190,111,.25),transparent);pointer-events:none}
+.advisor{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,72px);align-items:center;position:relative}
+.adv-photo{margin:0;position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow-3);border:1px solid rgba(198,227,107,.25);max-width:520px;width:100%;justify-self:center}
+.adv-photo img{width:100%;height:auto;display:block}
+.adv-photo figcaption{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;background:rgba(6,24,15,.78);backdrop-filter:blur(8px);font-size:.84rem;font-weight:700;color:#e6efe8}
+.adv-dot{width:10px;height:10px;border-radius:50%;background:var(--lime-300);box-shadow:0 0 0 4px rgba(198,227,107,.25);animation:pulse 2.2s infinite}
+.adv-info .eyebrow{color:var(--lime-300)}
+.adv-info h2{font-size:clamp(2.4rem,5.4vw,4.2rem);margin:16px 0 8px}
+.adv-info h2 em{font-style:italic;color:var(--lime-300)}
+.adv-role{font-size:1.15rem;font-weight:700;color:var(--lime-200)}
+.adv-text{color:#bcd0c2;font-size:1.05rem;margin-top:16px;max-width:600px}
+.adv-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.adv-list li{display:flex;gap:12px;padding:14px;border-radius:var(--r-md);background:rgba(255,255,255,.05);border:1px solid var(--line-dark);font-size:.88rem;color:#a9bfb0}
+.adv-list svg{width:22px;height:22px;color:var(--lime-300);flex:none}
+.adv-list b{display:block;color:#fff;font-size:.95rem;margin-bottom:2px}
+.adv-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.adv-actions .btn-ghost{color:#fff}
+
+/* Herramientas */
+.tabs{display:inline-flex;flex-wrap:wrap;gap:6px;padding:6px;border-radius:18px;background:var(--paper-2);border:1px solid var(--line);margin-bottom:18px}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:10px 18px;border:0;border-radius:13px;background:transparent;font-weight:800;font-size:.95rem;color:var(--ink-2)}
+.tab svg{width:20px;height:20px}
+.tab[aria-selected="true"]{background:var(--forest-900);color:#fff;box-shadow:var(--shadow-1)}
+.tool{display:grid;grid-template-columns:1fr 1.1fr;border-radius:var(--r-xl);overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow-2)}
+.tool[hidden]{display:none}
+.tool-in{padding:clamp(22px,3.5vw,40px);display:grid;gap:22px;align-content:start}
+.tool-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tool-row > *{min-width:0}
+.tool-in .lbl small{font-weight:700;color:var(--leaf-500)}
+.pick{display:grid;gap:12px}
+.pick-g > span{display:block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.pick-g > div{display:flex;flex-wrap:wrap;gap:6px}
+.pk{min-height:38px;padding:7px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);font-weight:700;font-size:.86rem;color:var(--ink-2);transition:all .2s}
+.pk:hover{border-color:var(--forest-600)}
+.pk[aria-pressed="true"]{background:var(--forest-900);border-color:var(--forest-900);color:#fff}
+.pk[aria-pressed="true"]::before{content:"✓ ";color:var(--lime-300)}
+.tool-out{padding:clamp(22px,3.5vw,40px);background:var(--paper);border-left:1px solid var(--line);display:grid;gap:16px;align-content:start;min-width:0}
+.tool-out .lbl{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.out-empty{display:grid;place-items:center;text-align:center;gap:10px;padding:40px 10px;color:var(--ink-3)}
+.out-empty svg{width:44px;height:44px;color:var(--line)}
+.verdict{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:var(--r-md)}
+.verdict svg{width:26px;height:26px;flex:none}
+.verdict b{display:block;font-size:1.08rem}
+.verdict span{font-size:.86rem}
+.verdict.ok{background:#E6F4E8;color:#14532d}
+.verdict.warn{background:#FFF4DB;color:#7a4b00}
+.tbl-wrap{overflow-x:auto;border-radius:var(--r-md);border:1px solid var(--line);background:var(--card)}
+.rt{width:100%;border-collapse:collapse;font-size:.9rem}
+.rt th{text-align:left;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding:10px 12px;border-bottom:1px solid var(--line);font-weight:800}
+.rt td{padding:10px 12px;border-bottom:1px dashed var(--line);vertical-align:top}
+.rt tr:last-child td{border-bottom:0}
+.rt td small{display:block;color:var(--ink-3);font-size:.78rem;margin-top:2px}
+.rt td.num{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rt td.muted{color:var(--ink-3)}
+.step{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--forest-900);color:var(--lime-300);font-weight:800;font-size:.8rem}
+.mix-order{font-size:.86rem;color:var(--ink-2);line-height:1.6}
+.issues{display:grid;gap:8px}
+.issues li{display:flex;gap:10px;padding:12px;border-radius:12px;background:#FFF4DB;font-size:.86rem;color:#5c3a00}
+.issues li b{display:block;color:#3d2600}
+.issues.info li{background:var(--card);border:1px solid var(--line);color:var(--ink-2)}
+.issues svg{width:18px;height:18px;flex:none;margin-top:2px}
+.out-actions{display:flex;flex-wrap:wrap;gap:8px}
+.hist > div{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-top:8px}
+.hist small{color:var(--ink-3);font-size:.8rem;margin-right:6px}
+.moa{display:inline-block;padding:3px 9px;border-radius:8px;background:#1F48A8;color:#fff;font-size:.74rem;font-weight:800;letter-spacing:.03em;white-space:nowrap}
+.moa.low{background:var(--leaf-500)}
+.mode-box{padding:14px 16px;border-radius:var(--r-md);background:var(--forest-900);color:#dfe9e2}
+.mode-box b{color:var(--lime-300)}
+.mode-box p{font-size:.88rem;margin-top:4px}
+.recs{display:grid;gap:10px}
+.rec{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:10px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.rec.dim{opacity:.72}
+.rec img{width:56px;height:70px;object-fit:cover;object-position:50% 55%;border-radius:10px}
+.rec-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rec-h b{font-size:1rem;margin-right:4px}
+.rec small{display:block;color:var(--ink-3);font-size:.8rem;margin-top:3px}
+.rec-d{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.84rem;margin-top:4px}
+.rec-d em{color:var(--ink-3);font-style:normal}
+.combo{display:flex;gap:10px;padding:12px 14px;border-radius:12px;background:#E6F4E8;color:#14532d;font-size:.88rem}
+.combo svg{width:20px;height:20px;flex:none}
+.muted{color:var(--ink-3)}
+.tool-note{margin-top:16px;font-size:.82rem;color:var(--ink-3);max-width:900px}
+@media (max-width:920px){.advisor,.tool{grid-template-columns:1fr}.tool-out{border-left:0;border-top:1px solid var(--line)}}
+@media (max-width:640px){.adv-list,.tool-row{grid-template-columns:1fr}.tab{flex:1 1 100%;justify-content:center}.tabs{display:flex}}
+
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -696,7 +785,8 @@ body.lock{overflow:hidden}
       <a href="#productos">Productos</a>
       <a href="#kits">Kits</a>
       <a href="#programa">Por etapa</a>
-      <a href="#calculadora">Calculadora</a>
+      <a href="#herramientas">Asistente</a>
+      <a href="#asesor">Asesor</a>
       <a href="#cobertura">Cobertura</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
@@ -815,6 +905,91 @@ body.lock{overflow:hidden}
       </div>
       <a class="btn btn-lime" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim" data-wa="Hola Agro Biolquim, quiero armar un kit a la medida. Mi cultivo es: " target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Armar mi kit a la medida</a>
     </div>
+  </div>
+</section>
+
+
+<!-- ASESOR -->
+<section class="section advisor-sec" id="asesor">
+  <div class="wrap advisor">
+    <figure class="adv-photo reveal">
+      <img src="assets/asesor-rafael-patino.webp" alt="Ing. Agr. Rafael Patiño, asesor técnico de Agro Biolquim" width="1086" height="1448" loading="lazy">
+      <figcaption><span class="adv-dot"></span>Disponible para asesoría en campo</figcaption>
+    </figure>
+    <div class="adv-info reveal d1">
+      <span class="eyebrow">Asesor técnico especializado</span>
+      <h2>Ing. Agr. <em>Rafael Patiño</em></h2>
+      <p class="adv-role">Especialista en agronutrientes y bioestimulantes</p>
+      <p class="adv-text">Te acompaña desde el diagnóstico hasta la cosecha: revisa tu cultivo, interpreta lo que ves en campo y arma contigo el programa de nutrición, bioestimulación y protección que necesitas, con dosis claras y rotación de moléculas para evitar resistencia.</p>
+      <ul class="adv-list">
+        <li><svg><use href="#i-leaf"/></svg><span><b>Planes de nutrición y bioestimulación</b>por etapa y por cultivo</span></li>
+        <li><svg><use href="#i-shield"/></svg><span><b>Programas de protección</b>con rotación de ingredientes activos</span></li>
+        <li><svg><use href="#i-flask"/></svg><span><b>Mezclas de tanque seguras</b>compatibilidad, orden de mezcla y pH</span></li>
+        <li><svg><use href="#i-pin"/></svg><span><b>Visitas técnicas</b>en Ecuador y Colombia</span></li>
+      </ul>
+      <div class="adv-actions">
+        <a class="btn btn-wa" href="https://wa.me/593959432050" data-wa="Hola Ing. Rafael Patiño, quiero asesoría técnica para mi cultivo de: " target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir al Ing. Patiño</a>
+        <a class="btn btn-ghost" href="#herramientas">Usar el asistente técnico</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section class="section tools-sec" id="herramientas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Asistente técnico</span>
+      <h2>Mezcla segura y <em>rotación inteligente.</em></h2>
+      <p>Dos herramientas para planificar tu próxima aplicación: revisa si los productos que vas a mezclar son compatibles, y recibe una propuesta de rotación según tus dos últimas aplicaciones.</p>
+    </div>
+    <div class="tabs reveal" role="tablist" aria-label="Herramientas">
+      <button class="tab" role="tab" id="tabMix" aria-selected="true" aria-controls="paneMix" type="button"><svg><use href="#i-flask"/></svg>Compatibilidad de mezcla</button>
+      <button class="tab" role="tab" id="tabRot" aria-selected="false" aria-controls="paneRot" type="button" tabindex="-1"><svg><use href="#i-shield"/></svg>Rotación de ingredientes activos</button>
+    </div>
+
+    <div class="tool reveal" id="paneMix" role="tabpanel" aria-labelledby="tabMix">
+      <div class="tool-in">
+        <div class="tool-row">
+          <div class="field"><label for="mxCrop">Cultivo</label><div class="select"><select id="mxCrop"></select></div></div>
+          <div class="field"><label for="mxL">Volumen del tanque</label><div class="num-input"><input id="mxL" type="number" min="1" step="1" value="200" inputmode="numeric"><span class="unit">L</span></div></div>
+        </div>
+        <div class="field">
+          <span class="lbl">Productos que piensas aplicar <small id="mxN"></small></span>
+          <div class="pick" id="mxPick"></div>
+        </div>
+      </div>
+      <div class="tool-out" id="mxOut" aria-live="polite"></div>
+    </div>
+
+    <div class="tool reveal" id="paneRot" role="tabpanel" aria-labelledby="tabRot" hidden>
+      <div class="tool-in">
+        <div class="tool-row">
+          <div class="field"><label for="rtCrop">Cultivo</label><div class="select"><select id="rtCrop"></select></div></div>
+          <div class="field"><label for="rtProb">Problema a controlar</label><div class="select"><select id="rtProb">
+            <option value="hongos">Hongos (mildiu, oídio, roya, botritis, tizón)</option>
+            <option value="bacterias">Bacterias</option>
+            <option value="insectos">Insectos y larvas (gusanos, trips, minadores)</option>
+            <option value="acaros">Ácaros (arañita roja)</option>
+          </select></div></div>
+        </div>
+        <div class="tool-row">
+          <div class="field"><label for="rtA1">Última aplicación</label><div class="select"><select id="rtA1"></select></div></div>
+          <div class="field"><label for="rtA2">Penúltima aplicación</label><div class="select"><select id="rtA2"></select></div></div>
+        </div>
+        <div class="field">
+          <span class="lbl" id="rtModeLbl">Objetivo de la aplicación</span>
+          <div class="seg" id="rtMode" role="group" aria-labelledby="rtModeLbl">
+            <button type="button" data-m="prev" aria-pressed="true">Prevención<small>sin síntomas</small></button>
+            <button type="button" data-m="cur" aria-pressed="false">Curativo<small>primeros síntomas</small></button>
+            <button type="button" data-m="err" aria-pressed="false">Erradicar<small>alta presión</small></button>
+          </div>
+        </div>
+        <div class="field" style="max-width:240px"><label for="rtL">Volumen del tanque</label><div class="num-input"><input id="rtL" type="number" min="1" step="1" value="200" inputmode="numeric"><span class="unit">L</span></div></div>
+      </div>
+      <div class="tool-out" id="rtOut" aria-live="polite"></div>
+    </div>
+    <p class="tool-note">Herramienta orientativa basada en las etiquetas, fichas técnicas y los códigos de modo de acción FRAC (fungicidas) e IRAC (insecticidas). No reemplaza la etiqueta: nunca superes la dosis máxima ni el número de aplicaciones permitidas, respeta el periodo de carencia y haz siempre una prueba de mezcla en un recipiente pequeño.</p>
   </div>
 </section>
 
@@ -1020,6 +1195,8 @@ body.lock{overflow:hidden}
           <li><a href="#cultivos">Cultivos</a></li>
           <li><a href="#programa">Programa por etapa</a></li>
           <li><a href="#calculadora">Calculadora de dosis</a></li>
+          <li><a href="#herramientas">Asistente técnico</a></li>
+          <li><a href="#asesor">Asesor técnico</a></li>
           <li><a href="#cobertura">Cobertura</a></li>
           <li><a href="#preguntas">Preguntas frecuentes</a></li>
         </ul>
@@ -1762,8 +1939,183 @@ $('#footLines').innerHTML = Object.entries(LINES).map(([k,v]) => `<li><a href="#
 $('#footLines').addEventListener('click', e => { const a = e.target.closest('[data-line]'); if (a){ const c = $(`.chip[data-f="${a.dataset.line}"]`); c && c.click(); } });
 $('#year').textContent = new Date().getFullYear();
 
+
+/* ------------------------------------------------------------
+   ASISTENTE TÉCNICO: COMPATIBILIDAD Y ROTACIÓN
+------------------------------------------------------------ */
+const CROP_LIST = ['Papa','Tomate de mesa','Tomate de árbol','Pimiento y ají','Cebolla','Brócoli y coles','Lechuga y hortalizas de hoja','Fréjol, arveja y haba','Maíz','Aguacate','Mora y fresa','Cítricos','Uvilla','Rosas y flores','Café','Cacao','Banano y plátano','Pastos','Otro cultivo'];
+const isFlower = c => /Rosas/.test(c);
+const cropOpts = CROP_LIST.map(c => `<option>${c}</option>`).join('');
+['#mxCrop','#rtCrop'].forEach(id => { $(id).innerHTML = cropOpts; });
+
+/* Formulación → orden de mezcla */
+const FORM = {
+  'bakteryn-cu':[1,'Polvo mojable (WP)'], 'lorfos':[1,'Gránulos dispersables (WG)'], 'tierra-diatomeas':[1,'Polvo insoluble'],
+  'jelfer':[2,'Suspensión concentrada (SC)'], 'incipio':[2,'Suspensión concentrada (SC)'], 'pyrazol-pro':[2,'Suspoemulsión (SE)'], 'sulfok-plus':[2,'Suspensión con azufre'],
+  'greenpega':[4,'Coadyuvante siliconado']
+};
+const formOf = p => FORM[p.id] || [3, /kg|g$/.test(p.pack.unit) ? 'Polvo soluble / fertilizante' : 'Concentrado soluble'];
+const STEP = {1:'Dispersables (WP, WG, polvos)', 2:'Suspensiones (SC, SE)', 3:'Solubles y fertilizantes', 4:'Coadyuvante al final'};
+
+function tankDose(p, L, crop){
+  const u = p.dose.unit || 'ml';
+  if (p.id === 'bades-amino-45' && isFlower(crop)) return {txt:`${unitFmt(0.5*L,'g')} – ${unitFmt(1*L,'g')}`, note:'ornamentales: 50–100 g/100 L'};
+  if (p.dose.per200) return {txt: unitFmt(p.dose.per200 * L / 200, u), note: p.dose.text + (p.dose.text.includes('/') ? '' : ' / 200 L')};
+  if (p.dose.perL) return {txt:`${unitFmt(p.dose.perL[0]*L, u)} – ${unitFmt(p.dose.perL[1]*L, u)}`, note:p.dose.text};
+  return {txt:'Según etiqueta', note:'consulta la etiqueta o al asesor', none:true};
+}
+
+/* Reglas de compatibilidad (orientativas) */
+const ACID = ['botamisol','citogrower'];          /* pH 3,85 y 2,65 en solución al 10 % */
+const ALK = ['frutaliv'];                           /* pH 8,86 */
+const AMINO_HUMIC = ['bades-amino-45','botamisol','estimul-mix','vitalhumic-k3','humiroot','frutaliv','total-green'];
+const HUMIC = ['vitalhumic-k3','humiroot'];
+const PEST = ['pyrazol-pro','incipio','jelfer','lorfos','bakteryn-cu','sulfok-plus'];
+function pairRule(a, b){
+  const has = (x, y, A, B) => (A.includes(x) && B.includes(y)) || (A.includes(y) && B.includes(x));
+  if (has(a,b,['bakteryn-cu'],ACID)) return ['warn','El pH ácido aumenta la solubilidad del cobre y el riesgo de quemaduras en hojas y frutos.'];
+  if (has(a,b,['bakteryn-cu'],ALK)) return ['warn','La kasugamicina pierde estabilidad en agua alcalina.'];
+  if (has(a,b,['bakteryn-cu'],AMINO_HUMIC)) return ['warn','Aminoácidos y ácidos húmicos pueden acomplejar el cobre y bajar su eficacia. Mejor aplícalos por separado.'];
+  if (has(a,b,HUMIC,ACID)) return ['warn','Los ácidos húmicos pueden precipitar con productos de pH ácido. Haz prueba de mezcla.'];
+  if (has(a,b,ALK,['pyrazol-pro','incipio','jelfer','lorfos'])) return ['warn','El pH alcalino puede degradar el plaguicida por hidrólisis. Regula el pH del agua con Greenpegá antes de mezclar.'];
+  return ['ok','Sin incompatibilidades conocidas.'];
+}
+
+/* Compatibilidad UI */
+let mxSel = store.get('ab-mix', ['vitalhumic-k3','vital-protec','greenpega']).filter(id => byId[id]);
+$('#mxPick').innerHTML = Object.entries(LINES).map(([k,v]) => `<div class="pick-g"><span>${v.name}</span><div>${P.filter(p => p.line[0] === k).map(p => `<button type="button" class="pk" data-pk="${p.id}" aria-pressed="false">${esc(p.name)}</button>`).join('')}</div></div>`).join('');
+$('#mxPick').addEventListener('click', e => {
+  const b = e.target.closest('[data-pk]'); if (!b) return;
+  const id = b.dataset.pk; mxSel = mxSel.includes(id) ? mxSel.filter(x => x !== id) : [...mxSel, id];
+  store.set('ab-mix', mxSel); renderMix();
+});
+['#mxCrop','#mxL'].forEach(id => $(id).addEventListener('input', renderMix));
+
+function renderMix(){
+  $$('#mxPick [data-pk]').forEach(b => b.setAttribute('aria-pressed', mxSel.includes(b.dataset.pk)));
+  $('#mxN').textContent = mxSel.length ? `· ${mxSel.length} seleccionado${mxSel.length > 1 ? 's' : ''}` : '';
+  const L = Math.max(1, parseFloat($('#mxL').value) || 200), crop = $('#mxCrop').value;
+  if (!mxSel.length){ $('#mxOut').innerHTML = `<div class="out-empty"><svg><use href="#i-flask"/></svg><p>Selecciona al menos un producto para ver dosis, orden de mezcla y compatibilidad.</p></div>`; return; }
+  const ps = mxSel.map(id => byId[id]).sort((a,b) => formOf(a)[0] - formOf(b)[0]);
+  const issues = [];
+  for (let i = 0; i < ps.length; i++) for (let j = i+1; j < ps.length; j++){ const r = pairRule(ps[i].id, ps[j].id); if (r[0] !== 'ok') issues.push([ps[i], ps[j], r[1]]); }
+  const nPest = ps.filter(p => PEST.includes(p.id)).length;
+  const general = [];
+  if (nPest > 3) general.push('Estás mezclando más de 3 plaguicidas. Reduce la mezcla para bajar el riesgo de fitotoxicidad.');
+  if (mxSel.includes('tierra-diatomeas')) general.push('Tierra de Diatomeas es un polvo insoluble: agita constantemente y usa filtro para no tapar boquillas.');
+  if (ps.some(p => p.caution)) general.push('La mezcla incluye productos con aviso de peligro: usa equipo de protección completo.');
+  const verdict = issues.length ? ['warn','Compatible con precauciones', `${issues.length} combinación${issues.length > 1 ? 'es' : ''} a revisar`] : ['ok','Mezcla compatible', 'sin incompatibilidades conocidas entre estos productos'];
+  const rows = ps.map(p => { const d = tankDose(p, L, crop), f = formOf(p); return `<tr><td><span class="step">${f[0]}</span></td><td><b>${esc(p.name)}</b><small>${esc(f[1])}</small></td><td class="num ${d.none ? 'muted' : ''}">${esc(d.txt)}<small>${esc(d.note)}</small></td></tr>`; }).join('');
+  const msg = `Hola Ing. Rafael Patiño, quiero confirmar esta mezcla para ${crop} en tanque de ${L} L:\n\n${ps.map(p => `• ${p.name}: ${tankDose(p,L,crop).txt}`).join('\n')}\n\n¿Es correcta?`;
+  $('#mxOut').innerHTML = `
+    <div class="verdict ${verdict[0]}"><svg><use href="#${verdict[0] === 'ok' ? 'i-check' : 'i-warn'}"/></svg><div><b>${verdict[1]}</b><span>${verdict[2]} · ${esc(crop)} · tanque de ${fmt(L)} L</span></div></div>
+    <div class="tbl-wrap"><table class="rt"><thead><tr><th>Orden</th><th>Producto</th><th>Dosis en el tanque</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="mix-order">Orden de mezcla: llena el tanque a la mitad con agua → ${[...new Set(ps.map(p => formOf(p)[0]))].sort().map(n => `<b>${n}.</b> ${STEP[n]}`).join(' → ')} → completa con agua agitando.</p>
+    ${issues.length ? `<ul class="issues">${issues.map(([a,b,t]) => `<li><svg><use href="#i-warn"/></svg><span><b>${esc(a.name)} + ${esc(b.name)}</b>${esc(t)}</span></li>`).join('')}</ul>` : ''}
+    ${general.length ? `<ul class="issues info">${general.map(t => `<li><svg><use href="#i-spark"/></svg><span>${esc(t)}</span></li>`).join('')}</ul>` : ''}
+    <div class="out-actions">
+      <button class="btn btn-sm" type="button" id="mxAdd"><svg><use href="#i-bag"/></svg>Agregar estos productos al pedido</button>
+      <a class="btn btn-sm btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Confirmar con el Ing. Patiño</a>
+    </div>`;
+  $('#mxAdd').onclick = () => { ps.forEach(p => { cart[p.id] = (cart[p.id] || 0) + 1; }); store.set('ab-cart', cart); renderCart(); syncAddButtons(); toast(`${ps.length} productos agregados a tu pedido`); };
+}
+
+/* Rotación: moléculas con su grupo de modo de acción */
+const MOA = {
+  'FRAC 1':'Benzimidazoles','FRAC 2':'Dicarboximidas','FRAC 3':'Triazoles (DMI)','FRAC 4':'Fenilamidas','FRAC 7':'Carboxamidas (SDHI)','FRAC 9':'Anilinopirimidinas','FRAC 11':'Estrobilurinas (QoI)','FRAC 12':'Fenilpirroles','FRAC 24':'Hexopiranosil antibiótico','FRAC 25':'Glucopiranosil antibiótico','FRAC 27':'Cianoacetamida-oximas','FRAC 28':'Carbamatos','FRAC 40':'Amidas del ácido carboxílico (CAA)','FRAC 41':'Tetraciclinas','FRAC P07':'Fosfonatos',
+  'FRAC M01':'Cobre (multisitio)','FRAC M02':'Azufre (multisitio)','FRAC M03':'Ditiocarbamatos (multisitio)','FRAC M05':'Cloronitrilos (multisitio)',
+  'IRAC 1A':'Carbamatos','IRAC 1B':'Organofosforados','IRAC 3A':'Piretroides','IRAC 4A':'Neonicotinoides','IRAC 5':'Espinosinas','IRAC 6':'Avermectinas','IRAC 9B':'Piridin azometinas','IRAC 10A':'Hexitiazox / clofentezina','IRAC 10B':'Etoxazol','IRAC 13':'Pirroles','IRAC 15':'Benzoilureas','IRAC 16':'Buprofezin','IRAC 21A':'Acaricidas METI','IRAC 23':'Ácidos tetrónicos y tetrámicos','IRAC 28':'Diamidas','IRAC 29':'Flonicamid','IRAC 30':'Isoxazolinas (meta-diamidas)',
+  'INDUCTOR':'Inductor de resistencia','FISICO':'Acción física'
+};
+const LOW_RISK = g => /M0|INDUCTOR|FISICO/.test(g);
+const MOLS = [
+  ['Fungicidas',[['Azoxistrobina',['FRAC 11']],['Piraclostrobina',['FRAC 11']],['Trifloxistrobina',['FRAC 11']],['Difenoconazol',['FRAC 3']],['Tebuconazol',['FRAC 3']],['Propiconazol',['FRAC 3']],['Epoxiconazol',['FRAC 3']],['Boscalid',['FRAC 7']],['Fluopyram',['FRAC 7']],['Metalaxil',['FRAC 4']],['Cimoxanil',['FRAC 27']],['Dimetomorf',['FRAC 40']],['Mandipropamid',['FRAC 40']],['Propamocarb',['FRAC 28']],['Fosetil aluminio',['FRAC P07']],['Carbendazim',['FRAC 1']],['Iprodione',['FRAC 2']],['Pirimetanil',['FRAC 9']],['Ciprodinil',['FRAC 9']],['Fludioxonil',['FRAC 12']],['Mancozeb',['FRAC M03']],['Clorotalonil',['FRAC M05']],['Oxicloruro / hidróxido de cobre',['FRAC M01']],['Azufre',['FRAC M02']]]],
+  ['Bactericidas',[['Kasugamicina',['FRAC 24']],['Estreptomicina',['FRAC 25']],['Oxitetraciclina',['FRAC 41']]]],
+  ['Insecticidas y acaricidas',[['Abamectina',['IRAC 6']],['Benzoato de emamectina',['IRAC 6']],['Lufenurón',['IRAC 15']],['Clorantraniliprol',['IRAC 28']],['Ciantraniliprol',['IRAC 28']],['Spinetoram / spinosad',['IRAC 5']],['Imidacloprid',['IRAC 4A']],['Tiametoxam',['IRAC 4A']],['Acetamiprid',['IRAC 4A']],['Lambda-cihalotrina',['IRAC 3A']],['Cipermetrina',['IRAC 3A']],['Bifentrina',['IRAC 3A']],['Clorpirifos',['IRAC 1B']],['Profenofos',['IRAC 1B']],['Metomil',['IRAC 1A']],['Clorfenapir',['IRAC 13']],['Fenpiroximato',['IRAC 21A']],['Spirotetramat',['IRAC 23']],['Spirodiclofen',['IRAC 23']],['Hexitiazox',['IRAC 10A']],['Etoxazol',['IRAC 10B']],['Buprofezin',['IRAC 16']],['Pimetrozina',['IRAC 9B']],['Flonicamid',['IRAC 29']],['Isocicloseram',['IRAC 30']]]]
+];
+const PROD_MOA = {
+  'pyrazol-pro':{g:['FRAC 11','FRAC 3'], ai:'Piraclostrobina + epoxiconazol', probs:['hongos'], modes:['prev','cur','err'], how:'Sistémico, preventivo y curativo'},
+  'sulfok-plus':{g:['FRAC M02'], ai:'Azufre + potasio + sílice', probs:['hongos','bacterias'], modes:['prev','err'], how:'Contacto, multisitio'},
+  'bakteryn-cu':{g:['FRAC 24','FRAC M01'], ai:'Kasugamicina + oxicloruro de cobre', probs:['bacterias','hongos'], modes:['prev','cur','err'], how:'Sistémico + contacto'},
+  'vital-protec':{g:['INDUCTOR'], ai:'Ácido salicílico, jasmonatos, quitinas', probs:['hongos','bacterias'], modes:['prev','cur','err'], how:'Activa las defensas de la planta'},
+  'tierra-diatomeas':{g:['FISICO'], ai:'Sílice amorfa', probs:['insectos','acaros','hongos'], modes:['prev','err'], how:'Acción física, no genera resistencia'},
+  'lorfos':{g:['IRAC 6','IRAC 15'], ai:'Benzoato de emamectina + lufenurón', probs:['insectos'], modes:['cur','err'], how:'Ingestión y contacto, larvicida'},
+  'incipio':{g:['IRAC 30'], ai:'Isocicloseram', probs:['insectos','acaros'], modes:['prev','cur','err'], how:'Contacto e ingestión'},
+  'jelfer':{g:['IRAC 21A'], ai:'Fenpiroximato', probs:['acaros'], modes:['cur','err'], how:'Contacto, efecto de choque'}
+};
+const appOpts = `<option value="">— Ninguna / no recuerdo —</option><optgroup label="Productos Agro Biolquim y aliados">${Object.entries(PROD_MOA).map(([id,m]) => `<option value="p:${id}">${esc(byId[id].name)} (${m.ai})</option>`).join('')}</optgroup>` +
+  MOLS.map(([g,list]) => `<optgroup label="${g}">${list.map(([n,gr]) => `<option value="m:${n}">${n}</option>`).join('')}</optgroup>`).join('');
+['#rtA1','#rtA2'].forEach(id => { $(id).innerHTML = appOpts; });
+const MOL_MAP = Object.fromEntries(MOLS.flatMap(([,l]) => l));
+const groupsOf = v => !v ? [] : v.startsWith('p:') ? PROD_MOA[v.slice(2)].g : MOL_MAP[v.slice(2)] || [];
+const nameOf = v => v.startsWith('p:') ? byId[v.slice(2)].name : v.slice(2);
+let rtMode = 'prev';
+$('#rtMode').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; rtMode = b.dataset.m; $$('#rtMode button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderRot(); });
+['#rtCrop','#rtProb','#rtA1','#rtA2','#rtL'].forEach(id => $(id).addEventListener('input', renderRot));
+$('#rtA1').value = 'm:Mancozeb'; $('#rtA2').value = 'm:Azoxistrobina';
+
+const MODE_TXT = {
+  prev:{t:'Prevención', d:'Aplica antes de ver síntomas o cuando el clima favorece la enfermedad o la plaga. Usa la dosis de etiqueta con intervalos de 10 a 14 días y prioriza productos de contacto, multisitio e inductores de resistencia.'},
+  cur:{t:'Curativo', d:'Aplica con los primeros síntomas o las primeras plagas. Usa productos sistémicos o translaminares a dosis de etiqueta, con intervalo de 7 días, y no repitas el mismo grupo más de 2 veces seguidas.'},
+  err:{t:'Erradicar (alta presión)', d:'Combina dos modos de acción distintos (sistémico + contacto) a dosis de etiqueta, en 2 aplicaciones con intervalo de 5 a 7 días, y luego rota a otro grupo. Erradicar no significa subir la dosis: nunca superes la dosis máxima de la etiqueta.'}
+};
+function renderRot(){
+  const crop = $('#rtCrop').value, prob = $('#rtProb').value, L = Math.max(1, parseFloat($('#rtL').value) || 200);
+  const a1 = $('#rtA1').value, a2 = $('#rtA2').value;
+  const used = [...new Set([...groupsOf(a1), ...groupsOf(a2)])];
+  const blocked = used.filter(g => !LOW_RISK(g));
+  const repeated = groupsOf(a1).filter(g => groupsOf(a2).includes(g) && !LOW_RISK(g));
+  const cands = Object.entries(PROD_MOA).filter(([id,m]) => m.probs.includes(prob));
+  const ok = [], no = [];
+  cands.forEach(([id,m]) => { const clash = m.g.filter(g => blocked.includes(g)); (clash.length ? no : ok).push([id,m,clash]); });
+  const prim = m => m.probs[0] === prob;
+  ok.sort((x,y) => (prim(y[1]) - prim(x[1])) || (y[1].modes.includes(rtMode) - x[1].modes.includes(rtMode)) || (LOW_RISK(x[1].g[0]) - LOW_RISK(y[1].g[0])));
+  const chip = g => `<span class="moa ${LOW_RISK(g) ? 'low' : ''}" title="${esc(MOA[g] || '')}">${g.replace('INDUCTOR','Inductor').replace('FISICO','Físico')}</span>`;
+  const card = ([id,m]) => { const p = byId[id], d = tankDose(p, L, crop), fit = m.modes.includes(rtMode); return `
+    <article class="rec ${fit ? '' : 'dim'}">
+      ${img(p)}
+      <div>
+        <div class="rec-h"><b>${esc(p.name)}</b>${m.g.map(chip).join('')}</div>
+        <small>${esc(m.ai)} · ${esc(m.how)}${prim(m) ? '' : ' · uso complementario'}</small>
+        <div class="rec-d"><span>Dosis en ${fmt(L)} L: <b>${esc(d.txt)}</b></span>${fit ? '' : `<em>Mejor para ${m.modes.map(x => MODE_TXT[x].t.toLowerCase().split(' ')[0]).join(' / ')}</em>`}</div>
+      </div>
+      <button class="icon-btn" type="button" data-add="${id}" aria-label="Agregar ${esc(p.name)} al pedido"><svg><use href="#i-plus"/></svg></button>
+    </article>`; };
+  let pairTip = '';
+  if (rtMode === 'err' && ok.length > 1){
+    const lows = ok.filter(([,m]) => LOW_RISK(m.g[0]) && m.modes.includes('err'));
+    const sys = ok.find(([,m]) => !LOW_RISK(m.g[0]) && prim(m)) || lows[1], cont = lows[0];
+    if (sys && cont && sys !== cont) pairTip = `<div class="combo"><svg><use href="#i-spark"/></svg><span>Combinación sugerida para alta presión: <b>${esc(byId[sys[0]].name)}</b> + <b>${esc(byId[cont[0]].name)}</b>${prob !== 'acaros' && prob !== 'insectos' ? '' : ''} + <b>Greenpegá</b> (adherente). Revisa la mezcla en la pestaña de compatibilidad.</div>`;
+  }
+  const hist = [a1,a2].filter(Boolean);
+  const msg = `Hola Ing. Rafael Patiño, necesito un plan de rotación.\n\nCultivo: ${crop}\nProblema: ${$('#rtProb').selectedOptions[0].text}\nObjetivo: ${MODE_TXT[rtMode].t}\nÚltimas aplicaciones: ${hist.length ? hist.map(nameOf).join(', ') : 'no registradas'}\n\nOpciones sugeridas por la web: ${ok.slice(0,3).map(([id]) => byId[id].name).join(', ') || 'ninguna'}.`;
+  $('#rtOut').innerHTML = `
+    <div class="hist">
+      <span class="lbl">Grupos usados en tus 2 últimas aplicaciones</span>
+      <div>${used.length ? used.map(g => `${chip(g)}<small>${esc(MOA[g] || '')}</small>`).join('') : '<small>No registraste aplicaciones anteriores.</small>'}</div>
+    </div>
+    ${repeated.length ? `<div class="verdict warn"><svg><use href="#i-warn"/></svg><div><b>Repetiste el grupo ${repeated.join(', ')}</b><span>En la próxima aplicación es obligatorio cambiar de modo de acción.</span></div></div>` : ''}
+    <div class="mode-box"><b>${MODE_TXT[rtMode].t}</b><p>${MODE_TXT[rtMode].d}</p></div>
+    <span class="lbl">Recomendado para ${esc(crop.toLowerCase())}: rota a otro grupo</span>
+    <div class="recs">${ok.length ? ok.map(card).join('') : '<p class="muted">No hay productos del catálogo con un modo de acción distinto para este caso. Escríbele al Ing. Patiño y te propone alternativas.</p>'}</div>
+    ${pairTip}
+    ${no.length ? `<span class="lbl">Evita en esta aplicación (repiten grupo)</span><ul class="issues">${no.map(([id,m,c]) => `<li><svg><use href="#i-x"/></svg><span><b>${esc(byId[id].name)}</b>Comparte el grupo ${c.join(', ')} (${esc(c.map(g => MOA[g]).join(', '))}) con lo que aplicaste.</span></li>`).join('')}</ul>` : ''}
+    <div class="out-actions"><a class="btn btn-sm btn-wa" href="${waLink(msg)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Pedir plan de rotación al Ing. Patiño</a></div>`;
+}
+
+/* Tabs */
+function setTab(t){
+  const mix = t === 'mix';
+  $('#tabMix').setAttribute('aria-selected', mix); $('#tabRot').setAttribute('aria-selected', !mix);
+  $('#tabMix').tabIndex = mix ? 0 : -1; $('#tabRot').tabIndex = mix ? -1 : 0;
+  $('#paneMix').hidden = !mix; $('#paneRot').hidden = mix;
+}
+$('#tabMix').addEventListener('click', () => setTab('mix'));
+$('#tabRot').addEventListener('click', () => setTab('rot'));
+$('.tabs').addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ const t = $('#tabMix').getAttribute('aria-selected') === 'true' ? 'rot' : 'mix'; setTab(t); $(t === 'mix' ? '#tabMix' : '#tabRot').focus(); } });
+
 /* INIT */
-renderGrid(); renderCart(); setStage(1); calc();
+renderGrid(); renderCart(); setStage(1); calc(); renderMix(); renderRot();
 setCountry(store.get('ab-country', /-CO$/i.test(navigator.language || '') ? 'co' : 'ec'), false);
 })();
 </script>
