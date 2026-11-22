@@ -1482,7 +1482,7 @@ const P = [
    type:'Fungicida agrícola · Concentrado emulsionable (EC)',
    slogan:'Doble acción sistémica contra hongos.',
    short:'Azoxistrobina + tebuconazol: fungicida sistémico preventivo y curativo de amplio espectro.',
-   what:'Fungicida agrícola en concentrado emulsionable (EC) que combina azoxistrobina, una estrobilurina de acción preventiva y translaminar, con tebuconazol, un triazol sistémico de acción curativa. Dos modos de acción en un solo producto para el control de enfermedades fungosas.',
+   what:'Fungicida agrícola líquido, en concentrado emulsionable (EC), que combina azoxistrobina, una estrobilurina de acción preventiva y translaminar, con tebuconazol, un triazol sistémico de acción curativa. Dos modos de acción en un solo producto para el control de enfermedades fungosas.',
    benefits:[['Dos modos de acción','Estrobilurina (FRAC 11) + triazol (FRAC 3).'],['Preventivo y curativo','Protege antes de la infección y detiene al hongo establecido.'],['Amplio espectro','Para manchas foliares, royas, oídio y otras enfermedades fungosas.'],['Sistémico','Se mueve dentro de la planta y protege el tejido nuevo.']],
    comp:[['Azoxistrobina','250 g/L'],['Tebuconazol','125 g/L']],
    dose:{text:'Consultar', sub:'dosis por tanque de 200 L según la etiqueta y la recomendación del asesor técnico'},
@@ -1490,10 +1490,10 @@ const P = [
 
   {id:'rafaga', name:'Ráfaga', line:['prot'], accent:'#1F4FB0',
    caution:'Peligro. Usa equipo de protección personal completo y sigue las indicaciones de la etiqueta. Muy tóxico para organismos acuáticos.',
-   type:'Insecticida agrícola',
+   type:'Insecticida agrícola · Granulado',
    slogan:'Control de larvas en dos frentes.',
    short:'Lufenurón + benzoato de emamectina para el control de gusanos y larvas.',
-   what:'Insecticida agrícola que combina lufenurón, un regulador de crecimiento que impide la muda de las larvas, con benzoato de emamectina, de acción rápida por ingestión. Control de gusanos, orugas, polillas y minadores.',
+   what:'Insecticida agrícola granulado que combina lufenurón, un regulador de crecimiento que impide la muda de las larvas, con benzoato de emamectina, de acción rápida por ingestión. Control de gusanos, orugas, polillas y minadores.',
    benefits:[['Doble acción','Emamectina (IRAC 6) actúa rápido; lufenurón (IRAC 15) corta el ciclo de la plaga.'],['Control de larvas','Gusanos cogolleros, polillas, orugas y minadores.'],['Alta concentración','500 g/kg de lufenurón en una presentación pequeña.']],
    comp:[['Lufenurón','500 g/kg'],['Benzoato de emamectina','50 g/kg'],['Aditivos','c.s.p. 1 kg']],
    dose:{text:'Consultar', sub:'dosis por tanque de 200 L según la etiqueta y la recomendación del asesor técnico'},
@@ -2080,7 +2080,7 @@ const cropOpts = CROP_LIST.map(c => `<option>${c}</option>`).join('');
 /* Formulación → orden de mezcla */
 const FORM = {
   'bakteryn-cu':[1,'Polvo mojable (WP)'], 'lorfos':[1,'Gránulos dispersables (WG)'], 'tierra-diatomeas':[1,'Polvo insoluble'],
-  'jelfer':[2,'Suspensión concentrada (SC)'], 'luffy':[2,'Concentrado emulsionable (EC)'], 'rafaga':[1,'Sólido dispersable'], 'incipio':[2,'Suspensión concentrada (SC)'], 'pyrazol-pro':[2,'Suspoemulsión (SE)'], 'sulfok-plus':[2,'Suspensión con azufre'],
+  'jelfer':[2,'Suspensión concentrada (SC)'], 'luffy':[2,'Concentrado emulsionable (EC)'], 'rafaga':[1,'Granulado'], 'incipio':[2,'Suspensión concentrada (SC)'], 'pyrazol-pro':[2,'Suspoemulsión (SE)'], 'sulfok-plus':[2,'Suspensión con azufre'],
   'greenpega':[4,'Coadyuvante siliconado']
 };
 const formOf = p => FORM[p.id] || [3, /kg|g$/.test(p.pack.unit) ? 'Polvo soluble / fertilizante' : 'Concentrado soluble'];
