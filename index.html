@@ -8,6 +8,9 @@
 <meta name="theme-color" content="#0B2A1C">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Agro Biolquim">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_EC">
@@ -362,6 +365,13 @@ ul{margin:0;padding:0;list-style:none}
 .out-grid span{display:block;font-size:.76rem;color:#a9bfb0;font-weight:700}
 .out-grid b{display:block;font-family:var(--f-display);font-size:1.5rem;font-weight:600;margin-top:2px}
 .calc-out .btn{position:relative}
+.ha-box{display:grid;gap:12px;padding:16px;border-radius:16px;background:var(--paper);border:1.5px dashed var(--line)}
+.ha-box .lbl small{font-weight:600;color:var(--ink-3)}
+.ha-box .num-input{background:var(--card)}
+.ha-box .num-input input{text-align:left;padding-left:14px}
+#cLoads[readonly]{color:var(--leaf-500)}
+.head-acts{display:flex;flex-wrap:wrap;gap:10px}
+.install-ios{font-size:.88rem;color:var(--ink-2);padding:10px 14px;border-radius:12px;background:var(--paper-2)}
 .calc-warn{font-size:.8rem;color:#a9bfb0;line-height:1.5}
 
 /* ==========================================================
@@ -864,7 +874,8 @@ body.lock{overflow:hidden}
       <span class="eyebrow">Portafolio biotecnológico</span>
       <h2>Formulaciones propias y <em>marcas aliadas</em>, en un solo pedido.</h2>
       <p>Bioestimulantes, nutrición, enraizadores y protección. Cada producto muestra su composición garantizada tal como aparece en la etiqueta. Agrégalos a tu pedido y envíalo por WhatsApp en un solo mensaje.</p>
-      <div><a class="btn btn-ghost btn-sm" href="assets/catalogo-agro-biolquim.pdf" download><svg><use href="#i-doc"/></svg>Descargar catálogo en PDF</a></div>
+      <div class="head-acts"><a class="btn btn-ghost btn-sm" href="assets/catalogo-agro-biolquim.pdf" download><svg><use href="#i-doc"/></svg>Descargar catálogo en PDF</a><button class="btn btn-sm" type="button" id="installBtn" hidden><svg><use href="#i-box"/></svg>Instalar app en el celular</button></div>
+      <p class="install-ios" id="installIos" hidden>En iPhone: toca <b>Compartir</b> y luego <b>Agregar a inicio</b> para tener Agro Biolquim como app.</p>
     </div>
 
     <div class="catalog-tools reveal">
@@ -1106,6 +1117,20 @@ body.lock{overflow:hidden}
             <label for="cLoads">Número de cargas</label>
             <div class="num-input"><button type="button" data-step="cLoads" data-d="-1" aria-label="Menos cargas">−</button><input id="cLoads" type="number" inputmode="numeric" min="1" step="1" value="1"><button type="button" data-step="cLoads" data-d="1" aria-label="Más cargas">+</button></div>
           </div>
+        </div>
+        <div class="ha-box">
+          <span class="lbl">Calcular por superficie <small>(opcional)</small></span>
+          <div class="row2">
+            <div class="field">
+              <label for="cHa">Superficie (ha)</label>
+              <div class="num-input"><input id="cHa" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0"><span class="unit">ha</span></div>
+            </div>
+            <div class="field">
+              <label for="cLha">Agua por hectárea (L)</label>
+              <div class="num-input"><input id="cLha" type="number" inputmode="numeric" min="50" step="50" value="400"><span class="unit">L/ha</span></div>
+            </div>
+          </div>
+          <span class="hint" id="cHaHint">Escribe tu superficie y calculamos cuántas cargas necesitas. Referencia común: 200–600 L de agua por hectárea según cultivo y equipo.</span>
         </div>
       </form>
       <div class="calc-out" aria-live="polite">
@@ -1887,7 +1912,11 @@ function unitFmt(v, unit){
 }
 function calc(){
   const p = byId[cP.value];
-  const L = Math.max(0, parseFloat(cL.value) || 0), N = Math.max(1, Math.round(parseFloat(cN.value) || 1));
+  const L = Math.max(0, parseFloat(cL.value) || 0);
+  const ha = Math.max(0, parseFloat($('#cHa').value) || 0), Lha = Math.max(1, parseFloat($('#cLha').value) || 400);
+  if (ha > 0 && L > 0){ cN.value = Math.max(1, Math.ceil(ha * Lha / L - 1e-9)); cN.readOnly = true; } else cN.readOnly = false;
+  const N = Math.max(1, Math.round(parseFloat(cN.value) || 1));
+  $('#cHaHint').textContent = ha > 0 ? `${fmt(ha,2)} ha × ${fmt(Lha)} L/ha = ${fmt(ha*Lha)} L de agua → ${N} carga${N > 1 ? 's' : ''} de ${fmt(L)} L.` : 'Escribe tu superficie y calculamos cuántas cargas necesitas. Referencia común: 200–600 L de agua por hectárea según cultivo y equipo.';
   let per, perTxt, totalLo, totalHi;
   if (p.dose.per200){
     per = p.dose.per200 * L / 200; totalLo = totalHi = per * N;
@@ -1917,7 +1946,7 @@ cL.addEventListener('input', () => {
   const v = cL.value; $$('button', $('#cEquip')).forEach(x => x.setAttribute('aria-pressed', x.dataset.l === v || (x.dataset.l === 'custom' && v !== '20' && v !== '200')));
   calc();
 });
-[cP, cN].forEach(el => el.addEventListener('input', calc));
+[cP, cN, $('#cHa'), $('#cLha')].forEach(el => el.addEventListener('input', calc));
 $$('[data-step]').forEach(b => b.addEventListener('click', () => {
   const inp = $('#' + b.dataset.step);
   const step = inp === cL ? (parseFloat(inp.value) >= 100 ? 10 : 1) : 1;
@@ -2128,6 +2157,21 @@ function setTab(t){
 $('#tabMix').addEventListener('click', () => setTab('mix'));
 $('#tabRot').addEventListener('click', () => setTab('rot'));
 $('.tabs').addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ const t = $('#tabMix').getAttribute('aria-selected') === 'true' ? 'rot' : 'mix'; setTab(t); $(t === 'mix' ? '#tabMix' : '#tabRot').focus(); } });
+
+/* ------------------------------------------------------------
+   APP INSTALABLE (funciona sin internet)
+------------------------------------------------------------ */
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')){
+  addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+let deferredInstall = null;
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; $('#installBtn').hidden = false; });
+$('#installBtn').addEventListener('click', async () => {
+  if (!deferredInstall) return;
+  deferredInstall.prompt(); await deferredInstall.userChoice.catch(() => {}); deferredInstall = null; $('#installBtn').hidden = true;
+});
+addEventListener('appinstalled', () => { $('#installBtn').hidden = true; toast('Agro Biolquim quedó instalada en tu celular'); });
+if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !navigator.standalone && location.protocol === 'https:') $('#installIos').hidden = false;
 
 /* INIT */
 renderGrid(); renderCart(); setStage(1); calc(); renderMix(); renderRot();
