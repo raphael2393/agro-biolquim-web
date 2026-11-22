@@ -563,6 +563,19 @@ ul{margin:0;padding:0;list-style:none}
 
 body.lock{overflow:hidden}
 
+
+/* Imágenes de producto: estilo uniforme (render 2:3) */
+.card-media{height:auto;aspect-ratio:4/5;display:block;background:#0f3a22}
+.card-media::before,.card-media::after{display:none!important}
+.card-media img,.card-media.photo img{position:absolute;inset:0;left:0;bottom:auto;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 58%;transform:none;filter:none;-webkit-mask-image:none;mask-image:none;transition:transform .6s var(--ease)}
+.card:hover .card-media img,.card:hover .card-media.photo img{transform:scale(1.05)}
+.badge{z-index:2}
+.m-media,.m-media.photo{padding:0 0 84px;background:#0f3a22;display:grid;place-items:center}
+.m-media img,.m-media.photo img{width:100%;height:100%;max-height:none;max-width:none;object-fit:cover;object-position:50% 55%;border-radius:0;box-shadow:none;-webkit-mask-image:none;mask-image:none}
+.m-media{padding-bottom:0;min-height:320px}
+@media (min-width:921px){.m-media img,.m-media.photo img{position:absolute;inset:0}}
+@media (max-width:920px){.m-media,.m-media.photo{padding:0 0 76px;min-height:0}.m-media img,.m-media.photo img{height:52svh;object-fit:cover}}
+
 /* Reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -571,7 +584,7 @@ body.lock{overflow:hidden}
 /* ==========================================================
    RESPONSIVE
    ========================================================== */
-@media (min-width:1200px){.grid{grid-template-columns:repeat(5,1fr);gap:18px}.card-body h3{font-size:1.35rem}}
+@media (min-width:1200px){.grid{grid-template-columns:repeat(4,1fr);gap:22px}.card-body h3{font-size:1.35rem}}
 @media (max-width:1080px){
   .nav{display:none}
   .menu-btn{display:grid}
@@ -711,7 +724,7 @@ body.lock{overflow:hidden}
         <a class="btn btn-ghost" href="https://wa.me/593959432050?text=Hola%20Agro%20Biolquim%2C%20quiero%20asesor%C3%ADa%20t%C3%A9cnica%20para%20mi%20cultivo" data-wa="Hola Agro Biolquim, quiero asesoría técnica para mi cultivo" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Hablar con un agrónomo</a>
       </div>
       <div class="hero-facts reveal d3">
-        <div><b>19</b><span>Productos: 10 propios y 9 de marcas aliadas</span></div>
+        <div><b>21</b><span>Productos: 10 propios y 11 de marcas aliadas</span></div>
         <div><b>2</b><span>Países: Ecuador y Colombia</span></div>
         <div><b>17</b><span>Provincias y ciudades con cobertura</span></div>
       </div>
@@ -966,9 +979,9 @@ body.lock{overflow:hidden}
       <details><summary>¿Qué incluye un kit agrícola?<i></i></summary><div><p>Cada <a href="#kits">kit</a> reúne de 3 a 5 productos del catálogo pensados para un mismo objetivo: arranque y raíz, crecimiento, floración, llenado, protección o clima extremo. Puedes agregar el kit completo a tu pedido y luego cambiar cantidades o quitar productos antes de enviarlo.</p></div></details>
       <details><summary>¿Puedo mezclar varios productos en el mismo tanque?<i></i></summary><div><p>Varios productos del portafolio están pensados para trabajar juntos. Por ejemplo, <strong>Greenpegá</strong> es un coadyuvante que mejora adherencia, penetración y pH de la mezcla, y <strong>Pyrazol Pro</strong> es compatible con la mayoría de agroquímicos según su ficha.</p><p>Aun así, recomendamos hacer siempre una prueba de compatibilidad en un recipiente pequeño y consultar con el asesor antes de mezclar.</p></div></details>
       <details><summary>¿Cuál es la dosis de cada producto?<i></i></summary><div><p>La mayoría de bioestimulantes se aplican a <strong>250 cc por tanque de 200 litros</strong>. VitalHumic K-3 se usa a 500 cc / 200 L cada 15 a 20 días, Greenpegá a 100 ml / 200 L y la Tierra de Diatomeas a 20–30 g por litro en aplicación foliar. Usa la <a href="#calculadora">calculadora</a> para tu volumen exacto.</p></div></details>
-      <details><summary>¿Los productos son orgánicos?<i></i></summary><div><p><strong>Vital Protec</strong> es un producto orgánico y biodegradable, y la <strong>Tierra de Diatomeas</strong> es 100 % natural. La línea de bioestimulantes se basa en ácidos húmicos y fúlvicos, aminoácidos, algas marinas y micronutrientes.</p><p><strong>Pyrazol Pro</strong> (fungicida), <strong>Jelfer</strong> (acaricida) y <strong>Bakteryn-Cu</strong> (bactericida) son productos de síntesis: úsalos siempre con equipo de protección y siguiendo la etiqueta.</p></div></details>
+      <details><summary>¿Los productos son orgánicos?<i></i></summary><div><p><strong>Vital Protec</strong> es un producto orgánico y biodegradable, y la <strong>Tierra de Diatomeas</strong> es 100 % natural. La línea de bioestimulantes se basa en ácidos húmicos y fúlvicos, aminoácidos, algas marinas y micronutrientes.</p><p><strong>Pyrazol Pro</strong> (fungicida), <strong>Jelfer</strong> (acaricida), <strong>Incipio</strong> y <strong>Lorfos</strong> (insecticidas) y <strong>Bakteryn-Cu</strong> (bactericida) son productos de síntesis: úsalos siempre con equipo de protección y siguiendo la etiqueta.</p></div></details>
       <details><summary>¿Para qué cultivos sirven?<i></i></summary><div><p>Para todo tipo de cultivo: hortalizas, frutales, papa y tubérculos, granos y cereales, flores y ornamentales, cultivos tropicales como café, cacao y banano, y pastos. Lo que se ajusta en cada caso es la dosis, la etapa y la frecuencia.</p><p>Cuéntanos tu cultivo y te recomendamos el programa o el <a href="#kits">kit</a> adecuado.</p></div></details>
-      <details><summary>¿Venden productos de otras marcas?<i></i></summary><div><p>Sí. Además de nuestras formulaciones propias, distribuimos productos de marcas aliadas como Futureco Bioscience, Fagro, Fiala, Agarismal, Ambagro y otras. En el catálogo usa el filtro <strong>Marcas aliadas</strong> para verlos. Cada ficha muestra la composición tal como aparece en su etiqueta.</p></div></details>
+      <details><summary>¿Venden productos de otras marcas?<i></i></summary><div><p>Sí. Además de nuestras formulaciones propias, distribuimos productos de marcas aliadas como Syngenta, Futureco Bioscience, Fagro, Fiala, Agarismal, Ambagro, Agrota y otras. En el catálogo usa el filtro <strong>Marcas aliadas</strong> para verlos. Cada ficha muestra la composición tal como aparece en su etiqueta.</p></div></details>
       <details><summary>¿Hacen entregas?<i></i></summary><div><p>Sí. En <strong>Ecuador</strong> atendemos 13 provincias de la Sierra, la Amazonía y la Costa, y en <strong>Colombia</strong> Nariño, Cauca, Bogotá y Medellín. Escríbenos al WhatsApp de tu país con tu ubicación y coordinamos la entrega más conveniente.</p><p>Ecuador: +593 95 943 2050 · Colombia: +57 323 398 6209</p></div></details>
     </div>
   </div>
@@ -1103,7 +1116,7 @@ const P = [
    short:'Bio-activador de suelo y raíz que mejora la estructura del suelo y la absorción de nutrientes.',
    what:'Bio-activador del suelo y las raíces formulado con ácidos húmicos y fúlvicos, aminoácidos y algas marinas, que mejora la salud del suelo, estimula el desarrollo radicular y potencia la absorción de nutrientes, aumentando el rendimiento y calidad de los cultivos.',
    benefits:[['Raíces más fuertes y ramificadas','Mejor anclaje y mayor absorción de agua y nutrientes.'],['Mejora la estructura del suelo','Aumenta la materia orgánica, retiene humedad y mejora la aireación.'],['Optimiza la asimilación','Mayor eficiencia en el uso de fertilizantes, menos pérdidas.'],['Estimula crecimiento y vigor','Plantas más sanas, tallos más fuertes y hojas verdes.'],['Protege ante el estrés climático','Resistencia a sequías, heladas y salinidad; recuperación rápida.'],['Incrementa rendimiento y calidad','Mejores cosechas en cantidad y calidad.']],
-   comp:[['Ácidos húmicos','✓'],['Ácidos fúlvicos','✓'],['Aminoácidos','✓'],['Algas marinas','✓'],['Nitrógeno amoniacal · Fósforo · Magnesio','✓']],
+   comp:[['Carbono orgánico','4,83 %'],['Carbono de ácidos húmicos','3,35 %'],['Óxido de potasio (K₂O)','2,52 %'],['Carbono de ácidos fúlvicos','1,36 %'],['Algas (Ascophyllum nodosum)','1,00 %'],['Aminoácidos totales','0,8007 %'],['Nitrógeno (N)','0,325 %'],['Fósforo (P)','0,075 %'],['ANA (ácido 1-naftalenacético)','0,025 %']],
    dose:{per200:250, unit:'ml', text:'250 cc', sub:'por tanque de 200 L de agua'},
    pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'raiz suelo humico fulvico enraizador algas estructura'},
 
@@ -1138,14 +1151,14 @@ const P = [
    pack:{size:250, unit:'ml', label:'250 ml'}, tags:'acido folico vitamina b9 floracion cuajado crecimiento'},
 
   {id:'vital-protec', name:'Vital Protec', line:['prot','bio'], accent:'#D2561E', organic:true,
-   type:'Inductor de resistencia y bioestimulante', photo:true,
+   type:'Inductor de resistencia y bioestimulante',
    slogan:'Cuando el clima falla, Vital Protec respalda tu cosecha.',
    short:'Ácido salicílico, jasmonatos y quitinas que activan las defensas naturales de la planta. Orgánico.',
    what:'Bioestimulante e inductor de resistencia a base de ácido salicílico, ácidos carboxílicos, jasmonatos y quitinas, que fortalece el sistema de defensa natural de las plantas, ayudando a prevenir enfermedades y a mejorar su desarrollo y productividad. Producto orgánico.',
    benefits:[['Induce resistencia natural','Activa defensas frente a hongos, bacterias y estrés ambiental.'],['Menos enfermedades','Reduce incidencia de mildiu, oídio, antracnosis y roya.'],['Protege ante estrés climático','Tolerancia a sequías, heladas, calor y lluvias intensas.'],['Estimula el desarrollo','Crecimiento vigoroso de raíces, tallos, hojas y frutos.'],['Mejora la calidad de frutos','Más grandes y uniformes, mejor color y vida útil.'],['Ecológico y seguro','Orgánico, biodegradable y seguro para el ambiente.']],
    comp:[['Ácido salicílico','5,00 %'],['Ácidos carboxílicos','2,00 %'],['Quitinas','1,50 %'],['Jasmonatos','0,50 %']],
    dose:{per200:250, unit:'ml', text:'250 cc', sub:'por tanque de 200 L de agua'},
-   pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'defensa resistencia helada clima organico salicilico jasmonato quitina estres'},
+   pack:{size:500, unit:'ml', label:'500 ml · 1 litro'}, tags:'defensa resistencia helada clima organico salicilico jasmonato quitina estres'},
 
   {id:'sulfok-plus', name:'SulfoK Plus', line:['prot','bio'], accent:'#C62828',
    type:'Fungicida · Bactericida · Bioestimulante',
@@ -1188,27 +1201,27 @@ const P = [
    pack:{size:500, unit:'ml', label:'500 ml'}, tags:'adherente coadyuvante penetrante dispersante ph siliconado lluvia lavado'},
 
   /* ---------- Marcas aliadas (datos de la etiqueta de cada envase) ---------- */
-  {id:'citogrower', name:'Citogrower', brand:'Futureco Bioscience', line:['bio'], accent:'#16809A', photo:true,
+  {id:'citogrower', name:'Citogrower', brand:'Futureco Bioscience', line:['bio'], accent:'#16809A',
    type:'Fertilizante orgánico-mineral foliar',
    slogan:'Citoquininas 20.000 ppm.',
    short:'Concentrado soluble con citoquininas, fósforo, potasio y carbono orgánico para aplicación foliar.',
    what:'Fertilizante orgánico-mineral para aplicación foliar, concentrado soluble de uso agrícola. Aporta nitrógeno orgánico, fósforo y potasio solubles y carbono orgánico, con citoquininas (20.000 ppm) para acompañar división celular, brotación y cuajado.',
    benefits:[['Citoquininas 20.000 ppm','Hormona vegetal ligada a la división celular y la brotación.'],['Fósforo y potasio solubles','72 g/L de P₂O₅ y 60 g/L de K₂O de rápida absorción.'],['Carbono orgánico','120 g/L de carbono orgánico oxidable total.'],['Aplicación foliar','Concentrado soluble listo para mezclar en tanque.']],
-   comp:[['Nitrógeno total (N), orgánico','15,0 g/L'],['Fósforo soluble (P₂O₅)','72,0 g/L'],['Potasio soluble (K₂O)','60,0 g/L'],['Carbono orgánico oxidable total','120,0 g/L'],['Citoquininas','20.000 ppm']],
-   dose:{text:'Consultar', sub:'según cultivo; la etiqueta recomienda prescripción de un ingeniero agrónomo'},
+   comp:[['Nitrógeno total (N), orgánico','15,0 g/L'],['Fósforo soluble (P₂O₅)','72,0 g/L'],['Potasio soluble (K₂O)','60,0 g/L'],['Carbono orgánico oxidable total','120,0 g/L'],['Citoquininas (6-bencilaminopurina)','20.000 ppm']],
+   dose:{per200:250, unit:'ml', text:'100 – 150 cc / 100 L', sub:'foliar · 1 – 1,5 L/ha, en brotación o floración y repetir a los 7–20 días (ficha técnica del fabricante)'},
    pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'citoquininas brotacion cuajado division celular fosforo potasio futureco'},
 
-  {id:'frutaliv', name:'Frutaliv', brand:'Futureco Bioscience', line:['bio'], accent:'#1B86A8', photo:true,
+  {id:'frutaliv', name:'Frutaliv', brand:'Futureco Bioscience', line:['bio'], accent:'#1B86A8',
    type:'Fertilizante complejo PK con aminoácidos',
    slogan:'Fósforo y potasio para el llenado del fruto.',
    short:'Complejo PK con boro, molibdeno, micronutrientes y aminoácidos libres para aplicación foliar.',
    what:'Fertilizante complejo PK con aminoácidos para aplicación foliar, concentrado soluble de uso agrícola. Contiene los aminoácidos libres ácido glutámico, glicina, metionina y lisina.',
    benefits:[['Alto fósforo y potasio','160 g/L de P₂O₅ y 210 g/L de K₂O.'],['Boro y molibdeno','7 g/L de boro y 0,9 g/L de molibdeno solubles.'],['Micronutrientes','Cobre, hierro, manganeso y zinc solubles.'],['Aminoácidos libres','50 g/L: ácido glutámico, glicina, metionina y lisina.']],
    comp:[['Fósforo soluble (P₂O₅)','160,00 g/L'],['Potasio soluble (K₂O)','210,00 g/L'],['Boro (B)','7,00 g/L'],['Molibdeno (Mo)','0,90 g/L'],['Hierro (Fe)','0,40 g/L'],['Manganeso (Mn)','0,16 g/L'],['Cobre (Cu)','0,13 g/L'],['Zinc (Zn)','0,04 g/L'],['Carbono orgánico oxidable total','20,00 g/L'],['Aminoácidos libres totales','50,0 g/L']],
-   dose:{text:'Consultar', sub:'según cultivo; la etiqueta recomienda prescripción de un ingeniero agrónomo'},
+   dose:{per200:500, unit:'ml', text:'200 – 300 cc / 100 L', sub:'foliar · 2 – 4 L/ha desde floración, cuajado y llenado de fruto (ficha técnica del fabricante)'},
    pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'fosforo potasio pk llenado engorde boro molibdeno aminoacidos futureco'},
 
-  {id:'botamisol', name:'Botamisol', brand:'Futureco Bioscience', line:['bio'], accent:'#1F6FB8', photo:true,
+  {id:'botamisol', name:'Botamisol', brand:'Futureco Bioscience', line:['bio'], accent:'#1F6FB8',
    type:'Aminoácidos para aplicación foliar · Polvo soluble',
    slogan:'45 % de aminoácidos libres.',
    short:'Polvo soluble con 45 % de aminoácidos libres y 17 % de nitrógeno para aplicación foliar.',
@@ -1218,7 +1231,7 @@ const P = [
    dose:{text:'Consultar', sub:'según cultivo; la etiqueta recomienda prescripción de un ingeniero agrónomo'},
    pack:{size:1000, unit:'g', label:'1 kg'}, tags:'aminoacidos nitrogeno foliar estres polvo futureco'},
 
-  {id:'bades-amino-45', name:"Bade's Amino 45", brand:'Turkfer · Asamaglo', line:['bio'], accent:'#1E7A3C', photo:true, organic:true,
+  {id:'bades-amino-45', name:"Bade's Amino 45", brand:'Turkfer · Asamaglo', line:['bio'], accent:'#1E7A3C', organic:true,
    type:'Fertilizante orgánico foliar y edáfico',
    slogan:'45 % de aminoácidos totales.',
    short:'Fertilizante orgánico con 45 % de aminoácidos para aplicación foliar, fertirrigación o drench.',
@@ -1228,7 +1241,7 @@ const P = [
    dose:{perL:[1,1.5], unit:'g', text:'100 – 150 g / 100 L', sub:'foliar en hortalizas y frutales (ornamentales 50–100 g/100 L) · drench 2–4 kg/ha'},
    pack:{size:250, unit:'g', label:'250 g'}, tags:'aminoacidos organico nitrogeno drench fertirrigacion estres'},
 
-  {id:'estimul-mix', name:'Estimul Mix', brand:'Agarismal', line:['bio'], accent:'#1D8A8A', photo:true,
+  {id:'estimul-mix', name:'Estimul Mix', brand:'Agarismal', line:['bio'], accent:'#1D8A8A',
    type:'Aminoácidos totales 80 %',
    slogan:'Dieciséis aminoácidos en un solo producto.',
    short:'Mezcla de 16 aminoácidos con 80,07 % de aminoácidos totales.',
@@ -1238,7 +1251,7 @@ const P = [
    dose:{text:'Consultar', sub:'según cultivo y recomendación del asesor técnico'},
    pack:{size:1000, unit:'g', label:'1 kg'}, tags:'aminoacidos treonina glutamico estres crecimiento'},
 
-  {id:'alga-800', name:'Alga 800', brand:'Fiala Group · El Agro', line:['bio'], accent:'#A8781C', photo:true, organic:true,
+  {id:'alga-800', name:'Alga 800', brand:'Fiala Group · El Agro', line:['bio'], accent:'#A8781C', organic:true,
    type:'Fertilizante de origen orgánico · Foliar',
    slogan:'Fórmula patentada con ácido algínico.',
    short:'Ácido algínico, aminoácidos, potasio y micronutrientes de origen orgánico para aplicación foliar.',
@@ -1248,28 +1261,28 @@ const P = [
    dose:{text:'Consultar', sub:'según cultivo y recomendación del asesor técnico'},
    pack:{size:250, unit:'g', label:'250 g'}, tags:'algas alginico potasio organico ecocert foliar'},
 
-  {id:'proroot', name:'Proroot', brand:'Fagro', line:['suelo'], accent:'#C8312B', photo:true,
-   type:'Fertilizante enriquecido con reguladores de crecimiento',
+  {id:'proroot', name:'Proroot', brand:'Fagro', line:['suelo'], accent:'#C8312B',
+   type:'Regulador de crecimiento tipo 1 · Enraizador sólido',
    slogan:'Enraizador para aplicación al suelo por drench.',
    short:'Fósforo, nitrógeno, ANA, AIB y ácidos fúlvicos para estimular el enraizamiento.',
    what:'Fertilizante inorgánico enriquecido con reguladores de crecimiento (ácido naftalenacético y ácido indolbutírico) y ácidos fúlvicos. Vía de aplicación: edáfica por drench. Hecho en México.',
-   benefits:[['40 % de fósforo','Fósforo aprovechable para la formación de raíces.'],['Reguladores de crecimiento','ANA y AIB, auxinas asociadas al enraizamiento.'],['Ácidos fúlvicos','Mejoran la asimilación de nutrientes.'],['Aplicación por drench','Directo a la zona de raíces.']],
-   comp:[['Fósforo aprovechable (P₂O₅)','40,00 %'],['Nitrógeno total (N)','11,00 %'],['Ácidos fúlvicos','2,00 %'],['Ácido naftalenacético (ANA)','0,28 %'],['Ácido indolbutírico (AIB)','0,02 %']],
-   dose:{text:'Consultar', sub:'aplicación edáfica por drench, según cultivo'},
+   benefits:[['55 % de fósforo','Fósforo aprovechable para la formación de raíces.'],['Reguladores de crecimiento','ANA y AIB, auxinas asociadas al enraizamiento.'],['Ácidos fúlvicos','Mejoran la asimilación de nutrientes.'],['Aplicación por drench','Directo a la zona de raíces.']],
+   comp:[['Fósforo aprovechable (P₂O₅)','55,00 %'],['Nitrógeno total (N)','11,00 %'],['Ácidos fúlvicos','2,00 %'],['Ácido naftalenacético (ANA)','0,28 %'],['Ácido indolbutírico (AIB)','0,02 %'],['Acondicionadores e inertes','31,70 %']],
+   dose:{per200:100, unit:'g', text:'100 g', sub:'por 200 L de agua en almácigos y bandejas, una vez por semana; drench al trasplante (ficha técnica Fagro)'},
    pack:{size:1000, unit:'g', label:'1 kg'}, tags:'enraizador raiz fosforo auxinas ana aib fulvicos drench trasplante'},
 
-  {id:'jelfer', name:'Jelfer', brand:'Ambagro', line:['prot'], accent:'#2B3A8C', photo:true,
+  {id:'jelfer', name:'Jelfer', brand:'Ambagro', line:['prot'], accent:'#2B3A8C',
    caution:'Nocivo en caso de ingestión, en contacto con la piel o si se inhala. Muy tóxico para organismos acuáticos. Usa equipo de protección y sigue las indicaciones de la etiqueta.',
    type:'Acaricida agrícola · Suspensión concentrada (SC)',
    slogan:'Control de ácaros.',
    short:'Acaricida a base de fenpiroximato 50 g/L en suspensión concentrada.',
-   what:'Acaricida agrícola en suspensión concentrada (SC) a base de fenpyroximate. Registro 88-A4/NA-CL1. Titular del registro e importador: Ambagro S.A., Ambato, Ecuador.',
+   what:'Acaricida agrícola en suspensión concentrada (SC) a base de fenpyroximate. Contenido neto 1 litro. Registro 88-A4/NA-CL1. Titular del registro e importador: Ambagro S.A., Ambato, Ecuador.',
    benefits:[['Control de ácaros','Ingrediente activo fenpyroximate.'],['Suspensión concentrada','Formulación SC fácil de mezclar.'],['Registro nacional','N.º 88-A4/NA-CL1.']],
    comp:[['Fenpyroximate','50 g/L'],['Aditivos','c.s.p. 1 L']],
    dose:{text:'Consultar', sub:'según la etiqueta y la recomendación del asesor técnico'},
-   pack:{size:1000, unit:'ml', label:'Consultar presentación'}, tags:'acaricida acaro arana roja fenpiroximato fenpyroximate'},
+   pack:{size:1000, unit:'ml', label:'1 litro'}, tags:'acaricida acaro arana roja fenpiroximato fenpyroximate'},
 
-  {id:'bakteryn-cu', name:'Bakteryn-Cu', brand:'Especialidades Agrícolas', line:['prot'], accent:'#2F4A3E', photo:true,
+  {id:'bakteryn-cu', name:'Bakteryn-Cu', brand:'Especialidades Agrícolas', line:['prot'], accent:'#2F4A3E',
    caution:'Manténgase bajo llave, fuera del alcance de los niños. Usa equipo de protección y sigue las indicaciones de la etiqueta.',
    type:'Bactericida agrícola · Polvo mojable (WP)',
    slogan:'Kasugamicina + cobre.',
@@ -1279,6 +1292,28 @@ const P = [
    comp:[['Oxicloruro de cobre','450 g/kg'],['Kasugamicina','20 g/kg'],['Excipientes','c.s.p. 1 kg']],
    dose:{text:'Consultar', sub:'según la etiqueta y la recomendación del asesor técnico'},
    pack:{size:250, unit:'g', label:'250 g'}, tags:'bactericida bacterias cobre kasugamicina'},
+
+  {id:'incipio', name:'Incipio', brand:'Syngenta', line:['prot'], accent:'#1F48A8',
+   caution:'Peligro. Nocivo en caso de ingestión, en contacto con la piel o si se inhala. Tóxico para organismos acuáticos. Usa equipo de protección y sigue la etiqueta.',
+   type:'Insecticida – acaricida agrícola · Suspensión concentrada (SC)',
+   slogan:'Tecnología Plinazolin® · Grupo IRAC 30.',
+   short:'Isocicloseram 200 g/L, nueva molécula del grupo IRAC 30 contra insectos y ácaros.',
+   what:'Insecticida y acaricida agrícola en suspensión concentrada (SC) a base de isocicloseram, con tecnología Plinazolin®. Actúa por contacto e ingestión y pertenece al grupo IRAC 30, útil para rotar modos de acción. Registro Nacional ICA N.º 3094 a nombre de Syngenta S.A.',
+   benefits:[['Insectos y ácaros','Un solo producto contra trips, ácaros, gusanos y coleópteros.'],['Grupo IRAC 30','Modo de acción nuevo, útil para manejo de resistencia.'],['Contacto e ingestión','Doble vía de acción sobre la plaga.'],['Dosis bajas','Alta concentración: 200 g/L de ingrediente activo.']],
+   comp:[['Isocicloseram','200 g/L'],['Aditivos','c.s.p. 1 L']],
+   dose:{text:'Según etiqueta', sub:'la dosis depende del cultivo y la plaga; consulta la etiqueta vigente o a nuestro asesor'},
+   pack:{size:100, unit:'ml', label:'100 ml'}, tags:'insecticida acaricida trips acaro isocicloseram plinazolin syngenta gusano'},
+
+  {id:'lorfos', name:'Lorfos', brand:'Agrota', line:['prot'], accent:'#1E3A8A',
+   caution:'Peligro. Nocivo en caso de ingestión, en contacto con la piel o si se inhala. Muy tóxico para organismos acuáticos. Manténgase bajo llave, fuera del alcance de los niños.',
+   type:'Insecticida agrícola · Gránulos dispersables (WG)',
+   slogan:'Doble acción contra larvas y gusanos.',
+   short:'Benzoato de emamectina + lufenurón en gránulos dispersables para el control de larvas.',
+   what:'Insecticida agrícola en gránulos dispersables (WG) que combina benzoato de emamectina y lufenurón. Titular del registro e importador: Agrota Cía. Ltda., Cuenca, Ecuador. Formulado por Landscape.',
+   benefits:[['Doble ingrediente activo','Emamectina actúa rápido; lufenurón detiene el desarrollo de las larvas.'],['Control de lepidópteros','Gusanos cogolleros, minadores, polillas y orugas.'],['Gránulos dispersables','Formulación WG, fácil de medir y mezclar.']],
+   comp:[['Lufenurón','400 g/kg'],['Benzoato de emamectina','100 g/kg'],['Excipientes','c.s.p. 1 kg']],
+   dose:{text:'Según etiqueta', sub:'la dosis depende del cultivo y la plaga; consulta la etiqueta vigente o a nuestro asesor'},
+   pack:{size:100, unit:'g', label:'100 g'}, tags:'insecticida gusano larva oruga polilla emamectina lufenuron'},
 ];
 P.forEach(p => { p.brand = p.brand || 'Agro Biolquim'; });
 const byId = Object.fromEntries(P.map(p => [p.id, p]));
@@ -1298,7 +1333,7 @@ const STAGES = [
    items:[['vitalhumic-k3','Potenciador de llenado'],['frutaliv','160 g/L P₂O₅ + 210 g/L K₂O'],['titan-fruit','Tamaño, peso y color'],['alga-800','20 % de potasio']]},
   {n:5, name:'Protección', sub:'Todo el ciclo', title:'Defensa en cada etapa del cultivo.',
    text:'Heladas, lluvias intensas, hongos, bacterias y plagas. Combina inducción de resistencia natural con control directo cuando la presión de enfermedad lo exige.',
-   items:[['vital-protec','Inductor de resistencia'],['sulfok-plus','Fungicida y bactericida'],['pyrazol-pro','Fungicida de amplio espectro'],['bakteryn-cu','Bactericida con cobre'],['jelfer','Acaricida'],['tierra-diatomeas','Insecticida natural']]}
+   items:[['vital-protec','Inductor de resistencia'],['sulfok-plus','Fungicida y bactericida'],['pyrazol-pro','Fungicida de amplio espectro'],['bakteryn-cu','Bactericida con cobre'],['jelfer','Acaricida'],['incipio','Insecticida y acaricida'],['lorfos','Insecticida para larvas'],['tierra-diatomeas','Insecticida natural']]}
 ];
 
 /* ------------------------------------------------------------
@@ -1470,6 +1505,9 @@ const KITS = [
   {id:'proteccion', name:'Kit Protección Total', goal:'Hongos, bacterias y ácaros', color:'#B3261E',
    text:'Inducción de resistencia más control directo cuando la presión lo exige.',
    items:['vital-protec','sulfok-plus','pyrazol-pro','bakteryn-cu','greenpega']},
+  {id:'plagas', name:'Kit Control de Plagas', goal:'Insectos, larvas y ácaros', color:'#1E3A8A',
+   text:'Rotación de modos de acción contra gusanos, trips y ácaros, con adherente para mejor cobertura.',
+   items:['lorfos','incipio','jelfer','tierra-diatomeas','greenpega']},
   {id:'clima', name:'Kit Clima Extremo', goal:'Heladas, sequía y calor', color:'#16809A',
    text:'Defensa natural y aminoácidos para que el cultivo resista y se recupere rápido.',
    items:['vital-protec','estimul-mix','vitalhumic-k3','greenpega']}
