@@ -597,6 +597,10 @@ body.lock{overflow:hidden}
 .adv-list b{display:block;color:#fff;font-size:.95rem;margin-bottom:2px}
 .adv-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .adv-actions .btn-ghost{color:#fff}
+.adv-actions .btn-ghost svg{width:18px;height:18px}
+.m-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.86rem;font-weight:700}
+.m-links a{color:var(--forest-600)}
+.c-phone{text-decoration:none}
 
 /* Herramientas */
 .tabs{display:inline-flex;flex-wrap:wrap;gap:6px;padding:6px;border-radius:18px;background:var(--paper-2);border:1px solid var(--line);margin-bottom:18px}
@@ -857,6 +861,7 @@ body.lock{overflow:hidden}
       <span class="eyebrow">Portafolio biotecnológico</span>
       <h2>Formulaciones propias y <em>marcas aliadas</em>, en un solo pedido.</h2>
       <p>Bioestimulantes, nutrición, enraizadores y protección. Cada producto muestra su composición garantizada tal como aparece en la etiqueta. Agrégalos a tu pedido y envíalo por WhatsApp en un solo mensaje.</p>
+      <div><a class="btn btn-ghost btn-sm" href="assets/catalogo-agro-biolquim.pdf" download><svg><use href="#i-doc"/></svg>Descargar catálogo en PDF</a></div>
     </div>
 
     <div class="catalog-tools reveal">
@@ -929,6 +934,7 @@ body.lock{overflow:hidden}
       </ul>
       <div class="adv-actions">
         <a class="btn btn-wa" href="https://wa.me/593959432050" data-wa="Hola Ing. Rafael Patiño, quiero asesoría técnica para mi cultivo de: " target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir al Ing. Patiño</a>
+        <a class="btn btn-ghost" href="tel:+593959432050" data-tel><svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Llamar <span class="tel-n">+593 95 943 2050</span></a>
         <a class="btn btn-ghost" href="#herramientas">Usar el asistente técnico</a>
       </div>
     </div>
@@ -1197,6 +1203,7 @@ body.lock{overflow:hidden}
           <li><a href="#calculadora">Calculadora de dosis</a></li>
           <li><a href="#herramientas">Asistente técnico</a></li>
           <li><a href="#asesor">Asesor técnico</a></li>
+          <li><a href="assets/catalogo-agro-biolquim.pdf" download>Catálogo en PDF</a></li>
           <li><a href="#cobertura">Cobertura</a></li>
           <li><a href="#preguntas">Preguntas frecuentes</a></li>
         </ul>
@@ -1521,8 +1528,9 @@ const $$ = (s, el=document) => [...el.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 const fmt = (n, d=0) => n.toLocaleString('es-EC', {maximumFractionDigits:d, minimumFractionDigits:0});
-const img = (p, cls='', eager=false) => `<img class="${cls}" src="assets/productos/${p.id}.webp" alt="Envase de ${esc(p.name)}" width="340" height="720" ${eager?'':'loading="lazy"'} decoding="async">`;
+const img = (p, cls='', eager=false) => `<img class="${cls}" src="assets/productos/${eager ? '' : 'mini/'}${p.id}.webp" alt="Envase de ${esc(p.name)}" width="340" height="720" ${eager?'':'loading="lazy"'} decoding="async">`;
 let country = 'ec';
+const SITE = 'https://www.agrobiolquim.com/';
 const waLink = (msg, c = country) => `https://wa.me/${COUNTRIES[c].wa}?text=${encodeURIComponent(msg)}`;
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
@@ -1640,7 +1648,8 @@ function openDetail(id){
     <div class="m-actions">
       <button class="btn" type="button" data-add="${p.id}" data-keep><svg><use href="#i-bag"/></svg>Agregar al pedido</button>
       <a class="btn btn-wa" href="${waLink(`Hola Agro Biolquim, quiero información y precio de ${p.name} (${p.pack.label}).`)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Consultar</a>
-    </div>`;
+    </div>
+    <div class="m-links"><a href="productos/${p.id}/">Abrir la página de ${esc(p.name)}</a><a href="https://wa.me/?text=${encodeURIComponent(`${p.name} – Agro Biolquim: ${SITE}productos/${p.id}/`)}" target="_blank" rel="noopener">Compartir por WhatsApp</a></div>`;
   $('#mBody').scrollTop = 0; modal.scrollTop = 0;
   openLayer(modal);
 }
@@ -1723,7 +1732,7 @@ $('#countries').innerHTML = Object.entries(COUNTRIES).map(([c,v],i) => { const n
     <div class="c-regions">${v.regions.map(([r,list]) => `<div class="c-reg"><span>${r}</span><div>${list.map(x => `<i>${x}</i>`).join('')}</div></div>`).join('')}</div>
     <footer>
       <a class="btn btn-wa" href="${waLink('Hola Agro Biolquim, quiero coordinar una visita técnica en ' + v.name + '.', c)}" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp ${v.name}</a>
-      <span class="c-phone">${v.phone}</span>
+      <a class="c-phone" href="tel:+${v.wa}">Llamar: ${v.phone}</a>
     </footer>
   </article>`; }).join('');
 
@@ -1737,6 +1746,7 @@ function setCountry(c, save=true){
   $$('[data-wa]').forEach(a => { a.href = waLink(a.dataset.wa); });
   $$('[data-kitwa]').forEach(a => { a.href = waLink(kitMsg(KITS.find(k => k.id === a.dataset.kitwa))); });
   $('#tbPhone').textContent = COUNTRIES[country].phone;
+  $$('[data-tel]').forEach(a => { a.href = 'tel:+' + COUNTRIES[country].wa; const t = a.querySelector('.tel-n'); if (t) t.textContent = COUNTRIES[country].phone; });
   $('#fab').setAttribute('aria-label', `Escríbenos por WhatsApp (${COUNTRIES[country].name})`);
   $$('.country').forEach(el => el.classList.toggle('current', el.dataset.country === country));
   updateSendNote();
@@ -2116,6 +2126,7 @@ $('.tabs').addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.ke
 
 /* INIT */
 renderGrid(); renderCart(); setStage(1); calc(); renderMix(); renderRot();
+{ const h = location.hash.match(/^#p-([a-z0-9-]+)$/); if (h && byId[h[1]]) setTimeout(() => openDetail(h[1]), 300); }
 setCountry(store.get('ab-country', /-CO$/i.test(navigator.language || '') ? 'co' : 'ec'), false);
 })();
 </script>
